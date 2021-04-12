@@ -8,7 +8,9 @@ Developer & Co-Founder - Phaticusthiccy
 */
 
 const Asena = require('../events');
-const {MessageType} = require('@adiwajshing/baileys');
+const { MessageType, MessageOptions, Mimetype } = require('@adiwajshing/baileys');
+const fs = require('fs');
+const axios = require('axios');
 const {spawnSync} = require('child_process');
 const Config = require('../config');
 const chalk = require('chalk');
@@ -22,10 +24,16 @@ if (Config.WORKTYPE == 'private') {
     Asena.addCommand({pattern: 'alive', fromMe: true, desc: Lang.ALIVE_DESC}, (async (message, match) => {
 
         if (Config.ALIVEMSG == 'default') {
-            await message.client.sendMessage(message.jid,'```Tanrı Türk\'ü Korusun. 🐺 Asena Hizmetinde!```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n*Telegram Group:* https://t.me/AsenaSupport\n*Telegram Channel:* https://t.me/asenaremaster' , MessageType.text);
+            
+            var ttinullimage = await axios.get(Config.ALIVE_LOGO, { responseType: 'arraybuffer' })
+            
+            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'' });
         }
         else {
-            await message.client.sendMessage(message.jid,Config.ALIVEMSG + '\n*Powered by WhatsAsena*', MessageType.text);
+            
+            var ttinullimage = await axios.get(Config.ALIVE_LOGO, { responseType: 'arraybuffer' })
+            
+            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: Config.ALIVEMSG });
         }
     }));
 
@@ -39,17 +47,23 @@ if (Config.WORKTYPE == 'private') {
 }
 else if (Config.WORKTYPE == 'public') {
 
-    Asena.addCommand({pattern: 'alive', fromMe: false, desc: Lang.ALIVE_DESC}, (async (message, match) => {
+     Asena.addCommand({pattern: 'alive', fromMe: true, desc: Lang.ALIVE_DESC}, (async (message, match) => {
 
         if (Config.ALIVEMSG == 'default') {
-            await message.client.sendMessage(message.jid,'```Tanrı Türk\'ü Korusun. 🐺 Asena Hizmetinde!```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n*Telegram Group:* https://t.me/AsenaSupport\n*Telegram Channel:* https://t.me/asenaremaster' , MessageType.text);
+            
+            var ttinullimage = await axios.get(Config.ALIVE_LOGO, { responseType: 'arraybuffer' })
+            
+            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'' });
         }
         else {
-            await message.client.sendMessage(message.jid,Config.ALIVEMSG + '\n*Powered by WhatsAsena*', MessageType.text);
+            
+            var ttinullimage = await axios.get(Config.ALIVE_LOGO, { responseType: 'arraybuffer' })
+            
+            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: Config.ALIVEMSG });
         }
     }));
 
-    Asena.addCommand({pattern: 'sysd', fromMe: false, desc: Lang.SYSD_DESC}, (async (message, match) => {
+    Asena.addCommand({pattern: 'sysd', fromMe: true, desc: Lang.SYSD_DESC}, (async (message, match) => {
 
         const child = spawnSync('neofetch', ['--stdout']).stdout.toString('utf-8')
         await message.sendMessage(
