@@ -30,7 +30,7 @@ const Tlang = Language.getString('tiktok')
 
 if (cn.WORKTYPE == 'private') {
 
-    Asena.addCommand({ pattern: 'insta ?(.*)', fromMe: true, usage: Lang.USAGE, desc: Lang.DESC }, async (message, match) => {
+    Asena.addCommand({ pattern: 'ig ?(.*)', fromMe: true, usage: Lang.USAGE, desc: Lang.DESC }, async (message, match) => {
 
         const userName = match[1]
 
@@ -45,6 +45,7 @@ if (cn.WORKTYPE == 'private') {
               profile_hd,
               username,
               bio,
+              post_count,
               followers,
               following,
               full_name,
@@ -55,13 +56,14 @@ if (cn.WORKTYPE == 'private') {
               responseType: 'arraybuffer',
             })
 
-            const msg = `
-            *${Lang.NAME}*: ${full_name}
-            *${Lang.USERNAME}*: ${username}
-            *${Lang.BIO}*: ${bio}
-            *${Lang.FOLLOWERS}*: ${followers}
-            *${Lang.FOLLOWS}*: ${following}
-            *${Lang.ACCOUNT}*: ${is_private ? Lang.HIDDEN : Lang.PUBLIC}`
+            const msg = `*INSTAGRAM PROFILE*
+*${Lang.USERNAME}* : @${username}
+*${Lang.NAME}* : ${full_name}
+*${Lang.BIO}* : ${bio}
+*${Lang.POST}* : ${post_count}
+*${Lang.FOLLOWERS}* : ${followers}
+*${Lang.FOLLOWS}* : ${following}
+*${Lang.IS_PRIVATE}* : ${is_private}`
 
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
               caption: msg,
@@ -73,7 +75,7 @@ if (cn.WORKTYPE == 'private') {
       },
     )
 
-    Asena.addCommand({ pattern: 'tiktok ?(.*)', fromMe: true, desc: Tlang.TİKTOK }, async (message, match) => {
+    Asena.addCommand({ pattern: 'ttdl ?(.*)', fromMe: true, desc: Tlang.TİKTOK }, async (message, match) => {
 
         const userName = match[1]
 
@@ -93,7 +95,7 @@ if (cn.WORKTYPE == 'private') {
             })
 
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.video, {
-              caption: 'Made by WhatsAsena',
+              caption: ' ',
             })
           })
           .catch(
@@ -104,7 +106,7 @@ if (cn.WORKTYPE == 'private') {
 }
 else if (cn.WORKTYPE == 'public') {
 
-    Asena.addCommand({ pattern: 'insta ?(.*)', fromMe: false, usage: Lang.USAGE, desc: Lang.DESC }, async (message, match) => {
+    Asena.addCommand({ pattern: 'ig ?(.*)', fromMe: true, usage: Lang.USAGE, desc: Lang.DESC }, async (message, match) => {
 
         const userName = match[1]
 
@@ -119,6 +121,7 @@ else if (cn.WORKTYPE == 'public') {
               profile_hd,
               username,
               bio,
+              post_count,
               followers,
               following,
               full_name,
@@ -129,13 +132,14 @@ else if (cn.WORKTYPE == 'public') {
               responseType: 'arraybuffer',
             })
 
-            const msg = `
-            *${Lang.NAME}*: ${full_name}
-            *${Lang.USERNAME}*: ${username}
-            *${Lang.BIO}*: ${bio}
-            *${Lang.FOLLOWERS}*: ${followers}
-            *${Lang.FOLLOWS}*: ${following}
-            *${Lang.ACCOUNT}*: ${is_private ? Lang.HIDDEN : Lang.PUBLIC}`
+            const msg = `*INSTAGRAM PROFILE*
+*${Lang.USERNAME}* : @${username}
+*${Lang.NAME}* : ${full_name}
+*${Lang.BIO}* : ${bio}
+*${Lang.POST}* : ${post_count}
+*${Lang.FOLLOWERS}* : ${followers}
+*${Lang.FOLLOWS}* : ${following}
+*${Lang.IS_PRIVATE}* : ${is_private}`
 
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
               caption: msg,
@@ -147,7 +151,7 @@ else if (cn.WORKTYPE == 'public') {
       },
     )
 
-    Asena.addCommand({ pattern: 'tiktok ?(.*)', fromMe: false, desc: Tlang.TİKTOK }, async (message, match) => {
+    Asena.addCommand({ pattern: 'ttdl ?(.*)', fromMe: true, desc: Tlang.TİKTOK }, async (message, match) => {
 
         const userName = match[1]
 
@@ -167,7 +171,7 @@ else if (cn.WORKTYPE == 'public') {
             })
 
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.video, {
-              caption: 'Made by WhatsAsena',
+              caption: ' ',
             })
           })
           .catch(
