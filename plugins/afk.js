@@ -33,7 +33,7 @@ function secondsToHms(d) {
     return hDisplay + mDisplay + sDisplay;
 }
 
-Asena.addCommand({on: 'text, sticker, image, video, audio', fromMe: false, deleteCommand: false}, (async (message, match) => {
+Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (Config.AFKMSG == 'default') {
 
         if (AFK.isAfk && ((!message.jid.includes('-')) || (message.jid.includes('-') && 
@@ -85,7 +85,7 @@ Asena.addCommand({on: 'text, sticker, image, video, audio', fromMe: false, delet
     }
 }));
 
-Asena.addCommand({on: 'text, sticker, image, video, audio', fromMe: true, deleteCommand: false}, (async (message, match) => {
+Asena.addCommand({on: 'text', fromMe: true, deleteCommand: false}, (async (message, match) => {
     if (AFK.isAfk && !message.id.startsWith('3EB0')) {
         AFK.lastseen = 0;
         AFK.reason = false;
