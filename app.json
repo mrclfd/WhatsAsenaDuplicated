@@ -3,7 +3,7 @@
     "description": "WhatsAsena project - Makes it easy and fun to use Whatsapp. World’s first UserBot made for WhatsApp.",
     "logo": "https://i.hizliresim.com/6Bbj7i.jpg",
     "keywords": ["whatsapp", "userbot", "Asena", "WhatsAsena", "bot", "api", "ai"],
-    "repository": "https://github.com/phaticusthiccy/WhatsAsenaDuplicated",
+    "repository": "https://github.com/mrclfd/WhatsAsenaDuplicated",
     "website":   "https://t.me/phaticusthiccy",
     "success_url": "https://t.me/AsenaSupport",
     "stack": "container",
@@ -12,24 +12,37 @@
             "description": "Qr.Js ile oluşturduğunuz özel session kodu. Type here yours Asena Session.",
             "required": true
         },
+        "ALIVE_LOGO": {
+            "description": "Logo to show in .alive message.",
+            "required": false,
+            "value": "https://e.top4top.io/p_19232mwp31.jpg"
+        },
+        "ALIVE_NAME": {
+            "description": "Name to show in .alive message.",
+            "required": false
+        },
+        "ALIVE_NUMBER": {
+            "description": "WhatsApp Number to show in .alive message Example: 628889999xxx",
+            "required": false
+        },
         "SUDO": {
             "description": "Leave blank if you don't know how to use it! Sudo mode; Your number must be an international number. So you should have your number after the country code. Example: 1205xxxxxxxxx (USA number +1)",
             "required": false
         },
         "LANGUAGE": {
-            "description": "Bot language. Azerice => az, English => en, Türkçe => tr, Malayalam => ml, Hindi => HI, Indonesia => ID, Español => ES, Portuguese => pt",
+            "description": "Bot language. Azerice => az, English => en, Türkçe => tr, Malayalam => ml, Hindi => HI, Indonesia => ID, Español => ES",
             "required": true,
-            "value": "TR"
+            "value": "ID"
         },
         "HANDLERS": {
             "description": "Komutlar için. For commands.",
             "required": true,
-            "value": "^[.!;]"
+            "value": "^[.]"
         },
         "SEND_READ": {
             "description": "Görüldü atmak istiyorsanız true yazın. Write true if you want to throw seen.",
             "required": true,
-            "value": "true"
+            "value": "false"
         },
         "HEROKU": {
             "description": "Herokuda çalışıyorsa true yazın. If it is running in Heroku, type true.",
@@ -71,12 +84,8 @@
         },
         "REMOVE_BG_API_KEY": {
             "description": "Fotoğrafların arkaplanını kaldırır. https://remove.bg",
-            "required": false
-        },
-        "ALIVE_MESSAGE": {
-            "description": "Customizable Alive Message! Use => default, to change back.",
             "required": false,
-            "value": "default"
+            "value": "imwwY3fr7F6tGSno7CX3fVDs"
         },
         "BAN_MESSAGE": {
             "description": "Customizable Ban Message! Use => default, to change back.",
