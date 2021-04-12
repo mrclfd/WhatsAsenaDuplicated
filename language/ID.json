@@ -138,7 +138,7 @@
             "DISABLED": "```Lydia telah dinonaktifkan untuk pengguna ini!```"
         },
         "memes": {
-            "MEMES_DESC": "Membuat foto menjadi meme.",
+            "MEMES_DESC": "Membuat foto menjadi meme.```\n⌨️ *Contoh:* ```.meme teks atas;teks bawah",
             "NEED_REPLY": "*Balas foto!*",
             "DOWNLOADING": "```Mendownload media & membuat meme...```"
         },
