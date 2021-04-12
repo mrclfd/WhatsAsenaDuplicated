@@ -65,13 +65,15 @@ if (Config.WORKTYPE == 'private') {
                total_quota = Math.floor(resp.account_quota);
                quota_used = Math.floor(resp.quota_used);         
                percentage = Math.round((quota_used / total_quota) * 100);
+               percentage2 = Math.round((total_quota / total_quota) * 100);
+               remaintage = percentage2 - percentage;
                remaining = total_quota - quota_used;
                await message.client.sendMessage(
                     message.jid,
-                    Lang.DYNO_TOTAL + ": ```{}```\n\n".format(secondsToHms(total_quota))  + 
-                    Lang.DYNO_USED + ": ```{}```\n".format(secondsToHms(quota_used)) +  
-                    Lang.PERCENTAGE + ": ```{}```\n\n".format(percentage) +
-                    Lang.DYNO_LEFT + ": ```{}```\n".format(secondsToHms(remaining)),
+                    Lang.DYNO_TITLE + ":\n\n" +
+                    Lang.DYNO_TOTAL + "*" + Config.HEROKU.APP_NAME + "*" + ":\n   • ```{}```\n\n".format(secondsToHms(total_quota)) + 
+                    Lang.DYNO_USED + ":\n   • ```{}``` ".format(secondsToHms(quota_used)) + "```- [{}%]```\n\n".format(percentage) +
+                    Lang.DYNO_LEFT + ":\n   • ```{}``` ".format(secondsToHms(remaining)) + "```- [{}%]```\n".format(remaintage),
                     MessageType.text
                );
             }).catch(async (err) => {
@@ -82,7 +84,7 @@ if (Config.WORKTYPE == 'private') {
 }
 else if (Config.WORKTYPE == 'public') {
 
-    Asena.addCommand({pattern: 'dyno', fromMe: false, desc: Lang.DYNO_DESC}, (async (message, match) => {
+    Asena.addCommand({pattern: 'dyno', fromMe: true, desc: Lang.DYNO_DESC}, (async (message, match) => {
 
         heroku.get('/account').then(async (account) => {
             // have encountered some issues while calling this API via heroku-client
@@ -98,13 +100,15 @@ else if (Config.WORKTYPE == 'public') {
                total_quota = Math.floor(resp.account_quota);
                quota_used = Math.floor(resp.quota_used);         
                percentage = Math.round((quota_used / total_quota) * 100);
+               percentage2 = Math.round((total_quota / total_quota) * 100);
+               remaintage = percentage2 - percentage;
                remaining = total_quota - quota_used;
                await message.client.sendMessage(
                     message.jid,
-                    Lang.DYNO_TOTAL + ": ```{}```\n\n".format(secondsToHms(total_quota))  + 
-                    Lang.DYNO_USED + ": ```{}```\n".format(secondsToHms(quota_used)) +  
-                    Lang.PERCENTAGE + ": ```{}```\n\n".format(percentage) +
-                    Lang.DYNO_LEFT + ": ```{}```\n".format(secondsToHms(remaining)),
+                    Lang.DYNO_TITLE + ":\n\n" +
+                    Lang.DYNO_TOTAL + "*" + Config.HEROKU.APP_NAME + "*" + ":\n   • ```{}```\n\n".format(secondsToHms(total_quota)) + 
+                    Lang.DYNO_USED + ":\n   • ```{}``` ".format(secondsToHms(quota_used)) + "```- [{}%]```\n\n".format(percentage) +
+                    Lang.DYNO_LEFT + ":\n   • ```{}``` ".format(secondsToHms(remaining)) + "```- [{}%]```\n".format(remaintage),
                     MessageType.text
                );
             }).catch(async (err) => {
