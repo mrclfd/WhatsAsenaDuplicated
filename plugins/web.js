@@ -30,7 +30,9 @@ function speedText(speed) {
     return `${bits.toFixed(places[unit])} ${units[unit]}bps`;
 }
 
-Asena.addCommand({pattern: 'speed', fromMe: true, desc: Lang.SPEEDTEST_DESC}, (async (message, match) => {
+if (Config.WORKTYPE == 'private') {
+
+    Asena.addCommand({pattern: 'speed', fromMe: true, desc: Lang.SPEEDTEST_DESC}, (async (message, match) => {
     var msg = await message.reply(Lang.SPEEDTESTING);
     var st = await speedTest({acceptLicense: true, acceptGdpr: true});
     
@@ -53,9 +55,7 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lan
   await message.client.sendMessage(
     message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text);
 }));
-
-if (Config.WORKTYPE == 'private') {
-
+    
     Asena.addCommand({pattern: 'short ?(.*)', fromMe: true, desc: Lang.URL}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid, SLang.LİNK, MessageType.text);
@@ -69,8 +69,18 @@ if (Config.WORKTYPE == 'private') {
     }));
 }
 else if (Config.WORKTYPE == 'public') {
+    
+    Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lang.PING_DESC}, (async (message, match) => {
+  var start = new Date().getTime();
+  var msg = await message.reply('```Ping!```');
+  var end = new Date().getTime();
 
-    Asena.addCommand({pattern: 'short ?(.*)', fromMe: false, desc: Lang.URL}, (async (message, match) => {
+  await msg.delete();
+  await message.client.sendMessage(
+    message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text);
+}));
+
+    Asena.addCommand({pattern: 'short ?(.*)', fromMe: true, desc: Lang.URL}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid, SLang.LİNK, MessageType.text);
 
