@@ -32,7 +32,7 @@ Asena.addCommand({ pattern: 'notes', fromMe: true, desc: Lang.NOTES_USAGE }, asy
     const notes = []
     _notes.map(note => {
         if (!note.note.includes('IMG;;;')) {
-            notes.push('📜' + note.note)
+            notes.push('📝' + note.note)
         }
     })
 
@@ -102,7 +102,7 @@ Asena.addCommand({ pattern: 'save ?(.*)', fromMe: true, desc: Lang.SAVE_USAGE },
     }
 })
 
-Asena.addCommand({ pattern: 'deleteNotes', fromMe: true, desc: Lang.DELETE_USAGE }, async (message, match) => {
+Asena.addCommand({ pattern: 'del notes', fromMe: true, desc: Lang.DELETE_USAGE }, async (message, match) => {
 
     await NotesDB.deleteAllNotes()
 
