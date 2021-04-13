@@ -14,6 +14,8 @@ const IDY = "Send Y word."
 const IDV = "Send :V word."
 const IDBATU = "Send 🗿 word."
 
+if (con.LANG === 'ID') {
+    
     if (con.WORKTYPE === 'private') {
 
         Asena.addCommand({ pattern: 'gg ?(.*)$', fromMe: true, desc: IDG }, async (message, match) => {
@@ -187,3 +189,4 @@ else if (con.WORKTYPE === 'public') {
 
        });
    }
+}
