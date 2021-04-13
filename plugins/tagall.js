@@ -24,18 +24,3 @@ Asena.addCommand({pattern: 'tagall$', fromMe: true, desc: Lang.TAGALL_DESC}, (as
     );
     await message.client.sendMessage(message.jid,mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
 }));
-
-Asena.addCommand({pattern: 'tagall admin$', fromMe: true, desc: Lang.TAGALL_DESC}, (async (message, match) => {
-
-    grup = await message.client.groupMetadata(message.jid);
-    const getGroupAdmins = (participants) => {
-        var admins = [];
-        admes = '';
-        for (let i of participants) {
-                i.isAdmin ? admins.push(i.jid) : ''
-                admes += '@' + i.jid.split('@')[0] + ' ';
-                admins.push(i.jid.replace('c.us', 's.whatsapp.net'));
-        }
-    }
-    await message.client.sendMessage(message.jid,admes, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
-}));
