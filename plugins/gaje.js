@@ -12,7 +12,7 @@ const IDF = "Send F word."
 const IDX = "Send X word."
 const IDY = "Send Y word."
 const IDV = "Send :V word."
-const ID🗿 = "Send 🗿 word."
+const IDBATU = "Send 🗿 word."
 
     if (con.WORKTYPE === 'private') {
 
@@ -86,7 +86,7 @@ const ID🗿 = "Send 🗿 word."
 
        });
 
- Asena.addCommand({ pattern: '🗿 ?(.*)$', fromMe: true, desc: ID🗿 }, async (message, match) => {
+ Asena.addCommand({ pattern: '🗿 ?(.*)$', fromMe: true, desc: IDBATU }, async (message, match) => {
 
             const xsay = match[1]
 
@@ -173,7 +173,7 @@ else if (con.WORKTYPE === 'public') {
 
        });
 
- Asena.addCommand({ pattern: '🗿 ?(.*)$', fromMe: true, desc: ID🗿 }, async (message, match) => {
+ Asena.addCommand({ pattern: '🗿 ?(.*)$', fromMe: true, desc: IDBATU }, async (message, match) => {
 
             const xsay = match[1]
 
