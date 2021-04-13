@@ -7,10 +7,10 @@ const { MessageType, Mimetype, } = require('@adiwajshing/baileys');
 const con = require('../config');
 
 // Deskripsi
-const IDF = "Send F word. ⌨️ Example: .f 🌈""
-const IDX = "Send X word. ⌨️ Example: .x 🌈""
-const IDY = "Send Y word. ⌨️ Example: .y 🌈""
-const IDBATU = "Send 🗿 word. ⌨️ Example: .🗿 🌈""
+const IDF = "Send F word. ⌨️ Example: .f 🌈"
+const IDX = "Send X word. ⌨️ Example: .x 🌈"
+const IDY = "Send Y word. ⌨️ Example: .y 🌈"
+const IDBATU = "Send 🗿 word. ⌨️ Example: .🗿 🌈"
 
 if (con.LANG === 'ID') {
     
