@@ -25,16 +25,18 @@ if (Config.WORKTYPE == 'private') {
 
         if (Config.ALIVEMSG == 'default') {
             
-            var ttinullimage = await axios.get(Config.ALIVE_LOGO, { responseType: 'arraybuffer' })
             
-            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n' });
-        }
+            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+       
+        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n'})
+
+     }
         else {
             
-            var ttinullimage = await axios.get(Config.ALIVE_LOGO, { responseType: 'arraybuffer' })
-            
-            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: Config.ALIVEMSG });
-        }
+            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+       
+        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG })
+     }
     }));
 
     Asena.addCommand({pattern: 'sysd', fromMe: true, desc: Lang.SYSD_DESC}, (async (message, match) => {
@@ -51,16 +53,17 @@ else if (Config.WORKTYPE == 'public') {
 
         if (Config.ALIVEMSG == 'default') {
             
-            var ttinullimage = await axios.get(Config.ALIVE_LOGO, { responseType: 'arraybuffer' })
-            
-            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n' });
-        }
+            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+       
+        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n'})
+
+     }
         else {
             
-            var ttinullimage = await axios.get(Config.ALIVE_LOGO, { responseType: 'arraybuffer' })
-            
-            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: Config.ALIVEMSG });
-        }
+            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+       
+        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG })
+     }
     }));
 
     Asena.addCommand({pattern: 'sysd', fromMe: true, desc: Lang.SYSD_DESC}, (async (message, match) => {
