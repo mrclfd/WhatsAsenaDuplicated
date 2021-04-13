@@ -27,7 +27,7 @@ if (Config.WORKTYPE == 'private') {
             
             var ttinullimage = await axios.get(Config.ALIVE_LOGO, { responseType: 'arraybuffer' })
             
-            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'' });
+            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n' });
         }
         else {
             
@@ -53,7 +53,7 @@ else if (Config.WORKTYPE == 'public') {
             
             var ttinullimage = await axios.get(Config.ALIVE_LOGO, { responseType: 'arraybuffer' })
             
-            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'' });
+            await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n' });
         }
         else {
             
