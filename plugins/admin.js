@@ -32,11 +32,11 @@ Asena.addCommand({pattern: 'ban ?(.*)', fromMe: true, onlyGroup: true, desc: Lan
         if (message.reply_message !== false) {
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/Edited_20210227_152650.mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
                 MessageType.video, 
-                { mimetype: Mimetype.gif, caption: "Founder Tarafından Banlandın!" }
+                { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
-            await message.client.sendMessage(message.jid,'```Haha Loser``` ' +'@' + message.reply_message.data.participant.split("@")[0] + ' 😈', MessageType.text, {contextInfo: {mentionedJid: [message.reply_message.data.participant]}});
+            await message.client.sendMessage(message.jid,'```Oleh Saya,``` ' +'@' + message.reply_message.data.participant.split("@")[0] + ' ```telah dikeluarkan dari grup 😪```', MessageType.text, {contextInfo: {mentionedJid: [message.reply_message.data.participant]}});
             await message.client.groupRemove(message.jid, [message.reply_message.data.participant]);
         } else if (message.reply_message === false && message.mention !== false) {
             var etiketler = '';
@@ -45,11 +45,11 @@ Asena.addCommand({pattern: 'ban ?(.*)', fromMe: true, onlyGroup: true, desc: Lan
             });
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/Edited_20210227_152650.mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
                 MessageType.video, 
-                { mimetype: Mimetype.gif, caption: "Founder Tarafından Banlandın!" }
+                { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
-            await message.client.sendMessage(message.jid,'```Haha Loser``` ' + etiketler + ' 😈', MessageType.text, {contextInfo: {mentionedJid: message.mention}});
+            await message.client.sendMessage(message.jid,'```Oleh Saya,``` ' + etiketler + ' ```telah dikeluarkan dari grup 😪```', MessageType.text, {contextInfo: {mentionedJid: message.mention}});
             await message.client.groupRemove(message.jid, message.mention);
         } else {
             return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
@@ -98,11 +98,11 @@ Asena.addCommand({pattern: 'promote ?(.*)', fromMe: true, onlyGroup: true, desc:
             }
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/giphy (2).mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
                 MessageType.video, 
-                { mimetype: Mimetype.gif, caption: "```Founder Tarafından Admin Yapıldın!```" }
+                { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
-            await message.client.sendMessage(message.jid,'```Buna Sevinmelisin``` ' + '@' + message.reply_message.data.participant.split("@")[0] + ' 🎉', MessageType.text, {contextInfo: {mentionedJid: [message.reply_message.data.participant]}});
+            await message.client.sendMessage(message.jid,'```Oleh Saya,``` ' + '@' + message.reply_message.data.participant.split("@")[0] + ' ```telah dijadikan sebagai admin 🙂```', MessageType.text, {contextInfo: {mentionedJid: [message.reply_message.data.participant]}});
             await message.client.groupMakeAdmin(message.jid, [message.reply_message.data.participant]);
         } else if (message.reply_message === false && message.mention !== false) {
             var etiketler = '';
@@ -117,11 +117,11 @@ Asena.addCommand({pattern: 'promote ?(.*)', fromMe: true, onlyGroup: true, desc:
 
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/giphy (2).mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
                 MessageType.video, 
-                { mimetype: Mimetype.gif, caption: "```Founder Tarafından Admin Yapıldın!```" }
+                { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
-            await message.client.sendMessage(message.jid,'```Buna Sevinmelisin``` ' + etiketler + ' 🎉', MessageType.text, {contextInfo: {mentionedJid: message.mention}});
+            await message.client.sendMessage(message.jid,'```Oleh Saya,``` ' + etiketler + ' ```telah dijadikan sebagai admin 🙂```', MessageType.text, {contextInfo: {mentionedJid: message.mention}});
             await message.client.groupMakeAdmin(message.jid, message.mention);
         } else {
             return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
@@ -167,11 +167,11 @@ Asena.addCommand({pattern: 'demote ?(.*)', fromMe: true, onlyGroup: true, desc: 
             }
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/giphy (3).mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
                 MessageType.video, 
-                { mimetype: Mimetype.gif, caption: "```Founder Tarafından Yetkin Düşürüldü!```" }
+                { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
-            await message.client.sendMessage(message.jid,'```Bol Şans``` ' + '@' + message.reply_message.data.participant.split("@")[0] + ' 😈', MessageType.text, {contextInfo: {mentionedJid: [message.reply_message.data.participant]}});
+            await message.client.sendMessage(message.jid,'```Oleh Saya,``` ' + '@' + message.reply_message.data.participant.split("@")[0] + ' ```telah diberhentikan sebagai admin 😔```', MessageType.text, {contextInfo: {mentionedJid: [message.reply_message.data.participant]}});
             await message.client.groupDemoteAdmin(message.jid, [message.reply_message.data.participant]);
         } else if (message.reply_message === false && message.mention !== false) {
             var etiketler = '';
@@ -185,11 +185,11 @@ Asena.addCommand({pattern: 'demote ?(.*)', fromMe: true, onlyGroup: true, desc: 
             });
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/giphy (3).mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
                 MessageType.video, 
-                { mimetype: Mimetype.gif, caption: "```Founder Tarafından Yetkin Düşürüldü!```" }
+                { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
-            await message.client.sendMessage(message.jid,'```Bol Şans``` ' + etiketler + ' 😈', MessageType.text, {contextInfo: {mentionedJid: message.mention}});
+            await message.client.sendMessage(message.jid,'```Oleh Saya,``` ' + etiketler + ' ```telah diberhentikan sebagai admin 😔```', MessageType.text, {contextInfo: {mentionedJid: message.mention}});
             await message.client.groupDemoteAdmin(message.jid, message.mention);
         } else {
             return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
