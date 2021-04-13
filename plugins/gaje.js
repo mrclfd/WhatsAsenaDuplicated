@@ -71,7 +71,7 @@ const IDBATU = "Send 🗿 word."
             return await message.client.sendMessage(message.jid, fres, MessageType.text);
 
         });
-    }
+    
         Asena.addCommand({ pattern: ':v ?(.*)$', fromMe: true, desc: IDV }, async (message, match) => {
 
             const xsay = match[1]
@@ -158,7 +158,7 @@ else if (con.WORKTYPE === 'public') {
             return await message.client.sendMessage(message.jid, fres, MessageType.text);
 
         });
-    }
+    
         Asena.addCommand({ pattern: ':v ?(.*)$', fromMe: true, desc: IDV }, async (message, match) => {
 
             const xsay = match[1]
