@@ -56,11 +56,12 @@ if (cn.WORKTYPE == 'private') {
             })
 
             const msg = `*INSTAGRAM PROFILE*
+
 *${Lang.USERNAME}* : @${username}
 *${Lang.NAME}* : ${fullname}
-*${Lang.BIO}* : ${bio}
-*${Lang.FOLLOWERS}* : ${follower}
+*${Lang.BIO}* : (${bio})
 *${Lang.FOLLOWS}* : ${following}
+*${Lang.FOLLOWERS}* : ${follower}
 *${Lang.IS_PRIVATE}* : ${is_private}`
 
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
@@ -130,11 +131,12 @@ else if (cn.WORKTYPE == 'public') {
             })
 
             const msg = `*INSTAGRAM PROFILE*
+
 *${Lang.USERNAME}* : @${username}
 *${Lang.NAME}* : ${fullname}
-*${Lang.BIO}* : ${bio}
-*${Lang.FOLLOWERS}* : ${follower}
+*${Lang.BIO}* : (${bio})
 *${Lang.FOLLOWS}* : ${following}
+*${Lang.FOLLOWERS}* : ${follower}
 *${Lang.IS_PRIVATE}* : ${is_private}`
 
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
