@@ -49,7 +49,7 @@ if (cn.WORKTYPE == 'private') {
               following,
               fullname,
               is_private,
-            } = response.data.result
+            } = response.data
 
             const profileBuffer = await axios.get(profile_pic, {
               responseType: 'arraybuffer',
@@ -123,7 +123,7 @@ else if (cn.WORKTYPE == 'public') {
               following,
               fullname,
               is_private,
-            } = response.data.result
+            } = response.data
 
             const profileBuffer = await axios.get(profile_pic, {
               responseType: 'arraybuffer',
