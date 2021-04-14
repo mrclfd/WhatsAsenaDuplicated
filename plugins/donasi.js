@@ -11,7 +11,7 @@ const fs = require('fs');
       
           var image = await axios.get ('https://raw.githubusercontent.com/mrclfd/WhatsAsenaDuplicated/alpha-test/media/image/image-i.png', {responseType: 'arraybuffer'})
        
-        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `*Buy Me a Coffee* via saweria.co/budilasidodo`})
+        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `Buy Me a Coffee\nvia saweria.co/budilasidodo`})
       
      /*  
         await new Promise(r => setTimeout(r, 1650));
@@ -27,7 +27,7 @@ const fs = require('fs');
       
           var image = await axios.get ('https://raw.githubusercontent.com/mrclfd/WhatsAsenaDuplicated/alpha-test/media/image/image-i.png', {responseType: 'arraybuffer'})
        
-        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `*Buy Me a Coffee* via saweria.co/budilasidodo`})
+        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `Buy Me a Coffee\nvia saweria.co/budilasidodo`})
       
      /*  
         await new Promise(r => setTimeout(r, 1650));
