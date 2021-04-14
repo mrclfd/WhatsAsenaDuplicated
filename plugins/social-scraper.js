@@ -39,29 +39,27 @@ if (cn.WORKTYPE == 'private') {
         await message.sendMessage(infoMessage(Lang.LOADING))
 
         await axios
-          .get(`https://videfikri.com/api/igstalk/?username=${userName}`)
+          .get(`https://api.zeks.xyz/api/igstalk?apikey=apivinz&username=${userName}`)
           .then(async (response) => {
             const {
-              profile_hd,
+              profile_pic,
               username,
               bio,
-              post_count,
-              followers,
+              follower,
               following,
-              full_name,
+              fullname,
               is_private,
             } = response.data.result
 
-            const profileBuffer = await axios.get(profile_hd, {
+            const profileBuffer = await axios.get(profile_pic, {
               responseType: 'arraybuffer',
             })
 
             const msg = `*INSTAGRAM PROFILE*
 *${Lang.USERNAME}* : @${username}
-*${Lang.NAME}* : ${full_name}
+*${Lang.NAME}* : ${fullname}
 *${Lang.BIO}* : ${bio}
-*${Lang.POST}* : ${post_count}
-*${Lang.FOLLOWERS}* : ${followers}
+*${Lang.FOLLOWERS}* : ${follower}
 *${Lang.FOLLOWS}* : ${following}
 *${Lang.IS_PRIVATE}* : ${is_private}`
 
@@ -115,29 +113,27 @@ else if (cn.WORKTYPE == 'public') {
         await message.sendMessage(infoMessage(Lang.LOADING))
 
         await axios
-          .get(`https://videfikri.com/api/igstalk/?username=${userName}`)
+          .get(`https://api.zeks.xyz/api/igstalk?apikey=apivinz&username=${userName}`)
           .then(async (response) => {
             const {
-              profile_hd,
+              profile_pic,
               username,
               bio,
-              post_count,
-              followers,
+              follower,
               following,
-              full_name,
+              fullname,
               is_private,
             } = response.data.result
 
-            const profileBuffer = await axios.get(profile_hd, {
+            const profileBuffer = await axios.get(profile_pic, {
               responseType: 'arraybuffer',
             })
 
             const msg = `*INSTAGRAM PROFILE*
 *${Lang.USERNAME}* : @${username}
-*${Lang.NAME}* : ${full_name}
+*${Lang.NAME}* : ${fullname}
 *${Lang.BIO}* : ${bio}
-*${Lang.POST}* : ${post_count}
-*${Lang.FOLLOWERS}* : ${followers}
+*${Lang.FOLLOWERS}* : ${follower}
 *${Lang.FOLLOWS}* : ${following}
 *${Lang.IS_PRIVATE}* : ${is_private}`
 
