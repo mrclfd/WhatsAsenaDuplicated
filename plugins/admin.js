@@ -167,7 +167,7 @@ Asena.addCommand({pattern: 'demote ?(.*)', fromMe: true, onlyGroup: true, desc: 
             }
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/image/DEMOTED.jpg"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/image/DEMOTE.jpg"),
                 MessageType.image, 
                 { mimetype: Mimetype.png, caption: "" }
             )
@@ -185,7 +185,7 @@ Asena.addCommand({pattern: 'demote ?(.*)', fromMe: true, onlyGroup: true, desc: 
             });
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/image/DEMOTED.jpg"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/image/DEMOTE.jpg"),
                 MessageType.image, 
                 { mimetype: Mimetype.png, caption: "" }
             )
