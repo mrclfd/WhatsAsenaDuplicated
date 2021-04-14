@@ -45,7 +45,7 @@ Asena.addCommand({pattern: 'ban ?(.*)', fromMe: true, onlyGroup: true, desc: Lan
             });
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/gif/media/mp4.mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/mp4.mp4"),
                 MessageType.video, 
                 { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
