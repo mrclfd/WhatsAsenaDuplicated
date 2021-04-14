@@ -70,7 +70,8 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lan
 
             const msg = `*Link asli:* ${long}\n*Link pendek:* ${short}`
 
-            await message.client.sendMessage(message.jid, msg, MessageType.text),
+            await message.client.sendMessage(message.jid, msg, MessageType.text);
+            
           .catch(
             async (err) => await message.sendMessage(errorMessage(Lang.NOT_FOUND + linkAsli)),
           )
@@ -117,7 +118,8 @@ else if (Config.WORKTYPE == 'public') {
 
             const msg = `*Link asli:* ${long}\n*Link pendek:* ${short}`
 
-            await message.client.sendMessage(message.jid, msg, MessageType.text),
+            await message.client.sendMessage(message.jid, msg, MessageType.text);
+            
           .catch(
             async (err) => await message.sendMessage(errorMessage(Lang.NOT_FOUND + linkAsli)),
           )
