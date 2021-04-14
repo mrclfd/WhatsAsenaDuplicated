@@ -56,6 +56,30 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lan
     message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text);
 }));
     
+    Asena.addCommand({ pattern: 'sid ?(.*)', fromMe: true, desc: Lang.SID_DESC }, async (message, match) => {
+
+        const linkAsli = match[1]
+
+        await axios
+          .get(`https://api.zeks.xyz/api/sid-shortener?apikey=apivinz&url=${linkAsli}`)
+          .then(async (response) => {
+            const {
+              short,
+              long,
+            } = response.data
+
+            const msg = `*Link asli:* ${long}\n*Link pendek:* ${short}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text),
+            })
+          })
+          .catch(
+            async (err) => await message.sendMessage(errorMessage(Lang.NOT_FOUND + linkAsli)),
+          )
+      },
+    )
+
+    
     Asena.addCommand({pattern: 'short ?(.*)', fromMe: true, desc: Lang.URL}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid, SLang.LİNK, MessageType.text);
@@ -64,7 +88,7 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lan
           if (err)
             await message.client.sendMessage(message.jid, '*#### Error! ####*\n\n' + '```' + err + '```', MessageType.text);
 
-            await message.client.sendMessage(message.jid,`*Original Link:* ${match[1]}\n*Short Link:* ` + res, MessageType.text)
+            await message.client.sendMessage(message.jid,`*Link asli:* ${match[1]}\n*Link pendek:* ` + res, MessageType.text)
         });
     }));
 }
@@ -80,6 +104,30 @@ else if (Config.WORKTYPE == 'public') {
     message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text);
 }));
 
+    
+    Asena.addCommand({ pattern: 'sid ?(.*)', fromMe: true, desc: Lang.SID_DESC }, async (message, match) => {
+
+        const linkAsli = match[1]
+
+        await axios
+          .get(`https://api.zeks.xyz/api/sid-shortener?apikey=apivinz&url=${linkAsli}`)
+          .then(async (response) => {
+            const {
+              short,
+              long,
+            } = response.data
+
+            const msg = `*Link asli:* ${long}\n*Link pendek:* ${short}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text),
+            })
+          })
+          .catch(
+            async (err) => await message.sendMessage(errorMessage(Lang.NOT_FOUND + linkAsli)),
+          )
+      },
+    )
+    
     Asena.addCommand({pattern: 'short ?(.*)', fromMe: true, desc: Lang.URL}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid, SLang.LİNK, MessageType.text);
