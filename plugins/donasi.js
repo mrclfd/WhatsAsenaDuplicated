@@ -9,11 +9,11 @@ const fs = require('fs');
   
     Asena.addCommand({pattern: 'donasi$', fromMe: true}, (async (message, match) => {
       
-          var image = await axios.get ('/root/WhatsAsenaDuplicated/media/image/image-i.png', {responseType: 'arraybuffer'})
+          var image = await axios.get ('https://raw.githubusercontent.com/mrclfd/WhatsAsenaDuplicated/alpha-test/media/image/image-i.png', {responseType: 'arraybuffer'})
        
         await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `*Buy Me a Coffee* via saweria.co/budilasidodo`})
       
-    /*  
+     /*  
         await new Promise(r => setTimeout(r, 1650));
   
         await message.sendMessage('Thx u <3');
@@ -25,7 +25,7 @@ const fs = require('fs');
   
     Asena.addCommand({pattern: 'donasi$', fromMe: true}, (async (message, match) => {
       
-          var image = await axios.get ('/root/WhatsAsenaDuplicated/media/image/image-i.png', {responseType: 'arraybuffer'})
+          var image = await axios.get ('https://raw.githubusercontent.com/mrclfd/WhatsAsenaDuplicated/alpha-test/media/image/image-i.png', {responseType: 'arraybuffer'})
        
         await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `*Buy Me a Coffee* via saweria.co/budilasidodo`})
       
