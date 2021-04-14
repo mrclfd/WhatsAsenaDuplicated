@@ -7,6 +7,7 @@ const cwebp = require('cwebp-bin');
 const Config = require('../config');
 
 const Language = require('../language');
+const { errorMessage, infoMessage } = require('../helpers');
 const Lang = Language.getString('sticker');
 
 if (Config.WORKTYPE == 'private') {
@@ -43,6 +44,29 @@ if (Config.WORKTYPE == 'private') {
             });
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
+    
+    Asena.addCommand({ pattern: 'getele ?(.*)', fromMe: true, desc: Lang.SID_DESC }, async (message, match) => {
+
+        const linkStiker = match[1]
+
+        await axios
+          .get(`https://api.zeks.xyz/api/telegram-sticker?apikey=apivinz&url=${linkStiker}`)
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const profileBuffer = await axios.get(result, {
+              responseType: 'arraybuffer',
+            })
+            await message.client.sendMessage(message.jid,Buffer.from(profileBuffer.data), MessageType.sticker, { mimetype: Mimetype.webp })
+            })
+          })
+          .catch(
+            async (err) => await message.sendMessage(errorMessage(Lang.NOT_FOUND + linkStiker)),
+          )
+      },
+    )
 }
 else if (Config.WORKTYPE == 'public') {
 
@@ -79,4 +103,27 @@ else if (Config.WORKTYPE == 'public') {
             });
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
+    
+    Asena.addCommand({ pattern: 'getele ?(.*)', fromMe: true, desc: Lang.SID_DESC }, async (message, match) => {
+
+        const linkStiker = match[1]
+
+        await axios
+          .get(`https://api.zeks.xyz/api/telegram-sticker?apikey=apivinz&url=${linkStiker}`)
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const profileBuffer = await axios.get(result, {
+              responseType: 'arraybuffer',
+            })
+            await message.client.sendMessage(message.jid,Buffer.from(profileBuffer.data), MessageType.sticker, { mimetype: Mimetype.webp })
+            })
+          })
+          .catch(
+            async (err) => await message.sendMessage(errorMessage(Lang.NOT_FOUND + linkStiker)),
+          )
+      },
+    )
 }
