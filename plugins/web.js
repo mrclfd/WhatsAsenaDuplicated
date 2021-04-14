@@ -72,7 +72,6 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lan
 
             await message.client.sendMessage(message.jid, msg, MessageType.text),
             })
-          })
           .catch(
             async (err) => await message.sendMessage(errorMessage(Lang.NOT_FOUND + linkAsli)),
           )
@@ -121,7 +120,6 @@ else if (Config.WORKTYPE == 'public') {
 
             await message.client.sendMessage(message.jid, msg, MessageType.text),
             })
-          })
           .catch(
             async (err) => await message.sendMessage(errorMessage(Lang.NOT_FOUND + linkAsli)),
           )
