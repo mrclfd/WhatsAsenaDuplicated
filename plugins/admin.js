@@ -115,8 +115,8 @@ Asena.addCommand({pattern: 'promote ?(.*)', fromMe: true, onlyGroup: true, desc:
                 etiketler += '@' + user.split("@")[0];
             });
 
-            await message.client.sendMessage(
-            /*  message.jid, 
+            /*  await message.client.sendMessage(
+                message.jid, 
                 fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/mp4.mp4"),
                 MessageType.video, 
                 { mimetype: Mimetype.gif, caption: "```Hummmm```" }
@@ -183,8 +183,8 @@ Asena.addCommand({pattern: 'demote ?(.*)', fromMe: true, onlyGroup: true, desc: 
             
                 etiketler += '@' + user.split("@")[0];
             });
-            await message.client.sendMessage(
-            /*  message.jid, 
+            /*  await message.client.sendMessage(
+                message.jid, 
                 fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/mp4.mp4"),
                 MessageType.video, 
                 { mimetype: Mimetype.gif, caption: "```Hummmm```" }
