@@ -32,7 +32,7 @@ Asena.addCommand({pattern: 'ban ?(.*)', fromMe: true, onlyGroup: true, desc: Lan
         if (message.reply_message !== false) {
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/mp4.mp4"),
                 MessageType.video, 
                 { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
@@ -45,7 +45,7 @@ Asena.addCommand({pattern: 'ban ?(.*)', fromMe: true, onlyGroup: true, desc: Lan
             });
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/gif/media/mp4.mp4"),
                 MessageType.video, 
                 { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
@@ -98,7 +98,7 @@ Asena.addCommand({pattern: 'promote ?(.*)', fromMe: true, onlyGroup: true, desc:
             }
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/mp4.mp4"),
                 MessageType.video, 
                 { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
@@ -117,7 +117,7 @@ Asena.addCommand({pattern: 'promote ?(.*)', fromMe: true, onlyGroup: true, desc:
 
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/mp4.mp4"),
                 MessageType.video, 
                 { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
@@ -167,7 +167,7 @@ Asena.addCommand({pattern: 'demote ?(.*)', fromMe: true, onlyGroup: true, desc: 
             }
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/mp4.mp4"),
                 MessageType.video, 
                 { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
@@ -185,7 +185,7 @@ Asena.addCommand({pattern: 'demote ?(.*)', fromMe: true, onlyGroup: true, desc: 
             });
             await message.client.sendMessage(
                 message.jid, 
-                fs.readFileSync("/root/WhatsAsenaDuplicated/media/mp4.mp4"),
+                fs.readFileSync("/root/WhatsAsenaDuplicated/media/gif/mp4.mp4"),
                 MessageType.video, 
                 { mimetype: Mimetype.gif, caption: "```Hummmm```" }
             )
