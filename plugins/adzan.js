@@ -25,16 +25,15 @@ Asena.addCommand({ pattern: 'adzan ?(.*)', fromMe: true, desc: Lang.ADZAN_DESC }
               Isya,
             } = response.data
 
-            const msg = `*JADWAL SHALAT*
-📍 Daerah ${Daerah}
+            const msg = `📍 *Lokasi:* ${Daerah}
 
-Imsak   : *${Imsyak}*
-Subuh   : *${Subuh}*
-Dhuha   : *${Dhuha}*
-Dzuhur  : *${Dzuhur}*
-Ashar   : *${Ashar}*
-Maghrib : *${Maghrib}*
-Isya    : *${Isya}*`
+*Imsak:* ${Imsyak}
+*Subuh:* ${Subuh}
+*Dhuha:* ${Dhuha}
+*Dzuhur:* ${Dzuhur}
+*Ashar:* ${Ashar}
+*Maghrib:* ${Maghrib}
+*Isya:* ${Isya}`
 
             await message.client.sendMessage(message.jid, msg, MessageType.text)
            })
@@ -61,16 +60,15 @@ if (Config.WORKTYPE == 'public') {
               Isya,
             } = response.data
 
-            const msg = `*JADWAL SHALAT*
-📍 Daerah ${Daerah}
+            const msg = `📍 *Lokasi:* ${Daerah}
 
-Imsak   : *${Imsyak}*
-Subuh   : *${Subuh}*
-Dhuha   : *${Dhuha}*
-Dzuhur  : *${Dzuhur}*
-Ashar   : *${Ashar}*
-Maghrib : *${Maghrib}*
-Isya    : *${Isya}*`
+*Imsak:* ${Imsyak}
+*Subuh:* ${Subuh}
+*Dhuha:* ${Dhuha}
+*Dzuhur:* ${Dzuhur}
+*Ashar:* ${Ashar}
+*Maghrib:* ${Maghrib}
+*Isya:* ${Isya}`
             
             await message.client.sendMessage(message.jid, msg, MessageType.text)
            })
