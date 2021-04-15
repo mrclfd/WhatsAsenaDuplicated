@@ -46,7 +46,7 @@ if (Config.WORKTYPE == 'private') {
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
     
-    Asena.addCommand({ pattern: 'getele ?(.*)', fromMe: true, desc: Lang.STIKERTELE_DESC }, async (message, match) => {
+ /*  Asena.addCommand({ pattern: 'getele ?(.*)', fromMe: true, desc: Lang.STIKERTELE_DESC }, async (message, match) => {
 
         const linkStiker = match[1]
 
@@ -67,6 +67,39 @@ if (Config.WORKTYPE == 'private') {
           )
       },
     )
+  */
+    
+    // GET TELEGRAM STICKER LINK
+    
+    Asena.addCommand({ pattern: 'stele ?(.*)', fromMe: true, desc: Lang.STICKER_TELE_DESC }, async (message, match) => {
+
+        const linkStiker = match[1]
+
+        await axios
+          .get(`https://api.zeks.xyz/api/telegram-sticker?apikey=apivinz&url=${linkStiker}`)
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const msg = `*Link sticker:*\n\n${result}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+            })
+      },
+    )
+    
+    // WEBP DOWNLOADER AND STICKER MAKER
+	
+    Asena.addCommand({ pattern: 'gets ?(.*)', fromMe: true, desc: Lang.GETS_DESC }, (async (message, match) => {
+
+        if (match[1] === '') return await message.client.sendMessage(message.jid, 'Masukkan link sticker telegram!', MessageType.text);
+
+        var ttinullimage = await axios.get(`${match[1]}`, { responseType: 'arraybuffer' })
+
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.sticker, { mimetype: Mimetype.webp })
+
+    }));
 }
 else if (Config.WORKTYPE == 'public') {
 
@@ -104,7 +137,9 @@ else if (Config.WORKTYPE == 'public') {
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
     
-    Asena.addCommand({ pattern: 'getele ?(.*)', fromMe: true, desc: Lang.STIKERTELE_DESC }, async (message, match) => {
+    // GET TELEGRAM STICKER LINK
+    
+    Asena.addCommand({ pattern: 'stele ?(.*)', fromMe: true, desc: Lang.STICKER_TELE_DESC }, async (message, match) => {
 
         const linkStiker = match[1]
 
@@ -115,14 +150,22 @@ else if (Config.WORKTYPE == 'public') {
               result,
             } = response.data
 
-            const profileBuffer = await axios.get(result, {
-              responseType: 'arraybuffer',
+            const msg = `*Link sticker:*\n\n${result}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
             })
-            await message.client.sendMessage(message.jid,Buffer.from(profileBuffer.data), MessageType.sticker, { mimetype: Mimetype.webp })
-          })
-          .catch(
-            async (err) => await message.sendMessage(errorMessage(Lang.NOT_FOUND + linkStiker )),
-          )
       },
     )
+    
+    // WEBP DOWNLOADER AND STICKER MAKER
+	
+    Asena.addCommand({ pattern: 'gets ?(.*)', fromMe: true, desc: Lang.GETS_DESC }, (async (message, match) => {
+
+        if (match[1] === '') return await message.client.sendMessage(message.jid, 'Masukkan link sticker telegram!', MessageType.text);
+
+        var ttinullimage = await axios.get(`${match[1]}`, { responseType: 'arraybuffer' })
+
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.sticker, { mimetype: Mimetype.webp })
+
+    }));
 }
