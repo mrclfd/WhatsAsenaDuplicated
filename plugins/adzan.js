@@ -1,6 +1,7 @@
 const Asena = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const axios = require('axios');
+const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('jadwalshalat');
