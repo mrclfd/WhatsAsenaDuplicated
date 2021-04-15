@@ -4,7 +4,7 @@ const axios = require('axios');
 const Config = require('../config');
 
 const Language = require('../language');
-const Lang = Language.getString('jadwalshalat');
+const Lang = Language.getString('adzan');
 
 if (Config.WORKTYPE == 'private') {
 
