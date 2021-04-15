@@ -26,18 +26,6 @@ if (Config.WORKTYPE == 'private') {
 
     }));
 	
- //  EMOJI TO PNG [STICKER MAKER]
-	
-    Asena.addCommand({ pattern: 'emoji ?(.*)', fromMe: true, desc: Lang.EMOJI_DESC }, (async (message, match) => {
-
-        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
-
-        var ttinullimage = await axios.get(`https://api.zeks.xyz/api/emoji-image?apikey=apivinz&emoji=${match[1]}`, { responseType: 'arraybuffer' })
-
-        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.sticker, { mimetype: Mimetype.webp })
-
-    }));
-	
  // BLACK PINK [LOGO MAKER]
 	
     Asena.addCommand({ pattern: 'blackpink ?(.*)', fromMe: true, desc: Lang.BLACKPINK_DESC }, (async (message, match) => {
@@ -91,6 +79,29 @@ if (Config.WORKTYPE == 'private') {
         }
 
         var ttinullimage = await axios.get(`https://api.zeks.xyz/api/phlogo?apikey=apivinz&text1=${split[0]}&text2=${split[1]}`, { responseType: 'arraybuffer' })
+
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
+
+    }));
+	
+ // QUOTE [IMAGE MAKER]
+	
+    Asena.addCommand({ pattern: 'q ?(.*)', fromMe: true, desc: Lang.QUOTE_DESC }, (async (message, match) => {
+
+        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
+	    
+	    var topText, bottomText;
+        if (match[1].includes(';')) {
+            var split = match[1].split(';');
+            topText = split[0];
+            bottomText = split[1];
+        }
+	    else {
+            topText = match[1];
+            bottomText = '';
+        }
+
+        var ttinullimage = await axios.get(`https://api.xteam.xyz/quotemaker?APIKEY=10c4105200edc0f0&text=${split[0]}&wm=${split[1]}`, { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 
@@ -399,7 +410,7 @@ await message.client.sendMessage(message.jid, `${r_text[i]}` + '\n\n-- Bot', Mes
 
 else if (Config.WORKTYPE == 'public') {
 	
-	// HARTA TAHTA YAHAHA [LOGO MAKER]
+ // HARTA TAHTA YAHAHA [LOGO MAKER]
 	
     Asena.addCommand({ pattern: 'hartatahta ?(.*)', fromMe: true, desc: Lang.HARTATAHTA_DESC }, (async (message, match) => {
 
@@ -408,18 +419,6 @@ else if (Config.WORKTYPE == 'public') {
         var ttinullimage = await axios.get(`https://api.zeks.xyz/api/hartatahta?apikey=apivinz&text=${match[1].replace(/Ö/g, "%C3%96").replace(/ö/g, "%C3%B6").replace(/ü/g, "%C3%BC").replace(/Ü/g, "%C3%9C").replace(/Ğ/g, "%C4%9E").replace(/ğ/g, "%C4%9F").replace(/ş/g, "%C5%9F").replace(/Ş/g, "%C5%9E").replace(/ç/g, "%C3%A7").replace(/Ç/g, "%C3%87").replace(/ı/g, "%C4%B1").replace(/i/g, "%69").replace(/"/g, "%22").replace(/İ/g, "%C4%B0")}`, { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
-
-    }));
-	
- //  EMOJI TO PNG [STICKER MAKER]
-	
-    Asena.addCommand({ pattern: 'emoji ?(.*)', fromMe: true, desc: Lang.EMOJI_DESC }, (async (message, match) => {
-
-        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
-
-        var ttinullimage = await axios.get(`https://api.zeks.xyz/api/emoji-image?apikey=apivinz&emoji=${match[1]}`, { responseType: 'arraybuffer' })
-
-        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.sticker, { mimetype: Mimetype.webp })
 
     }));
 	
@@ -476,6 +475,29 @@ else if (Config.WORKTYPE == 'public') {
         }
 
         var ttinullimage = await axios.get(`https://api.zeks.xyz/api/phlogo?apikey=apivinz&text1=${split[0]}&text2=${split[1]}`, { responseType: 'arraybuffer' })
+
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
+
+    }));
+	
+ // QUOTE [IMAGE MAKER]
+	
+    Asena.addCommand({ pattern: 'q ?(.*)', fromMe: true, desc: Lang.QUOTE_DESC }, (async (message, match) => {
+
+        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
+	    
+	    var topText, bottomText;
+        if (match[1].includes(';')) {
+            var split = match[1].split(';');
+            topText = split[0];
+            bottomText = split[1];
+        }
+	    else {
+            topText = match[1];
+            bottomText = '';
+        }
+
+        var ttinullimage = await axios.get(`https://api.xteam.xyz/quotemaker?APIKEY=10c4105200edc0f0&text=${split[0]}&wm=${split[1]}`, { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 
