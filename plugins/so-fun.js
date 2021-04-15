@@ -107,6 +107,40 @@ if (Config.WORKTYPE == 'private') {
 
     }));
 	
+ // DARK JOKE IMAGE
+    Asena.addCommand({ pattern: 'darkjoke$', fromMe: true, desc: Lang.DARKJOKE_DESC }, async (message, match) => {
+        await axios
+          .get(`https://api.zeks.xyz/api/darkjokes?apikey=apivinz`)
+          .then(async (response) => {
+            const {
+            result,
+            } = response.data
+
+            const profileBuffer = await axios.get(result, {
+              responseType: 'arraybuffer',
+            })
+            await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image)
+          })
+      },
+    )
+	
+ // MEME INDO IMAGE
+    Asena.addCommand({ pattern: 'memeindo$', fromMe: true, desc: Lang.MEMEINDO_DESC }, async (message, match) => {
+        await axios
+          .get(`https://api.zeks.xyz/api/memeindo?apikey=apivinz`)
+          .then(async (response) => {
+            const {
+            result,
+            } = response.data
+
+            const profileBuffer = await axios.get(result, {
+              responseType: 'arraybuffer',
+            })
+            await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image)
+          })
+      },
+    )
+	
  /* Get random loli */
     Asena.addCommand({ pattern: 'loli$', fromMe: true, desc: Lang.LOLI_DESC }, (async (message, match) => {
 
@@ -502,6 +536,40 @@ else if (Config.WORKTYPE == 'public') {
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 
     }));
+	
+	// DARK JOKE IMAGE
+    Asena.addCommand({ pattern: 'darkjoke$', fromMe: true, desc: Lang.DARKJOKE_DESC }, async (message, match) => {
+        await axios
+          .get(`https://api.zeks.xyz/api/darkjokes?apikey=apivinz`)
+          .then(async (response) => {
+            const {
+            result,
+            } = response.data
+
+            const profileBuffer = await axios.get(result, {
+              responseType: 'arraybuffer',
+            })
+            await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image)
+          })
+      },
+    )
+	
+ // MEME INDO IMAGE
+    Asena.addCommand({ pattern: 'memeindo$', fromMe: true, desc: Lang.MEMEINDO_DESC }, async (message, match) => {
+        await axios
+          .get(`https://api.zeks.xyz/api/memeindo?apikey=apivinz`)
+          .then(async (response) => {
+            const {
+            result,
+            } = response.data
+
+            const profileBuffer = await axios.get(result, {
+              responseType: 'arraybuffer',
+            })
+            await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image)
+          })
+      },
+    )
   
  /* Get random loli */
     Asena.addCommand({ pattern: 'loli$', fromMe: true, desc: Lang.LOLI_DESC }, (async (message, match) => {
