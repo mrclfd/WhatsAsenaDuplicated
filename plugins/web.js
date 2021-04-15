@@ -57,6 +57,8 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lan
     message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text);
 }));
     
+    // S.ID SHORTENER
+    
     Asena.addCommand({ pattern: 'sid ?(.*)', fromMe: true, desc: Lang.SID_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
@@ -70,6 +72,86 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lan
             } = response.data
 
             const msg = `*Link asli:* ${long}\n*Link pendek:* ${short}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
+    
+    // SHORTURL.AT SHORTENER
+    
+    Asena.addCommand({ pattern: 'sat ?(.*)', fromMe: true, desc: Lang.SAT_DESC }, async (message, match) => {
+
+        const linkAsli = match[1]
+
+        await axios
+          .get(`https://docs-jojo.herokuapp.com/api/shorturl-at?url=${linkAsli}`)
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const msg = `*Link asli:* ${linkAsli}\n*Link pendek:* ${result}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
+    
+    // CUTT.LY SHORTENER
+    
+    Asena.addCommand({ pattern: 'cutt ?(.*)', fromMe: true, desc: Lang.CUTTLY_DESC }, async (message, match) => {
+
+        const linkAsli = match[1]
+
+        await axios
+          .get(`https://docs-jojo.herokuapp.com/api/cuttly?url=${linkAsli}`)
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const msg = `*Link asli:* ${linkAsli}\n*Link pendek:* ${result}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
+    
+    // BIT.LY SHORTENER
+    
+    Asena.addCommand({ pattern: 'bitly ?(.*)', fromMe: true, desc: Lang.BITLY_DESC }, async (message, match) => {
+
+        const linkAsli = match[1]
+
+        await axios
+          .get(`https://api.xteam.xyz/shorturl/bitly?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
+          .then(async (response) => {
+            const {
+              link,
+            } = response.data.result
+
+            const msg = `*Link asli:* ${linkAsli}\n*Link pendek:* ${link}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
+    
+    // GG.GG SHORTENER
+    
+    Asena.addCommand({ pattern: 'gg ?(.*)', fromMe: true, desc: Lang.GG_DESC }, async (message, match) => {
+
+        const linkAsli = match[1]
+
+        await axios
+          .get(`https://api.xteam.xyz/shorturl/gg?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const msg = `*Link asli:* ${linkAsli}\n*Link pendek:* ${result}`
 
             await message.client.sendMessage(message.jid, msg, MessageType.text)
            })
@@ -100,6 +182,7 @@ else if (Config.WORKTYPE == 'public') {
     message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text);
 }));
 
+    // S.ID SHORTENER
     
     Asena.addCommand({ pattern: 'sid ?(.*)', fromMe: true, desc: Lang.SID_DESC }, async (message, match) => {
 
@@ -116,7 +199,87 @@ else if (Config.WORKTYPE == 'public') {
             const msg = `*Link asli:* ${long}\n*Link pendek:* ${short}`
 
             await message.client.sendMessage(message.jid, msg, MessageType.text)
-            })
+           })
+      },
+    )
+    
+    // SHORTURL.AT SHORTENER
+    
+    Asena.addCommand({ pattern: 'sat ?(.*)', fromMe: true, desc: Lang.SAT_DESC }, async (message, match) => {
+
+        const linkAsli = match[1]
+
+        await axios
+          .get(`https://docs-jojo.herokuapp.com/api/shorturl-at?url=${linkAsli}`)
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const msg = `*Link asli:* ${linkAsli}\n*Link pendek:* ${result}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
+    
+    // CUTT.LY SHORTENER
+    
+    Asena.addCommand({ pattern: 'cutt ?(.*)', fromMe: true, desc: Lang.CUTTLY_DESC }, async (message, match) => {
+
+        const linkAsli = match[1]
+
+        await axios
+          .get(`https://docs-jojo.herokuapp.com/api/cuttly?url=${linkAsli}`)
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const msg = `*Link asli:* ${linkAsli}\n*Link pendek:* ${result}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
+    
+    // BIT.LY SHORTENER
+    
+    Asena.addCommand({ pattern: 'bitly ?(.*)', fromMe: true, desc: Lang.BITLY_DESC }, async (message, match) => {
+
+        const linkAsli = match[1]
+
+        await axios
+          .get(`https://api.xteam.xyz/shorturl/bitly?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
+          .then(async (response) => {
+            const {
+              link,
+            } = response.data.result
+
+            const msg = `*Link asli:* ${linkAsli}\n*Link pendek:* ${link}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
+    
+    // GG.GG SHORTENER
+    
+    Asena.addCommand({ pattern: 'gg ?(.*)', fromMe: true, desc: Lang.GG_DESC }, async (message, match) => {
+
+        const linkAsli = match[1]
+
+        await axios
+          .get(`https://api.xteam.xyz/shorturl/gg?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const msg = `*Link asli:* ${linkAsli}\n*Link pendek:* ${result}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
       },
     )
     
