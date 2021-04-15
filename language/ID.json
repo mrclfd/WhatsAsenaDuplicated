@@ -50,6 +50,12 @@
             "L_DESC": "Membagikan lokasi Anda.",
             "L_WARN": "Nyalakan lokasi Anda sebelum menggunakan!"
         },
+        "adzan": {
+            "ADZAN_DESC": "Jadwal waktu adzan shalat."
+        },
+        "brainly": {
+            "BRAINLY_DESC ": "Mencari jawaban dibrainly."
+        },
         "afk": {
             "AFK_DESC": "Itu membuat Anda AFK.",
             "IM_AFK": "```Saya AFK sekarang!```",
