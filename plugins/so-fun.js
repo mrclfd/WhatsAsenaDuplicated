@@ -125,7 +125,7 @@ if (Config.WORKTYPE == 'private') {
     )
 	
  // MEME INDO IMAGE
-    Asena.addCommand({ pattern: 'memeindo$', fromMe: true, desc: Lang.MEMEINDO_DESC }, async (message, match) => {
+    Asena.addCommand({ pattern: 'mwmw$', fromMe: true, desc: Lang.MEMEINDO_DESC }, async (message, match) => {
         await axios
           .get(`https://api.zeks.xyz/api/memeindo?apikey=apivinz`)
           .then(async (response) => {
@@ -555,7 +555,7 @@ else if (Config.WORKTYPE == 'public') {
     )
 	
  // MEME INDO IMAGE
-    Asena.addCommand({ pattern: 'memeindo$', fromMe: true, desc: Lang.MEMEINDO_DESC }, async (message, match) => {
+    Asena.addCommand({ pattern: 'mwmw$', fromMe: true, desc: Lang.MEMEINDO_DESC }, async (message, match) => {
         await axios
           .get(`https://api.zeks.xyz/api/memeindo?apikey=apivinz`)
           .then(async (response) => {
