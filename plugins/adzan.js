@@ -15,14 +15,14 @@ if (Config.WORKTYPE == 'private') {
 	    try {
 		    const response = await got(url);
 		    const json = JSON.parse(response.body);
-		    if (response.statusCode === 200) return await message.client.sendMessage(message.jid, '*📍 ' + Lang.LOCATION +':* ```' + match[1] + '```\n' +
-                    '*Waktu :* ```' + json.datetime[0].date.gregorian + '```\n\n' +
-		    '*- Imsak:* ```' + json.datetime[0].times.Imsak + '```\n' + 
-		    '*- Subuh:* ```' + json.datetime[0].times.Fajr + '```\n' +
-		    '*- Dzuhur:* ```' + json.datetime[0].times.Dhuhr + '```\n' + 
-		    '*- Ashar:* ```' + json.datetime[0].times.Asr + '```\n' + 
-                    '*- Maghrib:* ```' + json.datetime[0].times.Maghrib + '```\n' + 
-		    '*- Isya:* ```' + json.datetime[0].times.Isha + '```\n', MessageType.text);
+		    if (response.statusCode === 500) return await message.client.sendMessage(message.jid, '*📍 ' + Lang.LOCATION +':* ```' + match[1] + '```\n' +
+                    '*Waktu :* ```' + json.date.gregorian + '```\n\n' +
+		    '*- Imsak:* ```' + json.times.Imsak + '```\n' + 
+		    '*- Subuh:* ```' + json.times.Fajr + '```\n' +
+		    '*- Dzuhur:* ```' + json.times.Dhuhr + '```\n' + 
+		    '*- Ashar:* ```' + json.times.Asr + '```\n' + 
+                    '*- Maghrib:* ```' + json.times.Maghrib + '```\n' + 
+		    '*- Isya:* ```' + json.times.Isha + '```\n', MessageType.text);
 	    } catch {
 		    return await message.client.sendMessage(message.jid, Lang.NOT_FOUND, MessageType.text);
 	    }
