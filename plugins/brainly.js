@@ -20,9 +20,10 @@ Asena.addCommand({ pattern: 'brainly ?(.*)', fromMe: true, desc: Lang.BRAINLY_DE
               jawaban,
             } = response.data
 
-            const msg = `*BRAINLY*\n\n
-SOAL: ${soal}
-JAWABAN:\n${jawaban}`
+            const msg = `*MENCARI DI BRAINLY*:
+
+*SOAL:* ${soal}
+*JAWABAN:* ${jawaban}`
             await message.client.sendMessage(message.jid, msg, MessageType.text)
            })
       },
@@ -43,9 +44,10 @@ if (Config.WORKTYPE == 'public') {
               jawaban,
             } = response.data
 
-            const msg = `*BRAINLY*\n\n
-SOAL: ${soal}
-JAWABAN:\n${jawaban}`
+            const msg = `*MENCARI DI BRAINLY*:
+
+*SOAL:* ${soal}
+*JAWABAN:* ${jawaban}`
             await message.client.sendMessage(message.jid, msg, MessageType.text)
            })
       },
