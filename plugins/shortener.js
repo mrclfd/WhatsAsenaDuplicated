@@ -75,7 +75,7 @@ if (Config.WORKTYPE == 'private') {
         const linkAsli = match[1]
 
         await axios
-          .get(`https://api.xteam.xyz/shorturl/bitly?APIKEY=ab9942f95c09ca89&url=${linkAsli}`)
+          .get(`https://api.xteam.xyz/shorturl/bitly?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
           .then(async (response) => {
             const {
               link,
@@ -94,7 +94,7 @@ if (Config.WORKTYPE == 'private') {
         const linkAsli = match[1]
 
         await axios
-          .get(`https://api.xteam.xyz/shorturl/gg?APIKEY=ab9942f95c09ca89&url=${linkAsli}`)
+          .get(`https://api.xteam.xyz/shorturl/gg?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
           .then(async (response) => {
             const {
               result,
@@ -143,7 +143,7 @@ if (Config.WORKTYPE == 'private') {
 if (Config.WORKTYPE == 'public') {
 
  // s.id SHORTENER
-    Asena.addCommand({ pattern: 'sid ?(.*)', fromMe: true, desc: Lang.SID_DESC }, async (message, match) => {
+    Asena.addCommand({ pattern: 'sid ?(.*)', fromMe: false, desc: Lang.SID_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
 
@@ -163,7 +163,7 @@ if (Config.WORKTYPE == 'public') {
     )
     
   // shorturl.at SHORTENER
-     Asena.addCommand({ pattern: 'sat ?(.*)', fromMe: true, desc: Lang.SAT_DESC }, async (message, match) => {
+     Asena.addCommand({ pattern: 'sat ?(.*)', fromMe: false, desc: Lang.SAT_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
 
@@ -182,7 +182,7 @@ if (Config.WORKTYPE == 'public') {
     )
     
   // cutt.ly SHORTENER
-     Asena.addCommand({ pattern: 'cutt ?(.*)', fromMe: true, desc: Lang.CUTTLY_DESC }, async (message, match) => {
+     Asena.addCommand({ pattern: 'cutt ?(.*)', fromMe: false, desc: Lang.CUTTLY_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
 
@@ -201,12 +201,12 @@ if (Config.WORKTYPE == 'public') {
     )
     
  // bit.ly SHORTENER
-    Asena.addCommand({ pattern: 'bitly ?(.*)', fromMe: true, desc: Lang.BITLY_DESC }, async (message, match) => {
+    Asena.addCommand({ pattern: 'bitly ?(.*)', fromMe: false, desc: Lang.BITLY_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
 
         await axios
-          .get(`https://api.xteam.xyz/shorturl/bitly?APIKEY=ab9942f95c09ca89&url=${linkAsli}`)
+          .get(`https://api.xteam.xyz/shorturl/bitly?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
           .then(async (response) => {
             const {
               link,
@@ -220,12 +220,12 @@ if (Config.WORKTYPE == 'public') {
     )
     
  // gg.gg SHORTENER
-    Asena.addCommand({ pattern: 'gg ?(.*)', fromMe: true, desc: Lang.GG_DESC }, async (message, match) => {
+    Asena.addCommand({ pattern: 'gg ?(.*)', fromMe: false, desc: Lang.GG_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
 
         await axios
-          .get(`https://api.xteam.xyz/shorturl/gg?APIKEY=ab9942f95c09ca89&url=${linkAsli}`)
+          .get(`https://api.xteam.xyz/shorturl/gg?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
           .then(async (response) => {
             const {
               result,
@@ -239,7 +239,7 @@ if (Config.WORKTYPE == 'public') {
     )
 
  // shrtco.de SHORTENER
-    Asena.addCommand({ pattern: 'shrtco ?(.*)', fromMe: true, desc: Lang.SHRT_DESC }, async (message, match) => {
+    Asena.addCommand({ pattern: 'shrtco ?(.*)', fromMe: false, desc: Lang.SHRT_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
 
@@ -258,7 +258,7 @@ if (Config.WORKTYPE == 'public') {
     )
     
  // tinyurl.com SHORTENER
-    Asena.addCommand({pattern: 'tinyurl ?(.*)', fromMe: true, desc: Lang.TINYURL_DESC }, (async (message, match) => {
+    Asena.addCommand({pattern: 'tinyurl ?(.*)', fromMe: false, desc: Lang.TINYURL_DESC }, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid, SLang.LİNK, MessageType.text);
 
