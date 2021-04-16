@@ -53,7 +53,7 @@
         "adzan": {
             "ADZAN_DESC": "Jadwal waktu adzan shalat.",
             "NEED_LOCATION": "```Masukkan nama kota!```",
-            "ADZAN_DESC": "```Kota tidak ditemukan!```"
+            "NOT_FOUND": "```Kota tidak ditemukan!```"
         },
         "brainly": {
             "BRAINLY_DESC": "Mencari jawaban dibrainly."
@@ -430,7 +430,7 @@
             "DESKRIPSINE": "Deskripsi",
             "LINKE": "URL",
             "GAMBARE": "Thumb",
-            "HARTATAHTA_DESC": "Membuat logo harta tahta subur jaya. Wkwk --rapi",
+            "HARTATAHTA_DESC": "Membuat logo harta tahta subur jaya.",
             "BLACKPINK_DESC": "Membuat logo blackpink.",
             "MARVEL_DESC": "Membuat logo marvel. Gunakan ; sbg tanda pemisah.",
             "PH_DESC": "Membuat logo apek pokok e. Gunakan ; sbg tanda pemisah.",
