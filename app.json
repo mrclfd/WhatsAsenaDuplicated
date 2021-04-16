@@ -122,6 +122,11 @@
             "required": false,
             "value": "true"
         },
+         "LH_API_KEY": {
+            "description": "Lol Homan rest api's API Key. Get in https://api.lolhuman.xyz.",
+            "required": false,
+            "value": ""
+        },
         "COFFEEHOUSE_API_KEY": {
             "description": "CoffeeHouse API Key. Need for Lydia. https://coffeehouse.intellivoid.net/",
             "required": false,
