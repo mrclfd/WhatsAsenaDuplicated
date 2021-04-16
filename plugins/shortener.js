@@ -1,4 +1,4 @@
-// MASIH BETA-TEST
+// Coded by @mrclfd
 
 const Asena = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
