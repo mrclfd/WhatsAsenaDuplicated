@@ -54,5 +54,6 @@ module.exports = {
     COFFEEHOUSE_API_KEY: process.env.COFFEEHOUSE_API_KEY === undefined ? false : process.env.COFFEEHOUSE_API_KEY,
     WITAI_API: "TEYMELA6DMC4XB5YM3SPTTQWUUIBKURG",
     SUPPORT: "-",
-    OWN: "000000000000,0"
+    OWN: "000000000000,0",
+    MAHAL: ${{ secrets.BELI_DONG_BRO }}
 };
