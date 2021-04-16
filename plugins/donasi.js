@@ -4,6 +4,8 @@ const {MessageType, MessageOptions, Mimetype} = require('@adiwajshing/baileys');
 const con = require('../config');
 const fs = require('fs');
 
+const Language = require('../language');
+const Lang = Language.getString('donasi');
   
   if (con.WORKTYPE == 'private') {
   
