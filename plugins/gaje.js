@@ -7,10 +7,7 @@ const { MessageType, Mimetype, } = require('@adiwajshing/baileys');
 const con = require('../config');
 
 // Deskripsi
-const IDF = "Send F word. ⌨️ Example: .f 🌈"
-const IDX = "Send X word. ⌨️ Example: .x 🌈"
-const IDY = "Send Y word. ⌨️ Example: .y 🌈"
-const IDBATU = "Send 🗿 word. ⌨️ Example: .🗿 🌈"
+const IDF = "Pesan gaje, buat yang gaje aja ( f || x || y || 🗿 ).```\n⌨️ *Contoh:* ```.f 🌈"
 
 if (con.LANG === 'ID') {
     
@@ -30,7 +27,7 @@ if (con.LANG === 'ID') {
 
         });
 
-        Asena.addCommand({ pattern: 'x ?(.*)$', fromMe: true, desc: IDX }, async (message, match) => {
+        Asena.addCommand({ pattern: 'x ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
 
             const xsay = match[1]
 
@@ -44,7 +41,7 @@ if (con.LANG === 'ID') {
 
         });
         
-        Asena.addCommand({ pattern: 'y ?(.*)$', fromMe: true, desc: IDY }, async (message, match) => {
+        Asena.addCommand({ pattern: 'y ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
 
             const xsay = match[1]
 
@@ -58,7 +55,7 @@ if (con.LANG === 'ID') {
 
         });
 
- Asena.addCommand({ pattern: '🗿 ?(.*)$', fromMe: true, desc: IDBATU }, async (message, match) => {
+ Asena.addCommand({ pattern: '🗿 ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
 
             const xsay = match[1]
 
@@ -89,7 +86,7 @@ else if (con.WORKTYPE === 'public') {
 
         });
 
-        Asena.addCommand({ pattern: 'x ?(.*)$', fromMe: true, desc: IDX }, async (message, match) => {
+        Asena.addCommand({ pattern: 'x ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
 
             const xsay = match[1]
 
@@ -103,7 +100,7 @@ else if (con.WORKTYPE === 'public') {
 
         });
         
-        Asena.addCommand({ pattern: 'y ?(.*)$', fromMe: true, desc: IDY }, async (message, match) => {
+        Asena.addCommand({ pattern: 'y ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
 
             const xsay = match[1]
 
@@ -117,7 +114,7 @@ else if (con.WORKTYPE === 'public') {
 
         });
 
- Asena.addCommand({ pattern: '🗿 ?(.*)$', fromMe: true, desc: IDBATU }, async (message, match) => {
+ Asena.addCommand({ pattern: '🗿 ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
 
             const xsay = match[1]
 
