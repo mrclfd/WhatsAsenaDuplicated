@@ -39,6 +39,7 @@ module.exports = {
     SEND_READ: process.env.SEND_READ === undefined ? false : convertToBool(process.env.SEND_READ),
     NO_WA: process.env.ALIVE_NUMBER === undefined ? 'unknown' : process.env.ALIVE_NUMBER,
     USER_WA: process.env.ALIVE_NAME === undefined ? 'unknown' : process.env.ALIVE_NAME,
+    LH_API: process.env.LH_API_KEY === undefined ? 'unknown' : process.env.LH_API_KEY,
     BRANCH: 'alpha-test',
     HEROKU: {
         HEROKU: process.env.HEROKU === undefined ? false : convertToBool(process.env.HEROKU),
@@ -54,6 +55,5 @@ module.exports = {
     COFFEEHOUSE_API_KEY: process.env.COFFEEHOUSE_API_KEY === undefined ? false : process.env.COFFEEHOUSE_API_KEY,
     WITAI_API: "TEYMELA6DMC4XB5YM3SPTTQWUUIBKURG",
     SUPPORT: "-",
-    OWN: "000000000000,0",
-    MAHAL: ${{ secrets.BELI_DONG_BRO }}
+    OWN: "000000000000,0"
 };
