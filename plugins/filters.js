@@ -63,10 +63,10 @@ Asena.addCommand({on: 'text', fromMe: false}, (async (message, match) => {
         }
     );
 }));
-const snipds = "Snip ayarlar"
-const dbsl = "Bir Metni Yanıtla! Örnek: ```.snip test```"
-const scc = "Adlı Snip Ayarlandı!"
-const xsbl = "Lütfen snip ismi gir! Örnek: ```.snip test```"
+const snipds = "Pengaturan snip"
+const dbsl = "Balas pesan! Contoh: ```.snip test```"
+const scc = "Snip berhasil disetel!"
+const xsbl = "Masukkan nama snip! Contoh: ```.snip test```"
 
 Asena.addCommand({pattern: 'snip ?(.*)', fromMe: true, desc: snipds}, (async (message, match) => {
 
