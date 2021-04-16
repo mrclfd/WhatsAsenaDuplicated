@@ -108,7 +108,7 @@ if (Config.WORKTYPE == 'private') {
     )
 
  // shrtco.de SHORTENER
-    Asena.addCommand({ pattern: 'shrtco ?(.*)', fromMe: true, desc: Lang.GG_DESC }, async (message, match) => {
+    Asena.addCommand({ pattern: 'shrtco ?(.*)', fromMe: true, desc: Lang.SHRT_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
 
@@ -239,7 +239,7 @@ if (Config.WORKTYPE == 'public') {
     )
 
  // shrtco.de SHORTENER
-    Asena.addCommand({ pattern: 'shrtco ?(.*)', fromMe: true, desc: Lang.GG_DESC }, async (message, match) => {
+    Asena.addCommand({ pattern: 'shrtco ?(.*)', fromMe: true, desc: Lang.SHRT_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
 
