@@ -51,10 +51,15 @@
             "L_WARN": "Nyalakan lokasi Anda sebelum menggunakan!"
         },
         "adzan": {
-            "ADZAN_DESC": "Jadwal waktu adzan shalat."
+            "ADZAN_DESC": "Jadwal waktu adzan shalat.",
+            "NEED_LOCATION": "```Masukkan nama kota!```",
+            "ADZAN_DESC": "```Kota tidak ditemukan!```"
         },
         "brainly": {
-            "BRAINLY_DESC ": "Mencari jawaban dibrainly."
+            "BRAINLY_DESC": "Mencari jawaban dibrainly."
+        },
+        "donasi": {
+            "DONASI_DESC": "Buy Me a Coffee."
         },
         "shortener": {
             "SID_DESC": "Memperpendek url dengan s.id.",
@@ -413,7 +418,7 @@
             "BUCIN_DESC": "Mendapatkan kata-kata bucin acak.",
             "PANTUN_DESC": "Mendapatkan pantun acak.",
             "DICE_LOAD": "",
-            "DICE_RESULT": "🎲 = ",
+            "DICE_RESULT": "🎲 // ",
             "WAIFU_NAME": "Dia adalah",
             "HUSBU_NAME": "Dia adalah",
             "WAIFU2_DESC": "Mendapatkan gambar waifu acak V2.",
@@ -424,7 +429,14 @@
             "VOTENE": "Vote",
             "DESKRIPSINE": "Deskripsi",
             "LINKE": "URL",
-            "GAMBARE": "Thumb"
+            "GAMBARE": "Thumb",
+            "HARTATAHTA_DESC": "Membuat logo harta tahta subur jaya. Wkwk --rapi",
+            "BLACKPINK_DESC": "Membuat logo blackpink.",
+            "MARVEL_DESC": "Membuat logo marvel. Gunakan ; sbg tanda pemisah.",
+            "PH_DESC": "Membuat logo apek pokok e. Gunakan ; sbg tanda pemisah.",
+            "QUOTE_DESC": "Membuat quote. Gunakan ; sbg tanda pemisah.",
+            "DARKJOKE_DESC": "Random darkjoke ni boss.",
+            "MEMEINDO_DESC": "Random meme ni boss."
         },
         "wallpaper": {
             "WP": "Mengirimkan wallpaper resolusi tinggi yang berbeda."
