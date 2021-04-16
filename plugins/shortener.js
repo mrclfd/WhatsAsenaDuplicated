@@ -244,7 +244,7 @@ if (Config.WORKTYPE == 'public') {
         const linkAsli = match[1]
 
         await axios
-          .get('https://api.lolhuman.xyz/api/shortlink2?apikey='+Config.MAHAL+'&url='+match[1]+'')
+          .get('https://api.lolhuman.xyz/api/shortlink2?apikey='+Config.LH_API+'&url='+match[1]+'')
           .then(async (response) => {
             const {
               result,
