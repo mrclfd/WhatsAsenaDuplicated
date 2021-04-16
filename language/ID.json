@@ -56,6 +56,15 @@
         "brainly": {
             "BRAINLY_DESC ": "Mencari jawaban dibrainly."
         },
+        "shortener": {
+            "SID_DESC": "Memperpendek url dengan s.id.",
+            "SAT_DESC": "Memperpendek url dengan shorturl.at.",
+            "CUTTLY_DESC": "Memperpendek url dengan cutt.ly.",
+            "BITLY_DESC": "Memperpendek url dengan bit.ly.",
+            "GG_DESC": "Memperpendek url dengan gg.gg.",
+            "SHRT_DESC": "Memperpendek url dengan shrtco.de.",
+            "TINYURL_DESC": "Memperpendek url dengan tinyurl.com."
+        },  
         "afk": {
             "AFK_DESC": "Itu membuat Anda AFK.",
             "IM_AFK": "```Saya AFK sekarang!```",
