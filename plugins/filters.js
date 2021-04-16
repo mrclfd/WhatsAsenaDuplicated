@@ -63,7 +63,7 @@ Asena.addCommand({on: 'text', fromMe: false}, (async (message, match) => {
         }
     );
 }));
-const snipds = "Pengaturan snip"
+const snipds = "Pengaturan snip."
 const dbsl = "Balas pesan! Contoh: ```.snip test```"
 const scc = "Snip berhasil disetel!"
 const xsbl = "Masukkan nama snip! Contoh: ```.snip test```"
@@ -91,8 +91,8 @@ Asena.addCommand({pattern: 'snip ?(.*)', fromMe: true, desc: snipds}, (async (me
         MessageType.text
     )
 }));
-const gtsn = "Kayıtlı snip'leri gösterir."
-const hatc = "Hiç Snip Kaydedilmemiş!"
+const gtsn = "Menampilkan snip."
+const hatc = "Tidak ada snip yang direkam!"
 
 Asena.addCommand({pattern: 'getsnip', fromMe: true, desc: gtsn}, (async (message, match) => {
 
@@ -109,9 +109,9 @@ Asena.addCommand({pattern: 'getsnip', fromMe: true, desc: gtsn}, (async (message
         )
     }
 }));
-const flsh = "Snip siler"
-const dlsnp = "Böyle Bir Snip Yok!"
-const shck = "Adlı Snip Silindi!"
+const flsh = "Menghapus snip."
+const dlsnp = "Snip tidak ditemukan!"
+const shck = "Snip berhasil dihapus!"
 
 Asena.addCommand({ pattern: 'delsnip ?(.*)', fromMe: true, desc: flsh }, (async (message, match) => {
     
