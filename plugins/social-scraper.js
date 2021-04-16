@@ -83,7 +83,7 @@ if (cn.WORKTYPE == 'private') {
         await message.client.sendMessage(message.jid, Tlang.DOWN, MessageType.text)
 
         await axios
-          .get(`https://api.xteam.xyz/dl/tiktok?url=${userName}&APIKEY=ab9942f95c09ca89`)
+          .get(`https://api.xteam.xyz/dl/tiktok?url=${userName}&APIKEY=10c4105200edc0f0`)
           .then(async (response) => {
             const {
               server_1,
@@ -158,7 +158,7 @@ else if (cn.WORKTYPE == 'public') {
         await message.client.sendMessage(message.jid, Tlang.DOWN, MessageType.text)
 
         await axios
-          .get(`https://api.xteam.xyz/dl/tiktok?url=${userName}&APIKEY=ab9942f95c09ca89`)
+          .get(`https://api.xteam.xyz/dl/tiktok?url=${userName}&APIKEY=10c4105200edc0f0`)
           .then(async (response) => {
             const {
               server_1,
