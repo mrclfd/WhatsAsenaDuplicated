@@ -37,7 +37,7 @@ if (Config.WORKTYPE == 'private') {
 }
 if (Config.WORKTYPE == 'public') {
 
-    Asena.addCommand({pattern: 'weather ?(.*)', desc: Lang.WEATHER_DESC, fromMe: true}, async (message, match) => {
+    Asena.addCommand({pattern: 'weather ?(.*)', desc: Lang.WEATHER_DESC, fromMe: false}, async (message, match) => {
 
 	    if (match[1] === '') return await message.reply(Lang.NEED_LOCATION);
 	    const url = `http://api.openweathermap.org/data/2.5/weather?q=${match[1]}&units=metric&appid=6d91e6f72ccc2bfa5729e491e7cdb30a&lang=id`;
