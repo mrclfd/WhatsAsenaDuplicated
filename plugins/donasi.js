@@ -13,7 +13,7 @@ const Lang = Language.getString('donasi');
       
           var image = await axios.get ('https://raw.githubusercontent.com/mrclfd/WhatsAsenaDuplicated/alpha-test/media/image/image-i.png', {responseType: 'arraybuffer'})
        
-        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `Buy Me a Coffee\nvia saweria.co/budilasidodo`})
+        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `*Buy Me a Coffee\nvia* saweria.co/budilasidodo`})
       
      /*  
         await new Promise(r => setTimeout(r, 1650));
@@ -25,11 +25,11 @@ const Lang = Language.getString('donasi');
   }
   else if (con.WORKTYPE == 'public') {
   
-    Asena.addCommand({pattern: 'donasi$', fromMe: true, desc: Lang.DONASI_DESC }, (async (message, match) => {
+    Asena.addCommand({pattern: 'donasi$', fromMe: false, desc: Lang.DONASI_DESC }, (async (message, match) => {
       
           var image = await axios.get ('https://raw.githubusercontent.com/mrclfd/WhatsAsenaDuplicated/alpha-test/media/image/image-i.png', {responseType: 'arraybuffer'})
        
-        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `Buy Me a Coffee\nvia saweria.co/budilasidodo`})
+        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `*Buy Me a Coffee\nvia* saweria.co/budilasidodo`})
       
      /*
         await new Promise(r => setTimeout(r, 1650));
