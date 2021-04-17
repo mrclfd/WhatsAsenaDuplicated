@@ -10,9 +10,12 @@ const Asena = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const exec = require('child_process').exec;
 const os = require("os");
+const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('evaluators');
+
+if (Config.WORKTYPE == 'private') {
 
 Asena.addCommand({pattern: 'term ?(.*)', fromMe: true, desc: Lang.TERM_DESC}, (async (message, match) => {    
     var user = os.userInfo().username;
@@ -26,3 +29,4 @@ Asena.addCommand({pattern: 'term ?(.*)', fromMe: true, desc: Lang.TERM_DESC}, (a
         return await message.client.sendMessage(message.jid,'```' + user + ':~# ' + match[1] + '\n' + stdout + '```',MessageType.text);
       });
 }));
+}
