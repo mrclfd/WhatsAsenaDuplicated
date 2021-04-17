@@ -4554,3 +4554,4 @@ Asena.addCommand({pattern: 'sticker spam$', fromMe: true, desc: Lang.ST_DESC }, 
         });
 }));
 }
+  
