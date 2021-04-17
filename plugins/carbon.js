@@ -127,7 +127,7 @@ if (Config.WORKTYPE == 'private') {
 }
 else if (Config.WORKTYPE == 'public') {
 
-    Asena.addCommand({pattern: 'carbon ?(.*)', fromMe: true, desc: Lang.CARBON_DESC, warn: Lang.CARBON_WARN}, (async (message, match) => {
+    Asena.addCommand({pattern: 'carbon ?(.*)', fromMe: false, desc: Lang.CARBON_DESC, warn: Lang.CARBON_WARN}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.CARBON_NEEDWORD, MessageType.text);
 
@@ -138,7 +138,7 @@ else if (Config.WORKTYPE == 'public') {
     }));
     
     /* ungu */
-    Asena.addCommand({pattern: '🟪 ?(.*)', fromMe: true, dontAddCommandList: true}, (async (message, match) => {
+    Asena.addCommand({pattern: '🟪 ?(.*)', fromMe: false, dontAddCommandList: true}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.CARBON_NEEDWORD, MessageType.text);
 
@@ -149,7 +149,7 @@ else if (Config.WORKTYPE == 'public') {
     }));
     
     /* abang */
-    Asena.addCommand({pattern: '🟥 ?(.*)', fromMe: true, dontAddCommandList: true}, (async (message, match) => {
+    Asena.addCommand({pattern: '🟥 ?(.*)', fromMe: false, dontAddCommandList: true}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.CARBON_NEEDWORD, MessageType.text);
 
@@ -160,7 +160,7 @@ else if (Config.WORKTYPE == 'public') {
     }));
     
     /* oren */
-    Asena.addCommand({pattern: '🟧 ?(.*)', fromMe: true, dontAddCommandList: true}, (async (message, match) => {
+    Asena.addCommand({pattern: '🟧 ?(.*)', fromMe: false, dontAddCommandList: true}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.CARBON_NEEDWORD, MessageType.text);
 
@@ -171,7 +171,7 @@ else if (Config.WORKTYPE == 'public') {
     }));
     
     /* kuning */
-    Asena.addCommand({pattern: '🟨 ?(.*)', fromMe: true, dontAddCommandList: true}, (async (message, match) => {
+    Asena.addCommand({pattern: '🟨 ?(.*)', fromMe: false, dontAddCommandList: true}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.CARBON_NEEDWORD, MessageType.text);
 
@@ -182,7 +182,7 @@ else if (Config.WORKTYPE == 'public') {
     }));
     
     /* biru */
-    Asena.addCommand({pattern: '🟦 ?(.*)', fromMe: true, dontAddCommandList: true}, (async (message, match) => {
+    Asena.addCommand({pattern: '🟦 ?(.*)', fromMe: false, dontAddCommandList: true}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.CARBON_NEEDWORD, MessageType.text);
 
@@ -193,7 +193,7 @@ else if (Config.WORKTYPE == 'public') {
     }));
     
     /* ireng */
-    Asena.addCommand({pattern: '⬛ ?(.*)', fromMe: true, dontAddCommandList: true}, (async (message, match) => {
+    Asena.addCommand({pattern: '⬛ ?(.*)', fromMe: false, dontAddCommandList: true}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.CARBON_NEEDWORD, MessageType.text);
 
@@ -204,7 +204,7 @@ else if (Config.WORKTYPE == 'public') {
     }));
     
     /* putih */
-    Asena.addCommand({pattern: '⬜ ?(.*)', fromMe: true, dontAddCommandList: true}, (async (message, match) => {
+    Asena.addCommand({pattern: '⬜ ?(.*)', fromMe: false, dontAddCommandList: true}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.CARBON_NEEDWORD, MessageType.text);
 
@@ -215,7 +215,7 @@ else if (Config.WORKTYPE == 'public') {
     }));
     
     /* soklat */
-    Asena.addCommand({pattern: '🟫 ?(.*)', fromMe: true, dontAddCommandList: true}, (async (message, match) => {
+    Asena.addCommand({pattern: '🟫 ?(.*)', fromMe: false, dontAddCommandList: true}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.CARBON_NEEDWORD, MessageType.text);
 
@@ -226,7 +226,7 @@ else if (Config.WORKTYPE == 'public') {
     }));
     
     /* ijo */
-    Asena.addCommand({pattern: '🟩 ?(.*)', fromMe: true, dontAddCommandList: true}, (async (message, match) => {
+    Asena.addCommand({pattern: '🟩 ?(.*)', fromMe: false, dontAddCommandList: true}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.CARBON_NEEDWORD, MessageType.text);
 
