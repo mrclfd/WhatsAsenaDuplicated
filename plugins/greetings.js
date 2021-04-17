@@ -9,9 +9,12 @@ WhatsAsena - Yusuf Usta
 const Asena = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const sql = require('./sql/greetings');
+const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('greetings');
+
+if (Config.WORKTYPE == 'private') {
 
 Asena.addCommand({pattern: 'welcome$', fromMe: true, desc: Lang.WELCOME_DESC}, (async (message, match) => {
     var hg = await sql.getMessage(message.jid);
@@ -50,3 +53,4 @@ Asena.addCommand({pattern: 'goodbye (.*)', fromMe: true, dontAddCommandList: tru
         return await message.client.sendMessage(message.jid,Lang.GOODBYE_SETTED,MessageType.text)
     }
 }));
+}
