@@ -46,7 +46,7 @@ if (Config.WORKTYPE == 'private') {
 
     }));
     
-    Asena.addCommand({ pattern: 'ttp2 ?(.*)', fromMe: true, desc: Lang.TTP2_DESC }, (async (message, match) => {
+    Asena.addCommand({ pattern: 'bttp ?(.*)', fromMe: true, desc: Lang.BTTP_DESC }, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
 
@@ -90,7 +90,7 @@ else if (Config.WORKTYPE == 'public') {
 
     }));
     
-    Asena.addCommand({ pattern: 'ttp2 ?(.*)', fromMe: false, desc: Lang.TTP2_DESC }, (async (message, match) => {
+    Asena.addCommand({ pattern: 'bttp ?(.*)', fromMe: false, desc: Lang.BTTP_DESC }, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
 
