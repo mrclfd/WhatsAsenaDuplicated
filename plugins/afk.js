@@ -37,7 +37,7 @@ function secondsToHms(seconds) {
 
 if (Config.WORKTYPE == 'private') {
     
-Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
+Asena.addCommand({on: 'text', on: 'contact', on: 'sticker', on: 'image', on: 'audio', on: 'video', on: 'document', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (Config.AFKMSG == 'default') {
 
         if (AFK.isAfk && ((!message.jid.includes('-')) || (message.jid.includes('-') && 
@@ -89,7 +89,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
     }
 }));
 
-Asena.addCommand({on: 'text, audio, contact, document, image, sticker, video', fromMe: true, deleteCommand: false}, (async (message, match) => {
+Asena.addCommand({on: 'text', fromMe: true, deleteCommand: false}, (async (message, match) => {
     if (AFK.isAfk && !message.id.startsWith('3EB0')) {
         AFK.lastseen = 0;
         AFK.reason = false;
