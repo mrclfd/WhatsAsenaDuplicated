@@ -10,9 +10,12 @@ const Asena = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const FilterDb = require('./sql/filters');
 const SnipDB = require('./sql/usersnip');
+const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('filters');
+
+if (Config.WORKTYPE == 'private') {
 
 Asena.addCommand({pattern: 'filter ?(.*)', fromMe: true, desc: Lang.FILTER_DESC}, (async (message, match) => {
     match = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
@@ -63,6 +66,8 @@ Asena.addCommand({on: 'text', fromMe: false}, (async (message, match) => {
         }
     );
 }));
+
+/*
 const snipds = "Pengaturan snip."
 const dbsl = "Balas pesan! Contoh: ```.snip test```"
 const scc = "Snip berhasil disetel!"
@@ -148,3 +153,5 @@ Asena.addCommand({pattern: '- ?(.*)', fromMe: true, dontAddCommandList: true }, 
         }
     );
 }));
+*/
+}
