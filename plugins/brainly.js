@@ -30,7 +30,7 @@ Asena.addCommand({ pattern: 'brainly ?(.*)', fromMe: true, desc: Lang.BRAINLY_DE
 
 if (Config.WORKTYPE == 'public') {
   
-  Asena.addCommand({ pattern: 'brainly ?(.*)', fromMe: true, desc: Lang.BRAINLY_DESC }, async (message, match) => {
+  Asena.addCommand({ pattern: 'brainly ?(.*)', fromMe: false, desc: Lang.BRAINLY_DESC }, async (message, match) => {
 
         const Soal = match[1]
 
