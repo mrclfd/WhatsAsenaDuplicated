@@ -14,6 +14,7 @@ const heroku = new Heroku({
     token: Config.HEROKU.API_KEY
 });
 
+if (Config.WORKTYPE == 'private') {
 
 let baseURI = '/apps/' + Config.HEROKU.APP_NAME;
 
@@ -2569,3 +2570,4 @@ Asena.addCommand({pattern: 'spam ?(.*)', fromMe: true, desc: Lang.SPAM_DESC}, (a
     
     await message.client.sendMessage(message.jid, fin, MessageType.text);
 }));
+}
