@@ -7,13 +7,13 @@ const { MessageType, Mimetype, } = require('@adiwajshing/baileys');
 const con = require('../config');
 
 // Deskripsi
-const IDF = "Pesan gaje, buat yang gaje aja ( f || x || y || 🗿 ).```\n⌨️ *Contoh:* ```.f 🌈"
+const IDF = "Pesan gaje, buat yang gaje aja ( F || X || Y || 🗿 ).```\n⌨️ *Contoh:* ```.F 🌈"
 
 if (con.LANG === 'ID') {
     
     if (con.WORKTYPE === 'private') {
 
-        Asena.addCommand({ pattern: 'f ?(.*)$', fromMe: true, desc: IDF }, async (message, match) => {
+        Asena.addCommand({ pattern: 'F ?(.*)$', fromMe: true, desc: IDF }, async (message, match) => {
 
             const fsay = match[1]
 
@@ -27,7 +27,7 @@ if (con.LANG === 'ID') {
 
         });
 
-        Asena.addCommand({ pattern: 'x ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
+        Asena.addCommand({ pattern: 'X ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
 
             const xsay = match[1]
 
@@ -41,7 +41,7 @@ if (con.LANG === 'ID') {
 
         });
         
-        Asena.addCommand({ pattern: 'y ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
+        Asena.addCommand({ pattern: 'Y ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
 
             const xsay = match[1]
 
@@ -72,7 +72,7 @@ if (con.LANG === 'ID') {
 
 else if (con.WORKTYPE === 'public') {
 
-        Asena.addCommand({ pattern: 'f ?(.*)$', fromMe: true, desc: IDF }, async (message, match) => {
+        Asena.addCommand({ pattern: 'F ?(.*)$', fromMe: false, desc: IDF }, async (message, match) => {
 
             const fsay = match[1]
 
@@ -86,7 +86,7 @@ else if (con.WORKTYPE === 'public') {
 
         });
 
-        Asena.addCommand({ pattern: 'x ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
+        Asena.addCommand({ pattern: 'X ?(.*)$', fromMe: false, dontAddCommandList: true }, async (message, match) => {
 
             const xsay = match[1]
 
@@ -100,7 +100,7 @@ else if (con.WORKTYPE === 'public') {
 
         });
         
-        Asena.addCommand({ pattern: 'y ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
+        Asena.addCommand({ pattern: 'Y ?(.*)$', fromMe: false, dontAddCommandList: true }, async (message, match) => {
 
             const xsay = match[1]
 
@@ -114,7 +114,7 @@ else if (con.WORKTYPE === 'public') {
 
         });
 
- Asena.addCommand({ pattern: '🗿 ?(.*)$', fromMe: true, dontAddCommandList: true }, async (message, match) => {
+ Asena.addCommand({ pattern: '🗿 ?(.*)$', fromMe: false, dontAddCommandList: true }, async (message, match) => {
 
             const xsay = match[1]
 
