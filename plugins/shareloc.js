@@ -5,11 +5,13 @@ Instagram: www.instagram.com/kyrie.baran
 
 const Asena = require('../events');
 const {MessageType, GroupSettingChange} = require('@adiwajshing/baileys'); // Boredom 😬
+const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('locate'); // Language supp. 😉
 
-
+if (Config.WORKTYPE == 'private') {
+    
     Asena.addCommand({pattern: 'loc', fromMe: true, desc: Lang.L_DESC, warn: Lang.L_WARN}, (async (message, match) => {
 
         var r_text = new Array ();
@@ -21,3 +23,4 @@ const Lang = Language.getString('locate'); // Language supp. 😉
         await message.sendMessage(`My Location! ${r_text[i]}`, MessageType.location); // It sends ur location. Cool tho 😱
 
 }));
+}
