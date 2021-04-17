@@ -4,10 +4,12 @@ const fs = require('fs');
 const ffmpeg = require('fluent-ffmpeg');
 const {execFile} = require('child_process');
 const cwebp = require('cwebp-bin');
+const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('spammer');
 
+if (Config.WORKTYPE == 'private') {
 
 Asena.addCommand({pattern: 'sticker spam$', fromMe: true, desc: Lang.ST_DESC }, (async (message, match) => {    
 
@@ -4551,3 +4553,4 @@ Asena.addCommand({pattern: 'sticker spam$', fromMe: true, desc: Lang.ST_DESC }, 
 
         });
 }));
+}
