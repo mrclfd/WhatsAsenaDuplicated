@@ -19,12 +19,15 @@
 const fs = require('fs/promises')
 const path = require('path')
 const { MessageType } = require('@adiwajshing/baileys')
+const Config = require('../config');
 const Asena = require('../events');
 const { successfullMessage, errorMessage, infoMessage } = require('../helpers');
 const NotesDB = require('./sql/notes');
 const Language = require('../language')
 const Lang = Language.getString('notes')
 
+if (Config.WORKTYPE == 'private') {
+    
 Asena.addCommand({ pattern: 'notes', fromMe: true, desc: Lang.NOTES_USAGE }, async (message, match) => {
 
 
@@ -114,4 +117,4 @@ Asena.addCommand({ pattern: 'del notes', fromMe: true, desc: Lang.DELETE_USAGE }
 
     return await message.sendMessage(successfullMessage(Lang.SUCCESSFULLY_DELETED))
 })
-
+}
