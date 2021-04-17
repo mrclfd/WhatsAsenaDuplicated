@@ -20,7 +20,7 @@ var AFK = {
     lastseen: 0
 };
 
-// https://stackoverflow.com/a/37096512
+// secondsToHms D,H,M,S
 function secondsToHms(seconds) {
     seconds = Number(seconds)
     var d = Math.floor(seconds / (3600 * 24))
@@ -89,7 +89,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
     }
 }));
 
-Asena.addCommand({on: 'text', fromMe: true, deleteCommand: false}, (async (message, match) => {
+Asena.addCommand({on: 'text, audio, contact, document, image, sticker, video', fromMe: true, deleteCommand: false}, (async (message, match) => {
     if (AFK.isAfk && !message.id.startsWith('3EB0')) {
         AFK.lastseen = 0;
         AFK.reason = false;
