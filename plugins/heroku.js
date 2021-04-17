@@ -533,6 +533,7 @@ Asena.addCommand({pattern: 'setvar ?(.*)', fromMe: true, desc: Lang.SETVAR_DESC}
     }
 }));
 
+if (Config.WORKTYPE == 'private') {
 
 Asena.addCommand({pattern: 'delvar ?(.*)', fromMe: true, desc: Lang.DELVAR_DESC}, (async (message, match) => {
 
@@ -568,3 +569,4 @@ Asena.addCommand({pattern: 'getvar ?(.*)', fromMe: true, desc: Lang.GETVAR_DESC}
         await message.client.sendMessage(message.jid,error.message, MessageType.text);
     });
 }));
+}
