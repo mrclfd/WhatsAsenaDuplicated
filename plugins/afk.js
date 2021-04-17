@@ -21,18 +21,22 @@ var AFK = {
 };
 
 // https://stackoverflow.com/a/37096512
-function secondsToHms(d) {
-    d = Number(d);
-    var h = Math.floor(d / 3600);
-    var m = Math.floor(d % 3600 / 60);
-    var s = Math.floor(d % 3600 % 60);
-
+function secondsToHms(seconds) {
+    seconds = Number(seconds)
+    var d = Math.floor(seconds / (3600 * 24))
+    var h = Math.floor(seconds % (3600 * 24) / 3600)
+    var m = Math.floor(seconds % 3600 / 60)
+    var s = Math.floor(seconds % 60)
+    
+    var dDisplay = d > 0 ? d + (d == 1 ? " " + Lang.DAY + ", " : " " + Lang.DAY + ", ") : "";
     var hDisplay = h > 0 ? h + (h == 1 ? " " + Lang.HOUR + ", " : " " + Lang.HOUR + ", ") : "";
     var mDisplay = m > 0 ? m + (m == 1 ? " " + Lang.MINUTE + ", " : " " + Lang.MINUTE + ", ") : "";
     var sDisplay = s > 0 ? s + (s == 1 ? " " + Lang.SECOND : " " + Lang.SECOND) : "";
-    return hDisplay + mDisplay + sDisplay;
+    return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 
+if (Config.WORKTYPE == 'private') {
+    
 Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (Config.AFKMSG == 'default') {
 
@@ -104,5 +108,6 @@ Asena.addCommand({pattern: 'afk ?(.*)', fromMe: true, deleteCommand: true, desc:
         await message.client.sendMessage(message.jid,Lang.IM_AFK + (AFK.reason !== false ? ('\n' + Lang.REASON +': ```' + AFK.reason + '```') : ''),MessageType.text);
     }
 }));
+}
 
 module.exports = { secondsToHms };
