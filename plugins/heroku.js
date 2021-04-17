@@ -22,6 +22,8 @@ const heroku = new Heroku({
 
 let baseURI = '/apps/' + Config.HEROKU.APP_NAME;
 
+if (Config.WORKTYPE == 'private') {
+
 Asena.addCommand({pattern: 'restart', fromMe: true, desc: Lang.RESTART_DESC}, (async (message, match) => {
 
     await message.client.sendMessage(message.jid,Lang.RESTART_MSG, MessageType.text);
@@ -568,3 +570,4 @@ Asena.addCommand({pattern: 'getvar ?(.*)', fromMe: true, desc: Lang.GETVAR_DESC}
         await message.client.sendMessage(message.jid,error.message, MessageType.text);
     });
 }));
+}
