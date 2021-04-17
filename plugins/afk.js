@@ -37,7 +37,7 @@ function secondsToHms(seconds) {
 
 if (Config.WORKTYPE == 'private') {
     
-Asena.addCommand({on: 'text', on: 'contact', on: 'sticker', on: 'image', on: 'audio', on: 'video', on: 'document', fromMe: false, deleteCommand: false}, (async (message, match) => {
+Asena.addCommand({on: 'text, audio, contact, document, image, sticker, video', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (Config.AFKMSG == 'default') {
 
         if (AFK.isAfk && ((!message.jid.includes('-')) || (message.jid.includes('-') && 
