@@ -1,7 +1,7 @@
 /*
 DiCong-ed By @mrclfd
 */
-
+ 
 const Asena = require('../events');
 const { MessageType, Mimetype, } = require('@adiwajshing/baileys');
 const con = require('../config');
