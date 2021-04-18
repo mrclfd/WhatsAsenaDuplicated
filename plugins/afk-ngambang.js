@@ -21,7 +21,7 @@ var AFK = {
 };
 
 
-// https://stackoverflow.com/a/37096512
+// secondsToHms D,H,M,S
 function secondsToHms(seconds) {
     seconds = Number(seconds)
     var d = Math.floor(seconds / (3600 * 24))
@@ -39,7 +39,7 @@ function secondsToHms(seconds) {
 if (Config.WORKTYPE == 'private') {
 
 Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
-    if (Config.AFKMSG == 'default') {
+    if (Config.OFFAFKMSG == 'default') {
 
         if (AFK.isAfk && ((!message.jid.includes('-')) || (message.jid.includes('-') && 
             (( message.mention !== false && message.mention.length !== 0 ) || message.reply_message !== false)))) {
