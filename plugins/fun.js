@@ -174,7 +174,7 @@ ${desc}`
             bottomText = '';
         }
 
-        var ttinullimage = await axios.get(`https://api.xteam.xyz/quotemaker?APIKEY=10c4105200edc0f0&text=${split[0]}&wm=${split[1]}`, { responseType: 'arraybuffer' })
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/quotemaker2?apikey='+Config.LH_API+'&text='+split[0]+'&author='+split[1]+'', { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 
@@ -677,7 +677,7 @@ ${desc}`
             bottomText = '';
         }
 
-        var ttinullimage = await axios.get(`https://api.xteam.xyz/quotemaker?APIKEY=10c4105200edc0f0&text=${split[0]}&wm=${split[1]}`, { responseType: 'arraybuffer' })
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/quotemaker2?apikey='+Config.LH_API+'&text='+split[0]+'&author='+split[1]+'', { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 
