@@ -411,7 +411,7 @@
             "GTTP_DESC": "Mengubah teks menjadi stiker berwarna acak."
         },
         "fun": {
-            "NEED_WORD": "```Masukkan teks!```",
+            "NEED_WORD": "*Masukkan teks!*",
             "LOLI_DESC": "Mendapatkan gambar loli acak.",
             "EMPTY_DESC": "Mengirim pesan kosong.",
             "HUSBU_DESC": "Mendapatkan gambar husbu acak.",
