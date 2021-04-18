@@ -484,7 +484,7 @@
             "NOT_FOUND": "Pengguna tidak ditemukan: "
         },
         "github": {
-            "GİTHUB_DESC": "Mengumpulkan informasi github dari nama pengguna yang diberikan.```\n⌨️ *Contoh:* ```.github phaticusthiccy",
+            "GİTHUB_DESC": "Mengumpulkan informasi github dari nama pengguna yang diberikan.```\n⌨️ *Contoh:* ```.github <nama pengguna>",
             "REPLY": "```Masukkan nama pengguna!```",
             "NOT": "```Pengguna tidak ditemukan!```",
             "FOLLOWERS": "Pengikut:",
