@@ -47,7 +47,7 @@ ${desc}`
 
         const simSimi = match[1]
 	
-	if (match[1] === '') return await message.client.sendMessage(message.jid,'```Masukkan pertanyaan!```', MessageType.text);
+	if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan pertanyaan!*', MessageType.text);
 
         await axios
           .get('https://api.lolhuman.xyz/api/simi?apikey='+Config.LH_API+'&text='+match[1]+'')
