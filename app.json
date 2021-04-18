@@ -9,126 +9,56 @@
     "stack": "container",
     "env": {
         "ASENA_SESSION": {
-            "description": "Qr.Js ile oluşturduğunuz özel session kodu. Type here yours Asena Session.",
+            "description": "Kode sesi yang kamu dapatkan setelah meng-scan QR Whatsapp web.",
             "required": true
         },
-        "ALIVE_LOGO": {
-            "description": "Logo to show in .alive message.",
-            "required": false,
-            "value": "https://e.top4top.io/p_19232mwp31.jpg"
-        },
-        "ALIVE_NAME": {
-            "description": "Name to show in .alive message.",
-            "required": false
-        },
-        "ALIVE_NUMBER": {
-            "description": "WhatsApp Number to show in .alive message Example: 628889999xxx",
-            "required": false
-        },
         "SUDO": {
-            "description": "Leave blank if you don't know how to use it! Sudo mode; Your number must be an international number. So you should have your number after the country code. Example: 1205xxxxxxxxx (USA number +1)",
+            "description": "Membuat orang lain dapat mengakses botmu secara total. Masukkan nomornya, contoh: 62888777666 pisahkan dengan tanda koma(,) untuk menambahkan lebih dari 1 nomor.",
             "required": false
         },
         "LANGUAGE": {
-            "description": "Bot language. Azerice => az, English => en, Türkçe => tr, Malayalam => ml, Hindi => HI, Indonesia => ID, Español => ES",
+            "description": "Bahasa yang digunakan bot, en = inggris dan id = indonesia.",
             "required": true,
-            "value": "ID"
+            "value": "id"
         },
         "HANDLERS": {
-            "description": "Komutlar için. For commands.",
+            "description": "Tanda untuk memanggil perintah.",
             "required": true,
-            "value": "^[.]"
+            "value": "^[.!;]"
         },
         "SEND_READ": {
-            "description": "Görüldü atmak istiyorsanız true yazın. Write true if you want to throw seen.",
+            "description": "Otomatis membaca pesan yang dikirim ke-bot anda.",
             "required": true,
             "value": "false"
         },
         "HEROKU": {
-            "description": "Herokuda çalışıyorsa true yazın. If it is running in Heroku, type true.",
+            "description": "Jika anda meng-deploy diheroku, biarkan true.",
             "required": true,
             "value": "true"
         },
         "HEROKU_API_KEY": {
-            "description": "Herokuda API Keyiniz. Heroku API Key.",
+            "description": "Api key heroku anda.",
             "required": true
-        },
-        "MUTE_MESSAGE": {
-            "description": "Düzenlenebilir Mute Mesajı. Customizable Mute Message! Use => default, to change back.",
-            "required": false,
-            "value": "default"
         },
         "BLOCK_CHAT": {
-            "description": "Choose in which chat the bot won't work there. Ex: 905xxxx && 905xxxx-1xxx or 905xxxx,905xxx...",
+              "description": "Pilih di obrolan mana bot tidak akan berfungsi di sana. Contoh: 62xxxxxxx && 62xxxxx-1xxx atau 62xxxx,62xxx dst.",
             "required": false,
             "value": "false"
-        },
-        "UNMUTE_MESSAGE": {
-            "description": "Düzenlenebilir Unmute Mesajı. Customizable Unmute Message! Use => default, to change back.",
-            "required": false,
-            "value": "default"
-        },
-        "WORK_TYPE": {
-            "description": "WhatsAsena Working Type. If you use “public”, everyone can use the bot. Else if you use “private”, only you can use your bot.",
-            "required": true,
-            "value": "private"
         },
         "HEROKU_APP_NAME": {
-            "description": "Herokuda uygulama adı. Heroku APP Name.",
+            "description": "Nama app heroku anda.",
             "required": true
         },
-        "DEBUG": {
-            "description": "Geliştiricilere özeldir.",
-            "required": true,
-            "value": "false"
-        },
         "REMOVE_BG_API_KEY": {
-            "description": "Fotoğrafların arkaplanını kaldırır. https://remove.bg",
-            "required": false,
-            "value": "imwwY3fr7F6tGSno7CX3fVDs"
+            "description": "Api key untuk modul rbg. Dapatkan disini https://remove.bg",
+            "required": false
         },
-        "BAN_MESSAGE": {
-            "description": "Customizable Ban Message! Use => default, to change back.",
-            "required": false,
-            "value": "default"
+        "LH_API_KEY": {
+            "description": "Api key untuk mengaktifkan beberapa fitur. Dapatkan disini https://api.lolhuman.xyz",
+            "required": true
         },
-        "KICKME_MESSAGE": {
-            "description": "Customizable Kickme Message! Use => default, to change back.",
-            "required": false,
-            "value": "default"
-        },
-        "PROMOTE_MESSAGE": {
-            "description": "Customizable Promote Message! Use => default, to change back.",
-            "required": false,
-            "value": "default"
-        },
-        "DEMOTE_MESSAGE": {
-            "description": "Customizable Demote Message! Use => default, to change back.",
-            "required": false,
-            "value": "default"
-        },
-        "AFK_MESSAGE": {
-            "description": "Customizable AFK Message! Use => default, to change back.",
-            "required": false,
-            "value": "default"
-        },
-        "GAN_IMAGE": {
-            "description": "Gan Style eklentisi için resim bağlantısı yazın. Type image link for Gan Style plugin.",
-            "required": true,
-            "value": "https://i.hizliresim.com/loUtAb.jpg"
-        },
-        "NO_ONLINE": {
-            "description": "Çevrimiçi görünmek istemiyorsanız true yazın. Type true if you don't want to appear online.",
-            "required": false,
-            "value": "true"
-        },
-         "LH_API_KEY": {
-            "description": "Lol Homan rest api's API Key. Get in https://api.lolhuman.xyz.",
-            "required": false,
-            "value": ""
-        },
-        "COFFEEHOUSE_API_KEY": {
-            "description": "CoffeeHouse API Key. Need for Lydia. https://coffeehouse.intellivoid.net/",
+       "NO_ONLINE": {
+            "description": "Supaya tidak terlihat online.",
             "required": false,
             "value": "true"
         }
