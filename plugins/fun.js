@@ -58,6 +58,18 @@ if (Config.WORKTYPE == 'private') {
 
     }));
 	
+ // SWEET HOLOGRAPHIC [LOGO MAKER]
+	
+    Asena.addCommand({ pattern: 'sweet ?(.*)', fromMe: true, desc: Lang.SWEET_DESC }, (async (message, match) => {
+
+        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
+
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/textprome/holographic?apikey='+Config.LH_API+'&text='+match[1]+'', { responseType: 'arraybuffer' })
+
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
+
+    }));
+	
  // BLACK PINK [LOGO MAKER]
 	
     Asena.addCommand({ pattern: 'blackpink ?(.*)', fromMe: true, desc: Lang.BLACKPINK_DESC }, (async (message, match) => {
@@ -498,7 +510,7 @@ else if (Config.WORKTYPE == 'public') {
 	
  // HARTA TAHTA [LOGO MAKER]
 	
-    Asena.addCommand({ pattern: 'tahta ?(.*)', fromMe: true, desc: Lang.HARTATAHTA_DESC }, (async (message, match) => {
+    Asena.addCommand({ pattern: 'tahta ?(.*)', fromMe: false, desc: Lang.HARTATAHTA_DESC }, (async (message, match) => {
 
         if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
 
@@ -510,11 +522,23 @@ else if (Config.WORKTYPE == 'public') {
 	
  // CUSTOM HARTA TAHTA [LOGO MAKER]
 	
-    Asena.addCommand({ pattern: 'ctahta ?(.*)', fromMe: true, desc: Lang.CHARTATAHTA_DESC }, (async (message, match) => {
+    Asena.addCommand({ pattern: 'ctahta ?(.*)', fromMe: false, desc: Lang.CHARTATAHTA_DESC }, (async (message, match) => {
 
         if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
 
         var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/hartacustom?apikey='+Config.LH_API+'&text='+match[1]+'', { responseType: 'arraybuffer' })
+
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
+
+    }));
+	
+ // SWEET HOLOGRAPHIC [LOGO MAKER]
+	
+    Asena.addCommand({ pattern: 'sweet ?(.*)', fromMe: false, desc: Lang.SWEET_DESC }, (async (message, match) => {
+
+        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
+
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/textprome/holographic?apikey='+Config.LH_API+'&text='+match[1]+'', { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 
