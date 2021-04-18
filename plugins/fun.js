@@ -14,6 +14,33 @@ const Lang = Language.getString('fun');
 
 if (Config.WORKTYPE == 'private') {
 	
+ // Cerita Horror
+	
+    Asena.addCommand({ pattern: 'horror$', fromMe: true, desc: Lang.HORROR_DESC }, async (message, match) => {
+        await axios
+          .get('https://api.lolhuman.xyz/api/ceritahoror?apikey='+Config.LH_API+'')
+          .then(async (response) => {
+            const {
+              title,
+              thumbnail,
+	      desc,
+            } = response.data.result
+
+            const profileBuffer = await axios.get(thumbnail, {
+              responseType: 'arraybuffer',
+            })
+
+            const msg = `*Cerita Horror:* *${title}*
+
+${desc}
+`
+            await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
+              caption: msg,
+            })
+          })
+      },
+    )
+	
  // SimSimi
 	
 	Asena.addCommand({ pattern: 'simi ?(.*)', fromMe: true, desc: Lang.SIMI_DESC }, async (message, match) => {
@@ -487,6 +514,33 @@ await message.client.sendMessage(message.jid, `${r_text[i]}` + '\n\n-- Bot', Mes
 
 
 else if (Config.WORKTYPE == 'public') {
+	
+ // Cerita Horror
+	
+    Asena.addCommand({ pattern: 'horror$', fromMe: false, desc: Lang.HORROR_DESC }, async (message, match) => {
+        await axios
+          .get('https://api.lolhuman.xyz/api/ceritahoror?apikey='+Config.LH_API+'')
+          .then(async (response) => {
+            const {
+              title,
+              thumbnail,
+	      desc,
+            } = response.data.result
+
+            const profileBuffer = await axios.get(thumbnail, {
+              responseType: 'arraybuffer',
+            })
+
+            const msg = `*Cerita Horror:* *${title}*
+
+${desc}
+`
+            await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
+              caption: msg,
+            })
+          })
+      },
+    )
 	
  // SimSimi
 	
