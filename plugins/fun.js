@@ -14,6 +14,26 @@ const Lang = Language.getString('fun');
 
 if (Config.WORKTYPE == 'private') {
 	
+ // SimSimi
+	
+	Asena.addCommand({ pattern: 'simi ?(.*)', fromMe: true, desc: Lang.SIMI_DESC }, async (message, match) => {
+
+        const simSimi = match[1]
+
+        await axios
+          .get('https://api.lolhuman.xyz/api/simi?apikey='+Config.LH_API+'&text='+match[1]+'')
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const msg = `*Pertanyaan:* ${simSimi}\n*Jawaban Simi:* ${result}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
+	
  // HARTA TAHTA YAHAHA [LOGO MAKER]
 	
     Asena.addCommand({ pattern: 'hartatahta ?(.*)', fromMe: true, desc: Lang.HARTATAHTA_DESC }, (async (message, match) => {
@@ -443,6 +463,26 @@ await message.client.sendMessage(message.jid, `${r_text[i]}` + '\n\n-- Bot', Mes
 
 
 else if (Config.WORKTYPE == 'public') {
+	
+ // SimSimi
+	
+	Asena.addCommand({ pattern: 'simi ?(.*)', fromMe: false, desc: Lang.SIMI_DESC }, async (message, match) => {
+
+        const simSimi = match[1]
+
+        await axios
+          .get('https://api.lolhuman.xyz/api/simi?apikey='+Config.LH_API+'&text='+match[1]+'')
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const msg = `*Pertanyaan:* ${simSimi}\n*Jawaban Simi:* ${result}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
 	
  // HARTA TAHTA YAHAHA [LOGO MAKER]
 	
