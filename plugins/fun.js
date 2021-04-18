@@ -30,10 +30,10 @@ if (Config.WORKTYPE == 'private') {
               responseType: 'arraybuffer',
             })
 
-            const msg = `*Cerita Horror:* *${title}*
+            const msg = `*Cerita Horror:*
+${title}
 
-${desc}
-`
+${desc}`
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
               caption: msg,
             })
@@ -531,10 +531,10 @@ else if (Config.WORKTYPE == 'public') {
               responseType: 'arraybuffer',
             })
 
-            const msg = `*Cerita Horror:* *${title}*
+            const msg = `*Cerita Horror:*
+${title}
 
-${desc}
-`
+${desc}`
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
               caption: msg,
             })
