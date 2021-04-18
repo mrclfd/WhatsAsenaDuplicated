@@ -81,7 +81,7 @@ ${desc}`
 
         if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
 
-        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/hartacustom?apikey='+Config.LH_API+'&text='+match[1]+'', { responseType: 'arraybuffer' })
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/hartacustom?apikey='+Config.LH_API+'&text='+match[1].replace(/#/gi, "\n")+'', { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 
@@ -584,7 +584,7 @@ ${desc}`
 
         if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
 
-        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/hartacustom?apikey='+Config.LH_API+'&text='+match[1]+'', { responseType: 'arraybuffer' })
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/hartacustom?apikey='+Config.LH_API+'&text='+match[1].replace(/#/gi, "\n")+'', { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 
