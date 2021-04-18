@@ -46,6 +46,8 @@ ${desc}`
 	Asena.addCommand({ pattern: 'simi ?(.*)', fromMe: true, desc: Lang.SIMI_DESC }, async (message, match) => {
 
         const simSimi = match[1]
+	
+	if (match[1] === '') return await message.client.sendMessage(message.jid,'```Masukkan pertanyaan!```', MessageType.text);
 
         await axios
           .get('https://api.lolhuman.xyz/api/simi?apikey='+Config.LH_API+'&text='+match[1]+'')
@@ -547,6 +549,8 @@ ${desc}`
 	Asena.addCommand({ pattern: 'simi ?(.*)', fromMe: false, desc: Lang.SIMI_DESC }, async (message, match) => {
 
         const simSimi = match[1]
+	
+	if (match[1] === '') return await message.client.sendMessage(message.jid,'```Masukkan pertanyaan!```', MessageType.text);
 
         await axios
           .get('https://api.lolhuman.xyz/api/simi?apikey='+Config.LH_API+'&text='+match[1]+'')
