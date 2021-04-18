@@ -12,7 +12,7 @@ Asena.addCommand({ pattern: 'brainly ?(.*)', fromMe: true, desc: Lang.BRAINLY_DE
 
         const Soal = match[1]
         
-        if (match[1] === '') return await message.client.sendMessage(message.jid,'```Masukkan pertanyaan!```', MessageType.text);
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan pertanyaan!*', MessageType.text);
 
         await axios
           .get(`https://api.xteam.xyz/brainly?APIKEY=10c4105200edc0f0&soal=${Soal}`)
@@ -36,7 +36,7 @@ if (Config.WORKTYPE == 'public') {
 
         const Soal = match[1]
         
-        if (match[1] === '') return await message.client.sendMessage(message.jid,'```Masukkan pertanyaan!```', MessageType.text);
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan pertanyaan!*', MessageType.text);
 
         await axios
           .get(`https://api.xteam.xyz/brainly?APIKEY=10c4105200edc0f0&soal=${Soal}`)
