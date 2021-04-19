@@ -13,7 +13,7 @@ const got = require('got');
 const Config = require('../config');
 
 const Language = require('../language');
-const Lang = Language.getString('nekobin');
+const Lang = Language.getString('paste');
 
 if (Config.WORKTYPE == 'private') {
 
