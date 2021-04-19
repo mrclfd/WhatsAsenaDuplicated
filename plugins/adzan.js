@@ -16,7 +16,7 @@ if (Config.WORKTYPE == 'private') {
 
         Asena.addCommand({pattern: 'adzan ?(.*)', desc: Lang.ADZAN_DESC, fromMe: true}, async (message, match) => {
 
-	    if (match[1] === '') return await message.reply(Lang.NEED_LOCATION);
+	    if (match[1] === '') return await message.reply('*Masukkan kota!*');
 	    const url = `https://api.pray.zone/v2/times/today.json?city=${match[1]}`;
 	    try {
 		    const response = await got(url);
@@ -40,7 +40,7 @@ if (Config.WORKTYPE == 'public') {
   
   Asena.addCommand({pattern: 'adzan ?(.*)', desc: Lang.ADZAN_DESC, fromMe: false}, async (message, match) => {
 
-	    if (match[1] === '') return await message.reply(Lang.NEED_LOCATION);
+	    if (match[1] === '') return await message.reply('*Masukkan kota!*');
 	    const url = `https://api.pray.zone/v2/times/today.json?city=${match[1]}`;
 	    try {
 		    const response = await got(url);

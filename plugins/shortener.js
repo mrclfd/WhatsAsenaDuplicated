@@ -15,6 +15,8 @@ if (Config.WORKTYPE == 'private') {
     Asena.addCommand({ pattern: 'sid ?(.*)', fromMe: true, desc: Lang.SID_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get(`https://api.zeks.xyz/api/sid-shortener?apikey=apivinz&url=${linkAsli}`)
@@ -35,6 +37,8 @@ if (Config.WORKTYPE == 'private') {
      Asena.addCommand({ pattern: 'sat ?(.*)', fromMe: true, desc: Lang.SAT_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get(`https://docs-jojo.herokuapp.com/api/shorturl-at?url=${linkAsli}`)
@@ -54,6 +58,8 @@ if (Config.WORKTYPE == 'private') {
      Asena.addCommand({ pattern: 'cutt ?(.*)', fromMe: true, desc: Lang.CUTTLY_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get(`https://docs-jojo.herokuapp.com/api/cuttly?url=${linkAsli}`)
@@ -73,6 +79,8 @@ if (Config.WORKTYPE == 'private') {
     Asena.addCommand({ pattern: 'bitly ?(.*)', fromMe: true, desc: Lang.BITLY_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get(`https://api.xteam.xyz/shorturl/bitly?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
@@ -92,6 +100,8 @@ if (Config.WORKTYPE == 'private') {
     Asena.addCommand({ pattern: 'gg ?(.*)', fromMe: true, desc: Lang.GG_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get(`https://api.xteam.xyz/shorturl/gg?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
@@ -111,6 +121,8 @@ if (Config.WORKTYPE == 'private') {
     Asena.addCommand({ pattern: 'shrtco ?(.*)', fromMe: true, desc: Lang.SHRT_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get('https://api.lolhuman.xyz/api/shortlink2?apikey='+Config.LH_API+'&url='+match[1]+'')
@@ -129,7 +141,7 @@ if (Config.WORKTYPE == 'private') {
  // tinyurl.com SHORTENER
     Asena.addCommand({pattern: 'tinyurl ?(.*)', fromMe: true, desc: Lang.TINYURL_DESC }, (async (message, match) => {
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid, SLang.LİNK, MessageType.text);
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         TinyURL.shorten(`${match[1]}`, async(res, err) => {
           if (err)
@@ -146,6 +158,8 @@ if (Config.WORKTYPE == 'public') {
     Asena.addCommand({ pattern: 'sid ?(.*)', fromMe: false, desc: Lang.SID_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get(`https://api.zeks.xyz/api/sid-shortener?apikey=apivinz&url=${linkAsli}`)
@@ -166,6 +180,8 @@ if (Config.WORKTYPE == 'public') {
      Asena.addCommand({ pattern: 'sat ?(.*)', fromMe: false, desc: Lang.SAT_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get(`https://docs-jojo.herokuapp.com/api/shorturl-at?url=${linkAsli}`)
@@ -185,6 +201,8 @@ if (Config.WORKTYPE == 'public') {
      Asena.addCommand({ pattern: 'cutt ?(.*)', fromMe: false, desc: Lang.CUTTLY_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get(`https://docs-jojo.herokuapp.com/api/cuttly?url=${linkAsli}`)
@@ -204,6 +222,8 @@ if (Config.WORKTYPE == 'public') {
     Asena.addCommand({ pattern: 'bitly ?(.*)', fromMe: false, desc: Lang.BITLY_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get(`https://api.xteam.xyz/shorturl/bitly?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
@@ -223,6 +243,8 @@ if (Config.WORKTYPE == 'public') {
     Asena.addCommand({ pattern: 'gg ?(.*)', fromMe: false, desc: Lang.GG_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get(`https://api.xteam.xyz/shorturl/gg?APIKEY=10c4105200edc0f0&url=${linkAsli}`)
@@ -242,6 +264,8 @@ if (Config.WORKTYPE == 'public') {
     Asena.addCommand({ pattern: 'shrtco ?(.*)', fromMe: false, desc: Lang.SHRT_DESC }, async (message, match) => {
 
         const linkAsli = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         await axios
           .get('https://api.lolhuman.xyz/api/shortlink2?apikey='+Config.LH_API+'&url='+match[1]+'')
@@ -260,7 +284,7 @@ if (Config.WORKTYPE == 'public') {
  // tinyurl.com SHORTENER
     Asena.addCommand({pattern: 'tinyurl ?(.*)', fromMe: false, desc: Lang.TINYURL_DESC }, (async (message, match) => {
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid, SLang.LİNK, MessageType.text);
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan link!*', MessageType.text);
 
         TinyURL.shorten(`${match[1]}`, async(res, err) => {
           if (err)

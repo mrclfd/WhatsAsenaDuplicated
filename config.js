@@ -19,7 +19,7 @@ DATABASE_URL = process.env.DATABASE_URL === undefined ? './whatsasena.db' : proc
 DEBUG = process.env.DEBUG === undefined ? false : convertToBool(process.env.DEBUG);
 
 module.exports = {
-    VERSION: 'v2.0-unofficial',
+    VERSION: 'v2.4-unofficial',
     SESSION: process.env.ASENA_SESSION === undefined ? '' : process.env.ASENA_SESSION,
     GANSTYLE: process.env.GAN_IMAGE === undefined ? 'https://i.hizliresim.com/loUtAb.jpg' : process.env.GAN_IMAGE,
     LANG: process.env.LANGUAGE === undefined ? 'ID' : process.env.LANGUAGE.toUpperCase(),
@@ -40,7 +40,7 @@ module.exports = {
     NO_WA: process.env.ALIVE_NUMBER === undefined ? 'unknown' : process.env.ALIVE_NUMBER,
     USER_WA: process.env.ALIVE_NAME === undefined ? 'unknown' : process.env.ALIVE_NAME,
     LH_API: process.env.LH_API_KEY === undefined ? 'AUFUH724T9AH821ASC' : process.env.LH_API_KEY,
-    BRANCH: 'master',
+    BRANCH: 'latest',
     HEROKU: {
         HEROKU: process.env.HEROKU === undefined ? false : convertToBool(process.env.HEROKU),
         API_KEY: process.env.HEROKU_API_KEY === undefined ? '' : process.env.HEROKU_API_KEY,

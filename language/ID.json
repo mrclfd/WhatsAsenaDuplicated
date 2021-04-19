@@ -401,16 +401,17 @@
             "URL": "*Masukkan URL gambar!*\nContoh: ```https://i.hizliresim.com/nrg50b.jpg```"
         },
         "ttp": {
-            "TTP_DESC": "Mengubah teks menjadi foto tulisan.",
             "NEED_WORD": "*Masukkan kata!*",
             "ANIME_DESC": "Menulis teks di dalam kertas yang dipegang oleh gadis anime.",
             "TRUMP_DESC": "Mengubah teks menjadi tweet Trump.",
             "BTTP_DESC": "Mengubah teks menjadi stiker hitam.",
             "CHANGE_DESC": "Mengubah teks menjadi poster change my mind.",
             "ATTP_DESC": "Mengubah teks menjadi stiker berwarna.",
-            "GLOW_DESC": "Mengubah teks menjadi foto tulisan neon."
+            "CTTP_DESC": "Mengubah teks menjadi stiker cool.",
+            "GTTP_DESC": "Mengubah teks menjadi stiker berwarna acak."
         },
         "fun": {
+            "NEED_WORD": "*Masukkan teks!*",
             "LOLI_DESC": "Mendapatkan gambar loli acak.",
             "EMPTY_DESC": "Mengirim pesan kosong.",
             "HUSBU_DESC": "Mendapatkan gambar husbu acak.",
@@ -431,13 +432,17 @@
             "DESKRIPSINE": "Deskripsi",
             "LINKE": "URL",
             "GAMBARE": "Thumb",
-            "HARTATAHTA_DESC": "Membuat logo harta tahta subur jaya.",
+            "HARTATAHTA_DESC": "Membuat logo harta tahta.",
+            "CHARTATAHTA_DESC": "Membuat logo harta tahta kustom.```\n⌨️ *Contoh:* ```.ctahta i#love#pakmu",
             "BLACKPINK_DESC": "Membuat logo blackpink.",
-            "MARVEL_DESC": "Membuat logo marvel. Gunakan ; sbg tanda pemisah.",
-            "PH_DESC": "Membuat logo apek pokok e. Gunakan ; sbg tanda pemisah.",
-            "QUOTE_DESC": "Membuat quote. Gunakan ; sbg tanda pemisah.",
+            "MARVEL_DESC": "Membuat logo marvel.```\n⌨️ *Contoh:* ```.marvel marble;studio",
+            "PH_DESC": "Membuat logo apek pokok e.```\n⌨️ *Contoh:* ```.ph DIS;HUB",
+            "SWEET_DESC": "Membuat logo sweet holographic.",
+            "HORROR_DESC": "Cerita horror.",
+            "QUOTE_DESC": "Membuat quote.```\n⌨️ *Contoh:* ```.q bumi itu datar, sedatar perasaanmu ke-aku.;rapiXganz",
             "DARKJOKE_DESC": "Random darkjoke ni boss.",
-            "MEMEINDO_DESC": "Random meme ni boss."
+            "MEMEINDO_DESC": "Random meme ni boss.",
+            "SIMI_DESC": "Main sama simi."
         },
         "wallpaper": {
             "WP": "Mengirimkan wallpaper resolusi tinggi yang berbeda."
@@ -479,7 +484,7 @@
             "NOT_FOUND": "Pengguna tidak ditemukan: "
         },
         "github": {
-            "GİTHUB_DESC": "Mengumpulkan informasi github dari nama pengguna yang diberikan.```\n⌨️ *Contoh:* ```.github phaticusthiccy",
+            "GİTHUB_DESC": "Mengumpulkan informasi github dari nama pengguna yang diberikan.```\n⌨️ *Contoh:* ```.github <nama pengguna>",
             "REPLY": "```Masukkan nama pengguna!```",
             "NOT": "```Pengguna tidak ditemukan!```",
             "FOLLOWERS": "Pengikut:",

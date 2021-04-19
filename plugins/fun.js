@@ -14,13 +14,86 @@ const Lang = Language.getString('fun');
 
 if (Config.WORKTYPE == 'private') {
 	
- // HARTA TAHTA YAHAHA [LOGO MAKER]
+ // Cerita Horror
 	
-    Asena.addCommand({ pattern: 'hartatahta ?(.*)', fromMe: true, desc: Lang.HARTATAHTA_DESC }, (async (message, match) => {
+    Asena.addCommand({ pattern: 'horror$', fromMe: true, desc: Lang.HORROR_DESC }, async (message, match) => {
+        await axios
+          .get('https://api.lolhuman.xyz/api/ceritahoror?apikey='+Config.LH_API+'')
+          .then(async (response) => {
+            const {
+              title,
+              thumbnail,
+	      desc,
+            } = response.data.result
+
+            const profileBuffer = await axios.get(thumbnail, {
+              responseType: 'arraybuffer',
+            })
+
+            const msg = `*Cerita Horror:*
+${title}
+
+${desc}`
+            await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
+              caption: msg,
+            })
+          })
+      },
+    )
+	
+ // SimSimi
+	
+	Asena.addCommand({ pattern: 'simi ?(.*)', fromMe: true, desc: Lang.SIMI_DESC }, async (message, match) => {
+
+        const simSimi = match[1]
+	
+	if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan pertanyaan!*', MessageType.text);
+
+        await axios
+          .get('https://api.lolhuman.xyz/api/simi?apikey='+Config.LH_API+'&text='+match[1]+'')
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const msg = `*Pertanyaan:* ${simSimi}\n*Jawaban Simi:* ${result}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
+	
+ // HARTA TAHTA [LOGO MAKER]
+	
+    Asena.addCommand({ pattern: 'tahta ?(.*)', fromMe: true, desc: Lang.HARTATAHTA_DESC }, (async (message, match) => {
 
         if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
 
         var ttinullimage = await axios.get(`https://api.zeks.xyz/api/hartatahta?apikey=apivinz&text=${match[1].replace(/Ö/g, "%C3%96").replace(/ö/g, "%C3%B6").replace(/ü/g, "%C3%BC").replace(/Ü/g, "%C3%9C").replace(/Ğ/g, "%C4%9E").replace(/ğ/g, "%C4%9F").replace(/ş/g, "%C5%9F").replace(/Ş/g, "%C5%9E").replace(/ç/g, "%C3%A7").replace(/Ç/g, "%C3%87").replace(/ı/g, "%C4%B1").replace(/i/g, "%69").replace(/"/g, "%22").replace(/İ/g, "%C4%B0")}`, { responseType: 'arraybuffer' })
+
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
+
+    }));
+	
+ // CUSTOM HARTA TAHTA [LOGO MAKER]
+	
+    Asena.addCommand({ pattern: 'ctahta ?(.*)', fromMe: true, desc: Lang.CHARTATAHTA_DESC }, (async (message, match) => {
+
+        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
+
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/hartacustom?apikey='+Config.LH_API+'&text='+match[1].replace(/#/gi, "\n")+'', { responseType: 'arraybuffer' })
+
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
+
+    }));
+	
+ // SWEET HOLOGRAPHIC [LOGO MAKER]
+	
+    Asena.addCommand({ pattern: 'sweet ?(.*)', fromMe: true, desc: Lang.SWEET_DESC }, (async (message, match) => {
+
+        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
+
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/textprome/holographic?apikey='+Config.LH_API+'&text='+match[1]+'', { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 
@@ -101,7 +174,7 @@ if (Config.WORKTYPE == 'private') {
             bottomText = '';
         }
 
-        var ttinullimage = await axios.get(`https://api.xteam.xyz/quotemaker?APIKEY=10c4105200edc0f0&text=${split[0]}&wm=${split[1]}`, { responseType: 'arraybuffer' })
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/quotemaker2?apikey='+Config.LH_API+'&text='+split[0]+'&author='+split[1]+'', { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 
@@ -444,13 +517,86 @@ await message.client.sendMessage(message.jid, `${r_text[i]}` + '\n\n-- Bot', Mes
 
 else if (Config.WORKTYPE == 'public') {
 	
- // HARTA TAHTA YAHAHA [LOGO MAKER]
+ // Cerita Horror
 	
-    Asena.addCommand({ pattern: 'hartatahta ?(.*)', fromMe: false, desc: Lang.HARTATAHTA_DESC }, (async (message, match) => {
+    Asena.addCommand({ pattern: 'horror$', fromMe: false, desc: Lang.HORROR_DESC }, async (message, match) => {
+        await axios
+          .get('https://api.lolhuman.xyz/api/ceritahoror?apikey='+Config.LH_API+'')
+          .then(async (response) => {
+            const {
+              title,
+              thumbnail,
+	      desc,
+            } = response.data.result
+
+            const profileBuffer = await axios.get(thumbnail, {
+              responseType: 'arraybuffer',
+            })
+
+            const msg = `*Cerita Horror:*
+${title}
+
+${desc}`
+            await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
+              caption: msg,
+            })
+          })
+      },
+    )
+	
+ // SimSimi
+	
+	Asena.addCommand({ pattern: 'simi ?(.*)', fromMe: false, desc: Lang.SIMI_DESC }, async (message, match) => {
+
+        const simSimi = match[1]
+	
+	if (match[1] === '') return await message.client.sendMessage(message.jid,'```Masukkan pertanyaan!```', MessageType.text);
+
+        await axios
+          .get('https://api.lolhuman.xyz/api/simi?apikey='+Config.LH_API+'&text='+match[1]+'')
+          .then(async (response) => {
+            const {
+              result,
+            } = response.data
+
+            const msg = `*Pertanyaan:* ${simSimi}\n*Jawaban Simi:* ${result}`
+
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
+	
+ // HARTA TAHTA [LOGO MAKER]
+	
+    Asena.addCommand({ pattern: 'tahta ?(.*)', fromMe: false, desc: Lang.HARTATAHTA_DESC }, (async (message, match) => {
 
         if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
 
         var ttinullimage = await axios.get(`https://api.zeks.xyz/api/hartatahta?apikey=apivinz&text=${match[1].replace(/Ö/g, "%C3%96").replace(/ö/g, "%C3%B6").replace(/ü/g, "%C3%BC").replace(/Ü/g, "%C3%9C").replace(/Ğ/g, "%C4%9E").replace(/ğ/g, "%C4%9F").replace(/ş/g, "%C5%9F").replace(/Ş/g, "%C5%9E").replace(/ç/g, "%C3%A7").replace(/Ç/g, "%C3%87").replace(/ı/g, "%C4%B1").replace(/i/g, "%69").replace(/"/g, "%22").replace(/İ/g, "%C4%B0")}`, { responseType: 'arraybuffer' })
+
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
+
+    }));
+	
+ // CUSTOM HARTA TAHTA [LOGO MAKER]
+	
+    Asena.addCommand({ pattern: 'ctahta ?(.*)', fromMe: false, desc: Lang.CHARTATAHTA_DESC }, (async (message, match) => {
+
+        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
+
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/hartacustom?apikey='+Config.LH_API+'&text='+match[1].replace(/#/gi, "\n")+'', { responseType: 'arraybuffer' })
+
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
+
+    }));
+	
+ // SWEET HOLOGRAPHIC [LOGO MAKER]
+	
+    Asena.addCommand({ pattern: 'sweet ?(.*)', fromMe: false, desc: Lang.SWEET_DESC }, (async (message, match) => {
+
+        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
+
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/textprome/holographic?apikey='+Config.LH_API+'&text='+match[1]+'', { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 
@@ -531,7 +677,7 @@ else if (Config.WORKTYPE == 'public') {
             bottomText = '';
         }
 
-        var ttinullimage = await axios.get(`https://api.xteam.xyz/quotemaker?APIKEY=10c4105200edc0f0&text=${split[0]}&wm=${split[1]}`, { responseType: 'arraybuffer' })
+        var ttinullimage = await axios.get('https://api.lolhuman.xyz/api/quotemaker2?apikey='+Config.LH_API+'&text='+split[0]+'&author='+split[1]+'', { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.png, caption: ' ' })
 

@@ -11,6 +11,8 @@ if (Config.WORKTYPE == 'private') {
 Asena.addCommand({ pattern: 'brainly ?(.*)', fromMe: true, desc: Lang.BRAINLY_DESC }, async (message, match) => {
 
         const Soal = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan pertanyaan!*', MessageType.text);
 
         await axios
           .get(`https://api.xteam.xyz/brainly?APIKEY=10c4105200edc0f0&soal=${Soal}`)
@@ -33,6 +35,8 @@ if (Config.WORKTYPE == 'public') {
   Asena.addCommand({ pattern: 'brainly ?(.*)', fromMe: false, desc: Lang.BRAINLY_DESC }, async (message, match) => {
 
         const Soal = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan pertanyaan!*', MessageType.text);
 
         await axios
           .get(`https://api.xteam.xyz/brainly?APIKEY=10c4105200edc0f0&soal=${Soal}`)
