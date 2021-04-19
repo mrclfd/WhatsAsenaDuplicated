@@ -1,1 +1,79 @@
+{
+    "name": "WhatsAsenaDuplicated",
+    "description": "WhatsAsena project - Makes it easy and fun to use Whatsapp. World’s first UserBot made for WhatsApp.",
+    "logo": "https://i.hizliresim.com/6Bbj7i.jpg",
+    "keywords": ["whatsapp", "userbot", "Asena", "WhatsAsena", "bot", "api", "ai"],
+    "repository": "https://github.com/mrclfd/WhatsAsenaDuplicated",
+    "website":   "https://t.me/phaticusthiccy",
+    "success_url": "https://t.me/AsenaSupport",
+    "stack": "container",
+    "env": {
+        "ASENA_SESSION": {
+            "description": "Kode sesi yang kamu dapatkan setelah meng-scan QR Whatsapp web.",
+            "required": true
+        },
+        "SUDO": {
+            "description": "Membuat orang lain dapat mengakses botmu secara total. Masukkan nomornya, contoh: 62888777666 pisahkan dengan tanda koma(,) untuk menambahkan lebih dari 1 nomor.",
+            "required": false
+        },
+        "LANGUAGE": {
+            "description": "Bahasa yang digunakan bot, en = inggris dan id = indonesia.",
+            "required": true,
+            "value": "id"
+        },
+        "HANDLERS": {
+            "description": "Tanda untuk memanggil perintah.",
+            "required": true,
+            "value": "^[.]"
+        },
+        "SEND_READ": {
+            "description": "Otomatis membaca pesan yang dikirim ke-bot anda.",
+            "required": true,
+            "value": "false"
+        },
+        "HEROKU": {
+            "description": "Jika anda meng-deploy diheroku, biarkan true.",
+            "required": true,
+            "value": "true"
+        },
+        "HEROKU_API_KEY": {
+            "description": "Api key heroku anda.",
+            "required": true
+        },
+        "BLOCK_CHAT": {
+              "description": "Pilih di obrolan mana bot tidak akan berfungsi di sana. Contoh: 62xxxxxxx && 62xxxxx-1xxx atau 62xxxx,62xxx dst.",
+            "required": false,
+            "value": "false"
+        },
+        "HEROKU_APP_NAME": {
+            "description": "Nama app heroku anda.",
+            "required": true
+        },
+        "REMOVE_BG_API_KEY": {
+            "description": "Api key untuk modul rbg. Dapatkan disini https://remove.bg",
+            "required": false,
+            "value": "imwwY3fr7F6tGSno7CX3fVDs"
+        },
+        "LH_API_KEY": {
+            "description": "Api key untuk mengaktifkan beberapa fitur. Dapatkan disini https://api.lolhuman.xyz",
+            "required": true
+        },
+        "WORK_TYPE": {
+            "description": "Mode Bot, public agar semua orang dapat menggunakan botmu, dengan konsekuensi kamu sendiri tidak dapat menggunakan bot, dan hanya bisa .setvar WORK_TYPE:private untuk kembali.",
+            "required": true,
+            "value": "private"
+        },
+       "NO_ONLINE": {
+            "description": "Supaya tidak terlihat online.",
+            "required": false,
+            "value": "true"
+        }
+    },
+    "addons": [{
+      "plan": "heroku-postgresql"
+    }],
+    "buildpacks": [{
+      "url": "heroku-community/apt"
+      }]
+  }
  
