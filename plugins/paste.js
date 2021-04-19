@@ -17,7 +17,7 @@ const Lang = Language.getString('paste');
 
 if (Config.WORKTYPE == 'private') {
 
-    Asena.addCommand({pattern: 'paste$', fromMe: true, desc: Lang.NEKO_DESC}, (async (message, match) => {
+    Asena.addCommand({pattern: 'paste$', fromMe: true, desc: Lang.NEKOBIN_DESC}, (async (message, match) => {
 
         if (!message.reply_message) return await message.sendMessage(Lang.NEED_REPLY);
         if (!message.reply_message.text) return await message.sendMessage(Lang.MUST_TEXT);
@@ -53,7 +53,7 @@ if (Config.WORKTYPE == 'private') {
 }
 else if (Config.WORKTYPE == 'public') {
 
-    Asena.addCommand({pattern: 'paste$', fromMe: false, desc: Lang.NEKO_DESC}, (async (message, match) => {
+    Asena.addCommand({pattern: 'paste$', fromMe: false, desc: Lang.NEKOBIN_DESC}, (async (message, match) => {
 
         if (!message.reply_message) return await message.sendMessage(Lang.NEED_REPLY);
         if (!message.reply_message.text) return await message.sendMessage(Lang.MUST_TEXT);
