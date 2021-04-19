@@ -24,7 +24,7 @@
         "HANDLERS": {
             "description": "Tanda untuk memanggil perintah.",
             "required": true,
-            "value": "^[.!;]"
+            "value": "^[.]"
         },
         "SEND_READ": {
             "description": "Otomatis membaca pesan yang dikirim ke-bot anda.",
@@ -51,7 +51,8 @@
         },
         "REMOVE_BG_API_KEY": {
             "description": "Api key untuk modul rbg. Dapatkan disini https://remove.bg",
-            "required": false
+            "required": false,
+            "value": "imwwY3fr7F6tGSno7CX3fVDs"
         },
         "LH_API_KEY": {
             "description": "Api key untuk mengaktifkan beberapa fitur. Dapatkan disini https://api.lolhuman.xyz",
