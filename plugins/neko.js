@@ -40,7 +40,7 @@ if (Config.WORKTYPE == 'private') {
         if (!message.reply_message.text) return await message.sendMessage(Lang.MUST_TEXT);
         let base_URI = "https://del.dog/documents";
         try {
-            const response = await got.post(base_URI, {data : message.reply_message.text.encode("utf-8")});
+            const response = await got.post(base_URI, {data : message.reply_message.encode("utf-8")});
             json = JSON.parse(response.body);
             dogbin_url = 'https://del.dog/' + json.key;
             await message.reply(dogbin_url);        
@@ -76,7 +76,7 @@ else if (Config.WORKTYPE == 'public') {
         if (!message.reply_message.text) return await message.sendMessage(Lang.MUST_TEXT);
         let base_URI = "https://del.dog/documents";
         try {
-            const response = await got.post(base_URI, {data : message.reply_message.text.encode("utf-8")});
+            const response = await got.post(base_URI, {data : message.reply_message.encode("utf-8")});
             json = JSON.parse(response.body);
             dogbin_url = 'https://del.dog/' + json.key;
             await message.reply(dogbin_url);        
