@@ -119,8 +119,9 @@
             "DEL_SUCCESS": "{} ```Berhasil dihapus!```",
             "NOT_FOUND": "*Var tidak ditemukan, Contoh penggunaan!*\nContoh: ```.getvar ALIVE_NAME```\nContoh: ```.delvar ALIVE_NAME```\nContoh: ```.setvar ALIVE_NAME:Rapi NiBoss```"           
         },
-        "nekobin": {
-            "NEKO_DESC": "Pesan yang dibalas akan ditambahkan ke nekobin.com.",
+        "paste": {
+            "NEKOBIN_DESC": "Paste teks pesan ke nekobin.com.",
+            "DOGBIN_DESC": "Paste teks pesan ke del.dog.",
             "NEED_REPLY": "```Harap balas pesan!```",
             "MUST_TEXT": "```Harap balas pesan apa pun```"
         },
