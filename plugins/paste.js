@@ -1,5 +1,6 @@
 /*
 Nekobin for WhatsAsena - W4RR10R
+Dogbin added by @mrclfd
 
 Licensed under the GPL-3.0 License;
 you may not use this file except in compliance with the License.
@@ -26,7 +27,7 @@ if (Config.WORKTYPE == 'private') {
             const response = await got.post(base_URI, {json : {content : message.reply_message.text}}); 
             json = JSON.parse(response.body);
             neko_url = 'https://nekobin.com/' + json.result.key;
-            await message.reply(neko_url);        
+            await message.reply(`Berhasil ditempel!\n\n[Nekobin URL](${neko_url})\n[Lihat RAW](https://nekobin.com/raw/${json.result.key})`);        
         } catch (err) {
             await message.reply(err.message, MessageType.text);
             console.log(err.message);
