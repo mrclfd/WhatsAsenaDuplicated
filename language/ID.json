@@ -35,9 +35,9 @@
             "ADDED": "*ditambahkan ke grup!",
             "ALREADY_PROMOTED": "```Bagaimana cara menjadikan seseorang admin yang sudah menjadi admin?```",
             "PROMOTED": "```*peran admin telah diberikan!```",
-            "PROMOTE_DESC": "Menjadikan setiap orang sebagai admin.",
-            "DEMOTE_DESC": "Menarik peran admin yang telah diberikan.",
-            "ALREADY_NOT_ADMIN": "```Bagaimana cara menjadikan seseorang admin yang sudah menjadi admin?```",
+            "PROMOTE_DESC": "Menjadikan admin.",
+            "DEMOTE_DESC": "Memberhentikan admin.",
+            "ALREADY_NOT_ADMIN": "```Mana bisa goblook :(```",
             "DEMOTED": "```*peran admin telah ditarik!```",
             "MUTE_DESC": "Bisukan obrolan grup. Hanya admin yang bisa mengirim pesan.```\n⌨️ *Contoh:* ```.mute atau .mute 5m (dll).",
             "MUTED": "```Obrolan grup dibisukan!```",
@@ -238,6 +238,7 @@
         },
         "tagall": {
             "TAGALL_DESC": "Menandai semua orang di grup.",
+            "HIDETAG_DESC": "Tagall tapi ter-hide xixixi.",
             "ADMİN": "*Saya bukan admin di grup ini!*"
         },
         "updater": {
