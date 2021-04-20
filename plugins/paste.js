@@ -44,7 +44,7 @@ if (Config.WORKTYPE == 'private') {
             const response = await got.post(base_URI, {json : {content : message.reply_message.text}}); 
             json = JSON.parse(response.body);
             dogbin_url = 'https://del.dog/' + json.key;
-            await message.reply(dogbin_url);        
+            await message.reply('*Berhasil ditempel!*\n\n```Dogbin URL:```'+dogbin_url+'\n```Lihat RAW:```https://del.dog/raw/'+json.key+'');        
         } catch (err) {
             await message.reply(err.message, MessageType.text);
             console.log(err.message);
@@ -63,7 +63,7 @@ else if (Config.WORKTYPE == 'public') {
             const response = await got.post(base_URI, {json : {content : message.reply_message.text}}); 
             json = JSON.parse(response.body);
             neko_url = 'https://nekobin.com/' + json.result.key;
-            await message.reply(neko_url);        
+            await message.reply('*Berhasil ditempel!*\n\n```Nekobin URL:```'+neko_url+'\n```Lihat RAW:```https://nekobin.com/raw/'+json.result.key+'');        
         } catch (err) {
             await message.reply(err.message, MessageType.text);
             console.log(err.message);
@@ -80,7 +80,7 @@ else if (Config.WORKTYPE == 'public') {
             const response = await got.post(base_URI, {json : {content : message.reply_message.text}}); 
             json = JSON.parse(response.body);
             dogbin_url = 'https://del.dog/' + json.key;
-            await message.reply(dogbin_url);        
+            await message.reply('*Berhasil ditempel!*\n\n```Dogbin URL:```'+dogbin_url+'\n```Lihat RAW:```https://del.dog/raw/'+json.key+'');        
         } catch (err) {
             await message.reply(err.message, MessageType.text);
             console.log(err.message);
