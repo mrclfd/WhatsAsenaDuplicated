@@ -42,7 +42,7 @@ Asena.addCommand({pattern: 'hidetag ?(.*)', fromMe: true, desc: Lang.HIDETAG_DES
         );
         await message.client.sendMessage(message.jid,mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
     }
-    else if (match[1] == '') {
+    else if (match[1] !== '') {
         grup = await message.client.groupMetadata(message.jid);
         var jids = [];
         mesaj = '';
