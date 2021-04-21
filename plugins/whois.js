@@ -258,7 +258,7 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
 const scan = "Memeriksa apakah nomor yang dimasukkan terdaftar di WhatsApp."
 const nos = "*Memeriksa apakah nomor yang dimasukkan terdaftar di WhatsApp.*\n*Contoh:* ```.scan 628xxxxxxxxx```"
 const fin = "*Nomor tidak terdaftar! ❌*"
-const ktm = "*Nomor terdaftar! ✅*\n```Alamat JID:```"
+const ktm = "*Nomor terdaftar! ✅*\n```Alamat JID: ```"
 
 Asena.addCommand({ pattern: 'scan ?(.*)', fromMe: true, desc: scan}, (async (message, match) => { 
 
@@ -266,9 +266,9 @@ Asena.addCommand({ pattern: 'scan ?(.*)', fromMe: true, desc: scan}, (async (mes
 
     var exists = await message.client.isOnWhatsApp(match[1])
     if (exists) {
-        await message.client.sendMessage(message.jid, '```' + match[1] + '```,' + ktm + exists.jid, MessageType.text);
+        await message.client.sendMessage(message.jid, '```' + match[1] + '```, ' + ktm + exists.jid, MessageType.text);
     }
     else {
-        await message.client.sendMessage(message.jid, '```' + match[1] + '```,' + fin, MessageType.text);
+        await message.client.sendMessage(message.jid, '```' + match[1] + '```, ' + fin, MessageType.text);
     }
 }));
