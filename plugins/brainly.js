@@ -23,7 +23,7 @@ Asena.addCommand({ pattern: 'brainly ?(.*)', fromMe: true, desc: Lang.BRAINLY_DE
             } = response.data
 
             const msg = `*Soal:* ${soal}
-*Jawaban Brainly:* ${jawaban.replace(/1Pertanyaan/g, '*(1) Pertanyaan*').replace(/2Pertanyaan/g, '*(2) Pertanyaan*').replace(/3Pertanyaan/g, '*(3) Pertanyaan*').replace(/Jawaban/g, '*(=) Jawaban*').replace(/Brainly ditemukan/g, '')}`
+*Jawaban Brainly:* ${jawaban.replace(/1Pertanyaan/g, '*(1) Pertanyaan*').replace(/2Pertanyaan/g, '*(2) Pertanyaan*').replace(/3Pertanyaan/g, '*(3) Pertanyaan*').replace(/Jawaban/g, '*Jawaban*').replace(/Brainly ditemukan/g, '')}`
             await message.client.sendMessage(message.jid, msg, MessageType.text)
            })
       },
@@ -47,7 +47,7 @@ if (Config.WORKTYPE == 'public') {
             } = response.data
 
             const msg = `*Soal:* ${soal}
-*Jawaban Brainly:* ${jawaban.replace(/1Pertanyaan/g, '*(1) Pertanyaan*').replace(/2Pertanyaan/g, '*(2) Pertanyaan*').replace(/3Pertanyaan/g, '*(3) Pertanyaan*').replace(/Jawaban/g, '*(=) Jawaban*').replace(/Brainly ditemukan/g, '')}`
+*Jawaban Brainly:* ${jawaban.replace(/1Pertanyaan/g, '*(1) Pertanyaan*').replace(/2Pertanyaan/g, '*(2) Pertanyaan*').replace(/3Pertanyaan/g, '*(3) Pertanyaan*').replace(/Jawaban/g, '*Jawaban*').replace(/Brainly ditemukan/g, '')}`
             await message.client.sendMessage(message.jid, msg, MessageType.text)
            })
       },
