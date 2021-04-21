@@ -39,7 +39,7 @@ Asena.addCommand({ pattern: 'whois', fromMe: true, desc: das }, async (message, 
             MessageType.image, 
             { caption: nwmsg }
         );
-    }Orang JID
+    }
 });
 const lhs = "Menyimpan pesan yang dibalas ke log!"
 const rep = "*Silakan Balas Ke Pesan Apa Pun!*"
