@@ -21,14 +21,14 @@
 const Asena = require('../events')
 const { MessageType } = require('@adiwajshing/baileys')
 const axios = require('axios')
-const cn = require('../config');
+const Config = require('../config');
 
 const Language = require('../language')
 const { errorMessage, infoMessage } = require('../helpers')
 const Lang = Language.getString('instagram')
 const Tlang = Language.getString('tiktok')
 
-if (cn.WORKTYPE == 'private') {
+if (Config.WORKTYPE == 'private') {
 
     Asena.addCommand({ pattern: 'ig ?(.*)', fromMe: true, usage: Lang.USAGE, desc: Lang.DESC }, async (message, match) => {
 
@@ -103,7 +103,7 @@ if (cn.WORKTYPE == 'private') {
       },
     )
 }
-else if (cn.WORKTYPE == 'public') {
+else if (Config.WORKTYPE == 'public') {
 
     Asena.addCommand({ pattern: 'ig ?(.*)', fromMe: false, usage: Lang.USAGE, desc: Lang.DESC }, async (message, match) => {
 
