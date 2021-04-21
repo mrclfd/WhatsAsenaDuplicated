@@ -509,7 +509,7 @@
         },
         "tiktok": {
             "TİKTOK": "Mengunduh video dari Tiktok.",
-            "NEED": "*Masukkan tautan video tiktok!*\nContoh: ```.tiktok https://vm.tiktok.com/ZSJY27ExT/```",
+            "NEED": "*Masukkan tautan video tiktok!*\nContoh: ```.ttdl https://vm.tiktok.com/ZSJY27ExT/```",
             "DOWN": "```Mengunduh Video...```",
             "CAPTİON": "Penjelasan:",
             "USERNAME": "Nama pengguna:",
