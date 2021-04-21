@@ -83,7 +83,7 @@ if (Config.WORKTYPE == 'private') {
         await message.client.sendMessage(message.jid, Tlang.DOWN, MessageType.text)
 
         await axios
-          .get('https://api.lolhuman.xyz/api/tiktok?apikey='+Config.LH_API+'&url='+${userName}+'')
+          .get('https://api.lolhuman.xyz/api/tiktok?apikey='+Config.LH_API+'&url='+userName+'')
           .then(async (response) => {
             const {
               link,
@@ -158,7 +158,7 @@ else if (Config.WORKTYPE == 'public') {
         await message.client.sendMessage(message.jid, Tlang.DOWN, MessageType.text)
 
         await axios
-          .get('https://api.lolhuman.xyz/api/tiktok?apikey='+Config.LH_API+'&url='+${userName}+'')
+          .get('https://api.lolhuman.xyz/api/tiktok?apikey='+Config.LH_API+'&url='+userName+'')
           .then(async (response) => {
             const {
               link,
