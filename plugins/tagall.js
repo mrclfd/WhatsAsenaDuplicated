@@ -52,7 +52,7 @@ Asena.addCommand({pattern: 'hidetag ?(.*)', fromMe: true, desc: Lang.HIDETAG_DES
                 jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
             }
         );
-        await message.client.sendMessage(message.jid,mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
+        await message.client.sendMessage(message.jid,`${match[1]}`, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
     }
 }));
 const rp = "*Melaporkan!*"
