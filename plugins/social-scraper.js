@@ -83,13 +83,13 @@ if (cn.WORKTYPE == 'private') {
         await message.client.sendMessage(message.jid, Tlang.DOWN, MessageType.text)
 
         await axios
-          .get(`https://api.xteam.xyz/dl/tiktok?url=${userName}&APIKEY=10c4105200edc0f0`)
+          .get('https://api.lolhuman.xyz/api/tiktok?apikey='+Config.LH_API+'&url='+match[1]+'')
           .then(async (response) => {
             const {
-              server_1,
+              link,
             } = response.data
 
-            const profileBuffer = await axios.get(server_1, {
+            const profileBuffer = await axios.get(link, {
               responseType: 'arraybuffer',
             })
 
@@ -158,13 +158,13 @@ else if (cn.WORKTYPE == 'public') {
         await message.client.sendMessage(message.jid, Tlang.DOWN, MessageType.text)
 
         await axios
-          .get(`https://api.xteam.xyz/dl/tiktok?url=${userName}&APIKEY=10c4105200edc0f0`)
+          .get('https://api.lolhuman.xyz/api/tiktok?apikey='+Config.LH_API+'&url='+match[1]+'')
           .then(async (response) => {
             const {
-              server_1,
+              link,
             } = response.data
 
-            const profileBuffer = await axios.get(server_1, {
+            const profileBuffer = await axios.get(link, {
               responseType: 'arraybuffer',
             })
 
