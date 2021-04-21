@@ -41,11 +41,11 @@ Asena.addCommand({ pattern: 'whois', fromMe: true, desc: das }, async (message, 
         );
     }
 });
-const lhs = "Menyimpan pesan yang dibalas ke log!"
+const lhs = "Menyimpan pesan yang dibalas ke-log!"
 const rep = "*Silakan Balas Ke Pesan Apa Pun!*"
 const lgg = "```===== [LOGGED MESSAGE] =====```\n\n"
-const gr = " Dari grup dengan ID "
-const ks = "Dari Orang Bernomor\n"
+const gr = "Dari grup dengan ID: "
+const ks = "Dari nomor: "
 const msh = "*Pesan:* \n\n"
 Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, match) => { 
 
@@ -63,7 +63,7 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
         else if (message.reply_message.text) {
             await message.client.sendMessage(
                 message.client.user.jid,
-                lgg + meta.id + gr + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' + ks + msh + message.reply_message.text,
+                lgg + gr + meta.id + '\n' + ks + 'wa.me/' + message.reply_message.jid.split('@')[0] + '\n' + msh + message.reply_message.text,
                 MessageType.text
             );
         }  
@@ -82,7 +82,7 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
                     message.client.user.jid,
                     fs.readFileSync('log.jpg'),
                     MessageType.image,
-                    { caption: lgg + meta.id + gr + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' + ks }
+                    { caption: lgg + gr + meta.id + '\n' + ks + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' }
                 );
             });
         }
@@ -101,7 +101,7 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
                     message.client.user.jid,
                     fs.readFileSync('log.mp4'),
                     MessageType.video,
-                    { mimetype: Mimetype.mpeg, caption: lgg + meta.id + gr + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' + ks }
+                    { mimetype: Mimetype.mpeg, caption: lgg + gr + meta.id + '\n' + ks + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' }
                 );
             });
         }
@@ -124,7 +124,7 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
                 );
                 await message.client.sendMessage(
                     message.client.user.jid,
-                    lgg + meta.id + gr + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' + ks,
+                    lgg + gr + meta.id + '\n' + ks + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ',
                     MessageType.text
                 );
             });
@@ -147,7 +147,7 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
                 );
                 await message.client.sendMessage(
                     message.client.user.jid,
-                    lgg + meta.id + gr + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' + ks,
+                    lgg + gr + meta.id + '\n' + ks + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ',
                     MessageType.text
                 );
             });
@@ -164,7 +164,7 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
         else if (message.reply_message.text) {
             await message.client.sendMessage(
                 message.client.user.jid,
-                lgg + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' + ks + msh + message.reply_message.text,
+                lgg + ks + 'wa.me/' + message.reply_message.jid.split('@')[0] + '\n' + msh + message.reply_message.text,
                 MessageType.text
             );
         }  
@@ -183,7 +183,7 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
                     message.client.user.jid,
                     fs.readFileSync('log.jpg'),
                     MessageType.image,
-                    { caption: lgg + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' + ks }
+                    { caption: lgg + ks + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' }
                 );
             });
         }
@@ -202,7 +202,7 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
                     message.client.user.jid,
                     fs.readFileSync('log.mp4'),
                     MessageType.video,
-                    { mimetype: Mimetype.mpeg, caption: lgg + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' + ks }
+                    { mimetype: Mimetype.mpeg, caption: lgg + ks + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' }
                 );
             });
         }
@@ -224,7 +224,7 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
                 );
                 await message.client.sendMessage(
                     message.client.user.jid,
-                    lgg + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' + ks,
+                    lgg + ks + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ',
                     MessageType.text
                 );
             });
@@ -247,7 +247,7 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
                 );
                 await message.client.sendMessage(
                     message.client.user.jid,
-                    lgg + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ' + ks,
+                    lgg + ks + 'wa.me/' + message.reply_message.jid.split('@')[0] + ' ',
                     MessageType.text
                 );
             });
@@ -256,8 +256,9 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: lhs}, (async (message, ma
 }));
 
 const scan = "Memeriksa apakah nomor yang dimasukkan terdaftar di WhatsApp."
-const nos = "*Memeriksa apakah nomor yang dimasukkan terdaftar di WhatsApp.*\n*Contoh:* ```.scan 62xxxx```"
-const fin = "*Nomor itu tidak ada di WhatsApp! ❌*"
+const nos = "*Memeriksa apakah nomor yang dimasukkan terdaftar di WhatsApp.*\n*Contoh:* ```.scan 628xxxxxxxxx```"
+const fin = "*Nomor tidak terdaftar! ❌*"
+const ktm = "*Nomor terdaftar! ✅*\n```Alamat JID:```"
 
 Asena.addCommand({ pattern: 'scan ?(.*)', fromMe: true, desc: scan}, (async (message, match) => { 
 
@@ -265,9 +266,9 @@ Asena.addCommand({ pattern: 'scan ?(.*)', fromMe: true, desc: scan}, (async (mes
 
     var exists = await message.client.isOnWhatsApp(match[1])
     if (exists) {
-        await message.client.sendMessage(message.jid, '```' + match[1] + '``` *Nomor Orang Menggunakan WhatApp! ✅*\n*Alamat JID:* ' + exists.jid, MessageType.text);
+        await message.client.sendMessage(message.jid, '```' + match[1] + '```,' + ktm + exists.jid, MessageType.text);
     }
     else {
-        await message.client.sendMessage(message.jid,match[1] + fin, MessageType.text);
+        await message.client.sendMessage(message.jid, '```' + match[1] + '```,' + fin, MessageType.text);
     }
 }));
