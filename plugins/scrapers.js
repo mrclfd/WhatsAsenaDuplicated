@@ -174,7 +174,6 @@ if (config.WORKTYPE == 'private') {
 
                 reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_SONG,MessageType.text);
                 await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.audio, {mimetype: Mimetype.mp4Audio, ptt: false});
-                return await reply.delete();
             });
     }));
 
@@ -217,7 +216,6 @@ if (config.WORKTYPE == 'private') {
         });
 
         await message.client.sendMessage(message.jid,mesaj,MessageType.text);
-        return await reply.delete();
     }));
 
     Asena.addCommand({pattern: 'wiki ?(.*)', fromMe: true, desc: Lang.WIKI_DESC}, (async (message, match) => { 
@@ -230,7 +228,6 @@ if (config.WORKTYPE == 'private') {
 
         var info = await arama.rawContent();
         await message.client.sendMessage(message.jid, info, MessageType.text);
-        return await reply.delete();
     }));
 
     Asena.addCommand({pattern: 'img ?(.*)', fromMe: true, desc: Lang.IMG_DESC}, (async (message, match) => { 
@@ -666,7 +663,6 @@ else if (config.WORKTYPE == 'public') {
 
         var info = await arama.rawContent();
         await message.client.sendMessage(message.jid, info, MessageType.text);
-        return await reply.delete();
     }));
 
     Asena.addCommand({pattern: 'img ?(.*)', fromMe: false, desc: Lang.IMG_DESC}, (async (message, match) => { 
