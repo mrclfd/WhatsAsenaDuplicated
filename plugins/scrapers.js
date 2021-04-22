@@ -174,7 +174,7 @@ if (config.WORKTYPE == 'private') {
 
                 reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_SONG,MessageType.text);
                 await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.audio, {mimetype: Mimetype.mp4Audio, ptt: false});
-                await reply.delete();
+                return await reply.delete();
             });
     }));
 
@@ -196,7 +196,7 @@ if (config.WORKTYPE == 'private') {
         yt.on('end', async () => {
             reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_VIDEO,MessageType.text);
             await message.client.sendMessage(message.jid,fs.readFileSync('./' + arama.videoId + '.mp4'), MessageType.video, {mimetype: Mimetype.mp4});
-            await reply.delete();
+            return await reply.delete();
         });
     }));
 
@@ -217,7 +217,7 @@ if (config.WORKTYPE == 'private') {
         });
 
         await message.client.sendMessage(message.jid,mesaj,MessageType.text);
-        await reply.delete();
+        return await reply.delete();
     }));
 
     Asena.addCommand({pattern: 'wiki ?(.*)', fromMe: true, desc: Lang.WIKI_DESC}, (async (message, match) => { 
@@ -230,7 +230,7 @@ if (config.WORKTYPE == 'private') {
 
         var info = await arama.rawContent();
         await message.client.sendMessage(message.jid, info, MessageType.text);
-        await reply.delete();
+        return await reply.delete();
     }));
 
     Asena.addCommand({pattern: 'img ?(.*)', fromMe: true, desc: Lang.IMG_DESC}, (async (message, match) => { 
