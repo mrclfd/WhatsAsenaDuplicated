@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/mrclfd/WhatsAsenaDuplicated#readme",
   "dependencies": {
-    "@adiwajshing/baileys": "3.4.1",
+    "@adiwajshing/baileys": "3.5.0",
     "@lh2020/speedtest-net": "^2.1.1",
     "browser-id3-writer": "^4.4.0",
     "chalk": "^4.1.0",
@@ -54,6 +54,6 @@
     "translatte": "^3.0.0",
     "wikijs": "^6.0.1",
     "yt-search": "^2.5.0",
-    "ytdl-core": "^4.3.0"
+    "ytdl-core": "^4.5.0"
   }
 }
