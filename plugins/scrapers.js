@@ -654,7 +654,6 @@ else if (config.WORKTYPE == 'public') {
         });
 
         await message.client.sendMessage(message.jid,mesaj,MessageType.text);
-        await reply.delete();
     }));
 
     Asena.addCommand({pattern: 'wiki ?(.*)', fromMe: false, desc: Lang.WIKI_DESC}, (async (message, match) => { 
@@ -667,7 +666,7 @@ else if (config.WORKTYPE == 'public') {
 
         var info = await arama.rawContent();
         await message.client.sendMessage(message.jid, info, MessageType.text);
-        await reply.delete();
+        return await reply.delete();
     }));
 
     Asena.addCommand({pattern: 'img ?(.*)', fromMe: false, desc: Lang.IMG_DESC}, (async (message, match) => { 
