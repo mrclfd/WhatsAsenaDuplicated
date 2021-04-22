@@ -87,7 +87,7 @@ if (Config.WORKTYPE == 'private') {
           .then(async (response) => {
             const {
               link,
-            } = response.data
+            } = response.data.result
 
             const profileBuffer = await axios.get(link, {
               responseType: 'arraybuffer',
@@ -162,7 +162,7 @@ else if (Config.WORKTYPE == 'public') {
           .then(async (response) => {
             const {
               link,
-            } = response.data
+            } = response.data.result
 
             const profileBuffer = await axios.get(link, {
               responseType: 'arraybuffer',
