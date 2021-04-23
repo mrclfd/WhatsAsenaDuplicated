@@ -3,6 +3,7 @@ Telegram: t.me/phaticusthiccy
 Instagram: www.instagram.com/kyrie.baran
 */
 
+/*
 const Asena = require('../events');
 const {MessageType,Mimetype} = require('@adiwajshing/baileys');
 const fs = require('fs');
@@ -1812,3 +1813,4 @@ else if (Config.WORKTYPE == 'public') {
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: false})
     }));
 }
+*/
