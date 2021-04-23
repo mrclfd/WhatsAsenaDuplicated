@@ -83,7 +83,7 @@ Asena.addCommand({pattern: 'add(?: |$)(.*)', fromMe: true, onlyGroup: true, desc
         match[1].split(' ').map(async (user) => {
             await message.client.groupAdd(message.jid, [user + "@s.whatsapp.net"])
             await new Promise(r => setTimeout(r, 1000));
-            await message.client.sendMessage(message.jid,'```' + user.replace('c.us', 's.whatsapp.net') + ' ' + Lang.ADDED +'```', MessageType.text);
+            await message.client.sendMessage(message.jid,'```' + user + ' ' + Lang.ADDED +'```', MessageType.text);
         });
     } else {
         return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
