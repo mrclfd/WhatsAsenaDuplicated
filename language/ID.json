@@ -189,7 +189,8 @@
             "JID": "```Alamat JID dari``` @{} ```: {}```",
             "JID_CHAT": "```Alamat JID obrolan: {}```",
             "WAME_DESC": "Mendapatkan link menuju obrolan pengguna.",
-            "WAME": "```Link obrolan dari``` @{} ```:\nhttps://wa.me/{}```"
+            "WAME": "```Link obrolan dari``` @{} ```:\nwa.me/{}```",
+            "NEED_UWONG": "*Tandai atau balas pesan seseorang!*"
         },
         "removebg": {
             "REMOVEBG_DESC": "Menghapus latar belakang foto.",
