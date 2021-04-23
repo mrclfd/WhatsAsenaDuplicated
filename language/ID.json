@@ -189,7 +189,7 @@
             "JID": "```Alamat JID dari``` @{} ```: {}```",
             "JID_CHAT": "```Alamat JID obrolan: {}```",
             "WAME_DESC": "Mendapatkan link menuju obrolan pengguna.",
-            "WAME": "```Link obrolan dari``` @{} ```:\nwa.me/{}```",
+            "WAME": "```Link obrolan dari``` @{} ```: https://wa.me/{}```",
             "NEED_UWONG": "*Tandai atau balas pesan seseorang!*"
         },
         "removebg": {
