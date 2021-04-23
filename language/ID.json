@@ -187,7 +187,9 @@
             "NEED_USER": "Berikan pengguna!",
             "JID_DESC": "Mendapatkan JID pengguna.",
             "JID": "```Alamat JID dari``` @{} ```: {}```",
-            "JID_CHAT": "```Alamat JID obrolan: {}```"
+            "JID_CHAT": "```Alamat JID obrolan: {}```",
+            "WAME_DESC": "Mendapatkan link menuju obrolan pengguna.",
+            "WAME": "```Link obrolan dari``` @{} ```:\nhttps://wa.me/{}```"
         },
         "removebg": {
             "REMOVEBG_DESC": "Menghapus latar belakang foto.",
