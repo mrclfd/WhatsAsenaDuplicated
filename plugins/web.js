@@ -50,7 +50,7 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lan
   var start = new Date().getTime();
   await message.sendMessage('```Ping!```');
   var end = new Date().getTime();
-  var duration = Math.floor(end - start / 1000)
+  var duration = Math.floor((end - start) / 1000)
   
   await message.client.sendMessage(
     message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
