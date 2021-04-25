@@ -1,3 +1,7 @@
+```diff
+DO NOT USE THIS REPOSITORY. THIS IS ONLY FOR ME PERSONAL.
+```
+
 ## Thanks for Everything 
 ### We will always remember you..
 
