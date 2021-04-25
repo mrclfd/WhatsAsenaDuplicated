@@ -59,14 +59,14 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lan
 }
 else if (Config.WORKTYPE == 'public') {
     
-    Asena.addCommand({pattern: 'ping', fromMe: false, deleteCommand: false, desc: Lang.PING_DESC}, (async (message, match) => {
+    Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lang.PING_DESC}, (async (message, match) => {
   var start = new Date().getTime();
-  var msg = await message.reply('```Ping!```');
+  await message.sendMessage('```Ping!```');
   var end = new Date().getTime();
-
-  await msg.delete();
+  var duration = Math.floor((end - start) / 1000)
+  
   await message.client.sendMessage(
-    message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text);
+    message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
 }));
 
 }
