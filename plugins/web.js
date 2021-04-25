@@ -46,11 +46,11 @@ if (Config.WORKTYPE == 'private') {
     await msg.delete();
 }));
 
-Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lang.PING_DESC}, (async (message, match) => {
+Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: true, desc: Lang.PING_DESC}, (async (message, match) => {
   var start = new Date().getTime();
   await message.sendMessage('```Ping!```');
   var end = new Date().getTime();
-  var duration = Math.floor((end - start) / 100)
+  var duration = Math.floor((end - start) / 10)
   
   await message.client.sendMessage(
     message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
@@ -59,11 +59,11 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lan
 }
 else if (Config.WORKTYPE == 'public') {
     
-    Asena.addCommand({pattern: 'ping', fromMe: false, deleteCommand: false, desc: Lang.PING_DESC}, (async (message, match) => {
+    Asena.addCommand({pattern: 'ping', fromMe: false, deleteCommand: true, desc: Lang.PING_DESC}, (async (message, match) => {
   var start = new Date().getTime();
   await message.sendMessage('```Ping!```');
   var end = new Date().getTime();
-  var duration = Math.floor((end - start) / 100)
+  var duration = Math.floor((end - start) / 10)
   
   await message.client.sendMessage(
     message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
