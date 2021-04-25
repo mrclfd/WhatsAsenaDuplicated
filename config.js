@@ -29,7 +29,9 @@ module.exports = {
     BLOCKCHAT: process.env.BLOCK_CHAT === undefined ? false : process.env.BLOCK_CHAT,
     MUTEMSG: process.env.MUTE_MESSAGE === undefined ? 'default' : process.env.MUTE_MESSAGE,
     UNMUTEMSG: process.env.UNMUTE_MESSAGE === undefined ? 'default' : process.env.UNMUTE_MESSAGE,
-    WORKTYPE: process.env.WORK_TYPE === undefined ? 'private' : process.env.WORK_TYPE,
+    
+    WORKTYPE: process.env.WORK_TYPE.replace('private', 'true').replace('public', 'false') === undefined ? 'private' : process.env.WORK_TYPE.replace('private', 'true').replace('public', 'false'),
+    
     PROMOTEMSG: process.env.PROMOTE_MESSAGE === undefined ? 'default' : process.env.PROMOTE_MESSAGE,
     DEMOTEMSG: process.env.DEMOTE_MESSAGE === undefined ? 'default' : process.env.DEMOTE_MESSAGE,
     BANMSG: process.env.BAN_MESSAGE === undefined ? 'default' : process.env.BAN_MESSAGE,
@@ -40,7 +42,7 @@ module.exports = {
     NO_WA: process.env.ALIVE_NUMBER === undefined ? 'unknown' : process.env.ALIVE_NUMBER,
     USER_WA: process.env.ALIVE_NAME === undefined ? 'unknown' : process.env.ALIVE_NAME,
     LH_API: process.env.LH_API_KEY === undefined ? 'AUFUH724T9AH821ASC' : process.env.LH_API_KEY,
-    BRANCH: 'master',
+    BRANCH: 'ngetes-sek',
     HEROKU: {
         HEROKU: process.env.HEROKU === undefined ? false : convertToBool(process.env.HEROKU),
         API_KEY: process.env.HEROKU_API_KEY === undefined ? '' : process.env.HEROKU_API_KEY,
