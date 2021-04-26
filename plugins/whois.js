@@ -1,3 +1,4 @@
+/*
 const Asena = require('../events');
 const { MessageType, Mimetype, GroupSettingChange, MessageOptions } = require('@adiwajshing/baileys');
 const dil = require('axios');
@@ -272,3 +273,4 @@ Asena.addCommand({ pattern: 'scan ?(.*)', fromMe: true, desc: scan}, (async (mes
         await message.client.sendMessage(message.jid, '```' + match[1] + '```, ' + fin, MessageType.text);
     }
 }));
+*/
