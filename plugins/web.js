@@ -68,5 +68,31 @@ else if (Config.WORKTYPE == 'public') {
   await message.client.sendMessage(
     message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
 }));
+    
+ // Now plugin (private) can be run publicly
 
+    Asena.addCommand({pattern: 'speed', fromMe: true, desc: Lang.SPEEDTEST_DESC}, (async (message, match) => {
+    var msg = await message.reply(Lang.SPEEDTESTING);
+    var st = await speedTest({acceptLicense: true, acceptGdpr: true});
+    
+    await message.client.sendMessage(
+      message.jid,Lang.SPEEDTEST_RESULT + '\n\n' + 
+    '*ISP:* ```' + st.isp + '```\n' +
+    '*Ping:* ```' + st.ping.latency + 'ms```\n' +
+    '*' + Lang.UPLOAD + ':* ```' + speedText(st.upload.bandwidth) + '```\n' +
+    '*' + Lang.DOWNLOAD + ':* ```' + speedText(st.download.bandwidth) + '```\n',MessageType.text
+    );
+    await msg.delete();
+}));
+
+Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: true, desc: Lang.PING_DESC}, (async (message, match) => {
+  var start = new Date().getTime();
+  await message.sendMessage('```Ping!```');
+  var end = new Date().getTime();
+  var duration = Math.floor((end - start) / 15)
+  
+  await message.client.sendMessage(
+    message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
+}));
+    
 }
