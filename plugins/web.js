@@ -69,9 +69,9 @@ else if (Config.WORKTYPE == 'public') {
     message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
 }));
     
- // Now plugin (private) can be run publicly
+ // now private command can be run publicly
 
-    Asena.addCommand({pattern: 'speed', fromMe: true, desc: Lang.SPEEDTEST_DESC}, (async (message, match) => {
+    Asena.addCommand({pattern: 'speed', fromMe: true, dontAddCommandList: true, desc: Lang.SPEEDTEST_DESC}, (async (message, match) => {
     var msg = await message.reply(Lang.SPEEDTESTING);
     var st = await speedTest({acceptLicense: true, acceptGdpr: true});
     
@@ -85,7 +85,7 @@ else if (Config.WORKTYPE == 'public') {
     await msg.delete();
 }));
 
-Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: true, desc: Lang.PING_DESC}, (async (message, match) => {
+Asena.addCommand({pattern: 'ping', fromMe: true, dontAddCommandList: true, deleteCommand: true, desc: Lang.PING_DESC}, (async (message, match) => {
   var start = new Date().getTime();
   await message.sendMessage('```Ping!```');
   var end = new Date().getTime();
