@@ -7,12 +7,14 @@ Semoga Berfaedah dan Berkah :)
 const Asena = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const got = require('got');
-const C = require('../config');
+const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('adzan');
 
-        Asena.addCommand({pattern: 'adzan ?(.*)', desc: Lang.ADZAN_DESC, fromMe: C.WORKTYPE}, async (message, match) => {
+const torf = Config.WORKTYPE.replace('private', 'true').replace('public', 'false');
+
+        Asena.addCommand({pattern: 'adzan ?(.*)', desc: Lang.ADZAN_DESC, fromMe: torf}, async (message, match) => {
 
 	    if (match[1] === '') return await message.reply('*Masukkan kota!*');
 	    const url = `https://api.pray.zone/v2/times/today.json?city=${match[1]}`;
