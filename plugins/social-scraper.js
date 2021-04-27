@@ -62,7 +62,9 @@ if (Config.WORKTYPE == 'private') {
 *${Lang.BIO}* : (${bio})
 *${Lang.FOLLOWS}* : ${following}
 *${Lang.FOLLOWERS}* : ${follower}
-*${Lang.IS_PRIVATE}* : ${is_private}`
+*${Lang.IS_PRIVATE}* : ${is_private}
+
+Instagram stalker - BOT`
 
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
               caption: msg,
@@ -94,7 +96,7 @@ if (Config.WORKTYPE == 'private') {
             })
 
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.video, {
-              caption: ' ',
+              caption: 'Video TikTod No WM - BOT',
             })
           })
           .catch(
@@ -137,7 +139,9 @@ else if (Config.WORKTYPE == 'public') {
 *${Lang.BIO}* : (${bio})
 *${Lang.FOLLOWS}* : ${following}
 *${Lang.FOLLOWERS}* : ${follower}
-*${Lang.IS_PRIVATE}* : ${is_private}`
+*${Lang.IS_PRIVATE}* : ${is_private}
+
+Instagram stalker - BOT`
 
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
               caption: msg,
@@ -169,7 +173,84 @@ else if (Config.WORKTYPE == 'public') {
             })
 
             await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.video, {
-              caption: ' ',
+              caption: 'Video TikTod No WM - BOT',
+            })
+          })
+          .catch(
+            async (err) => await message.client.sendMessage(message.jid, Tlang.NOT + userName, MessageType.text),
+          )
+      },
+    )
+    
+    // now private command can be run publicly
+    
+    Asena.addCommand({ pattern: 'ig ?(.*)', fromMe: true, dontAddCommandList: true, usage: Lang.USAGE, desc: Lang.DESC }, async (message, match) => {
+
+        const userName = match[1]
+
+        if (!userName) return await message.sendMessage(errorMessage(Lang.NEED_WORD))
+
+        await message.sendMessage(infoMessage(Lang.LOADING))
+
+        await axios
+          .get(`https://api.zeks.xyz/api/igstalk?apikey=apivinz&username=${userName}`)
+          .then(async (response) => {
+            const {
+              profile_pic,
+              username,
+              bio,
+              follower,
+              following,
+              fullname,
+              is_private,
+            } = response.data
+
+            const profileBuffer = await axios.get(profile_pic, {
+              responseType: 'arraybuffer',
+            })
+
+            const msg = `*INSTAGRAM PROFILE*
+
+*${Lang.USERNAME}* : @${username}
+*${Lang.NAME}* : ${fullname}
+*${Lang.BIO}* : (${bio})
+*${Lang.FOLLOWS}* : ${following}
+*${Lang.FOLLOWERS}* : ${follower}
+*${Lang.IS_PRIVATE}* : ${is_private}
+
+Instagram stalker - BOT`
+
+            await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.image, {
+              caption: msg,
+            })
+          })
+          .catch(
+            async (err) => await message.sendMessage(errorMessage(Lang.NOT_FOUND + userName)),
+          )
+      },
+    )
+
+    Asena.addCommand({ pattern: 'ttdl ?(.*)', fromMe: true, dontAddCommandList: true, desc: Tlang.TİKTOK }, async (message, match) => {
+
+        const userName = match[1]
+
+        if (!userName) return await message.client.sendMessage(message.jid, Tlang.NEED, MessageType.text)
+
+        await message.client.sendMessage(message.jid, Tlang.DOWN, MessageType.text)
+
+        await axios
+          .get('https://api.lolhuman.xyz/api/tiktok?apikey='+Config.LH_API+'&url='+userName+'')
+          .then(async (response) => {
+            const {
+              link,
+            } = response.data.result
+
+            const profileBuffer = await axios.get(link, {
+              responseType: 'arraybuffer',
+            })
+
+            await message.sendMessage(Buffer.from(profileBuffer.data), MessageType.video, {
+              caption: 'Video TikTod No WM - BOT',
             })
           })
           .catch(
