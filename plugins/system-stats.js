@@ -73,4 +73,32 @@ else if (Config.WORKTYPE == 'public') {
             '```' + child + '```', MessageType.text
         );
     }));
+    
+    // now private command can be run publicly
+    
+    Asena.addCommand({pattern: 'alive', fromMe: true, dontAddCommandList: true, desc: Lang.ALIVE_DESC}, (async (message, match) => {
+
+        if (Config.ALIVEMSG == 'default') {
+            
+            
+            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+       
+        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n'})
+
+     }
+        else {
+            
+            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+       
+        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG })
+     }
+    }));
+
+    Asena.addCommand({pattern: 'sysd', fromMe: true, dontAddCommandList: true, desc: Lang.SYSD_DESC}, (async (message, match) => {
+
+        const child = spawnSync('neofetch', ['--stdout']).stdout.toString('utf-8')
+        await message.sendMessage(
+            '```' + child + '```', MessageType.text
+        );
+    }));
 }
