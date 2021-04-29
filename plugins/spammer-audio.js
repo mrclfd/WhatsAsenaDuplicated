@@ -1,3 +1,6 @@
+/* sleep */
+
+/*
 const Asena = require('../events');
 const {MessageType, Mimetype} = require('@adiwajshing/baileys');
 const fs = require('fs');
@@ -2831,3 +2834,4 @@ Asena.addCommand({pattern: 'audio spam$', fromMe: true, desc: Lang.AU_DESC}, (as
         });
 }));
 }
+*/
