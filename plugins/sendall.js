@@ -1,5 +1,6 @@
 // Import from @agentnova
 
+/*
 const Asena = require('../events');
 const {WAConnection, MessageType, Mimetype, Presence} = require('@adiwajshing/baileys');
 const Language = require('../language');
@@ -82,4 +83,4 @@ Asena.addCommand({pattern: 'sendall (.*)', fromMe: true, desc: "send to all grou
     }
 
 }));
-
+*/
