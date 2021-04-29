@@ -1,3 +1,6 @@
+/* sleep */
+
+/*
 const Asena = require('../events');
 const { MessageType } = require('@adiwajshing/baileys');
 const { similarity } = require('../similarity')
@@ -112,3 +115,4 @@ Asena.addCommand({ pattern: '.', fromMe: true, dontAddCommandList: true }, (asyn
     await message.client.sendMessage(message.jid, msg + sml, MessageType.text)
 
 }));
+*/
