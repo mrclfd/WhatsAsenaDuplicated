@@ -1,3 +1,6 @@
+/* sleep */
+
+/*
 function similarity(first, second) {
 	first = first.replace(/\s+/g, '')
 	second = second.replace(/\s+/g, '')
@@ -31,3 +34,4 @@ function similarity(first, second) {
 	return (2.0 * intersectionSize) / (first.length + second.length - 2);
 }
 module.exports = {similarity:similarity}
+*/
