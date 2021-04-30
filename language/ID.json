@@ -111,13 +111,13 @@
             "DYNO_USED": "-> *Kuota Terpakai*",
             "DYNO_LEFT": "-> *Kuota Tersisa*",
             "SETVAR_DESC": "Set heroku config var.",
-            "SET_SUCCESS": "[{}:{}] ```Berhasil disetel!```",
+            "SET_SUCCESS": "[ {}={} ]\n\n*Berhasil disetel!*",
             "KEY_VAL_MISSING": "```Masukkan Var atau Value dengan benar!```",
-            "INVALID": "*Masukkan format dengan benar!*\nContoh: ```.setvar ALIVE_NAME:Rapi NiBoss```",
+            "INVALID": "*Masukkan format dengan benar!*\nContoh: ```.setvar ALIVE_NAME=rapiUp```",
             "GETVAR_DESC": "Mendapatkan config var heroku.",
             "DELVAR_DESC": "Menghapus config var heroku.",
-            "DEL_SUCCESS": "{} ```Berhasil dihapus!```",
-            "NOT_FOUND": "*Var tidak ditemukan, Contoh penggunaan!*\nContoh: ```.getvar ALIVE_NAME```\nContoh: ```.delvar ALIVE_NAME```\nContoh: ```.setvar ALIVE_NAME:Rapi NiBoss```"           
+            "DEL_SUCCESS": "[ {} ]\n\n*Berhasil dihapus!*",
+            "NOT_FOUND": "*Var tidak ditemukan, Contoh penggunaan!*\nContoh: ```.getvar ALIVE_NAME```\nContoh: ```.delvar ALIVE_NAME```\nContoh: ```.setvar ALIVE_NAME=rapiUp```"           
         },
         "paste": {
             "NEKOBIN_DESC": "Paste teks pesan ke nekobin.com.",
