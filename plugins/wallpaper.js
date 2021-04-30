@@ -1288,7 +1288,7 @@ else if (Config.WORKTYPE == 'public') {
     
     // now private command can be run publicly
     
-   Asena.addCommand({pattern: 'wp$', fromMe: true, dontAddCommandList: true, desc: Lang.WP}, (async (message, match) => {
+  Asena.addCommand({pattern: 'wp$', fromMe: true, dontAddCommandList: true, desc: Lang.WP}, (async (message, match) => {
 
         var r_text = new Array ();
 
@@ -1913,12 +1913,11 @@ else if (Config.WORKTYPE == 'public') {
         r_text[618] = `${wpCraft}face_funny_art_141579_1350x2400.jpg` 
         r_text[619] = `${wpCraft}face_surprise_emotions_141979_1350x2400.jpg` 
         r_text[620] = `${wpCraft}smiley_emotions_minimalism_134124_1350x2400.jpg` 
-        var i = Math.floor(621*Math.random()) 
-       
+        var i = Math.floor(621*Math.random())
+
         var respoimage = await axios.get(`${r_text[i]}`, { responseType: 'arraybuffer' })
 
         await message.client.sendMessage(message.jid, Buffer.from(respoimage.data), MessageType.image, {mimetype: Mimetype.png, caption: 'Wallpaper acak - BOT'})
 
-    }));    
+    })); 
 }
-
