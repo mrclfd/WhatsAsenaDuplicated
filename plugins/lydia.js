@@ -6,6 +6,8 @@ you may not use this file except in compliance with the License.
 WhatsAsena - Yusuf Usta
 */
 
+/* sleep */
+
 /*
 const Asena = require('../events');
 const Config = require('../config');
