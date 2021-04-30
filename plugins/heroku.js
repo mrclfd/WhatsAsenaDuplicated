@@ -89,7 +89,7 @@ Asena.addCommand({pattern: 'shutdown', fromMe: true, desc: Lang.SHUTDOWN_DESC}, 
     if ((varKey = match[1].split('=')[0]) && (varValue = match[1].split('=')[1])) {
         await heroku.patch(baseURI + '/config-vars', {
             body: {
-                [varKey]=varValue
+                [varKey]:varValue
             }
         }).then(async (app) => {
             await message.client.sendMessage(message.jid,Lang.SET_SUCCESS.format(varKey, varValue), MessageType.text);
@@ -108,7 +108,7 @@ Asena.addCommand({pattern: 'shutdown', fromMe: true, desc: Lang.SHUTDOWN_DESC}, 
             if (key == vr) {
                 await heroku.patch(baseURI + '/config-vars', {
                     body: {
-                        [key]=null
+                        [key]:null
                     }
                 });
                 return await message.client.sendMessage(message.jid,Lang.DEL_SUCCESS.format(key), MessageType.text);
