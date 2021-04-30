@@ -126,7 +126,7 @@ Asena.addCommand({pattern: 'getvar ?(.*)', fromMe: true, desc: Lang.GETVAR_DESC}
     if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.KEY_VAL_MISSING, MessageType.text);
     await heroku.get(baseURI + '/config-vars').then(async (vars) => {
         for (vr in vars) {
-            if (match[1].trim() == vr) return await message.sendMessage("[ {}={} ]\n\n*Var ditemukan!*".format(vr, vars[vr]));
+            if (match[1].trim() == vr) return await message.sendMessage("[ *{}*={} ] *Var ditemukan!*".format(vr, vars[vr]));
         }
         await message.client.sendMessage(message.jid,Lang.NOT_FOUND, MessageType.text);
     }).catch(async (error) => {
@@ -276,7 +276,7 @@ Asena.addCommand({pattern: 'getvar ?(.*)', fromMe: true, dontAddCommandList: tru
     if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.KEY_VAL_MISSING, MessageType.text);
     await heroku.get(baseURI + '/config-vars').then(async (vars) => {
         for (vr in vars) {
-            if (match[1].trim() == vr) return await message.sendMessage("[ {}={} ]\n\n*Var ditemukan!*".format(vr, vars[vr]));
+            if (match[1].trim() == vr) return await message.sendMessage("[ *{}*={} ] *Var ditemukan!*".format(vr, vars[vr]));
         }
         await message.client.sendMessage(message.jid,Lang.NOT_FOUND, MessageType.text);
     }).catch(async (error) => {
