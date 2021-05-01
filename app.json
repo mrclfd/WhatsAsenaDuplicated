@@ -56,7 +56,7 @@
         },
         "LH_API_KEY": {
             "description": "Api key untuk mengaktifkan beberapa fitur. Dapatkan disini https://api.lolhuman.xyz",
-            "required": true
+            "required": false
         },
         "WORK_TYPE": {
             "description": "Mode Bot, public agar semua orang dapat menggunakan botmu, dengan konsekuensi kamu sendiri tidak dapat menggunakan bot, dan hanya bisa .setvar WORK_TYPE:private untuk kembali.",
