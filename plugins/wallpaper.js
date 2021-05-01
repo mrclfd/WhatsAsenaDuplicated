@@ -651,6 +651,10 @@ if (Config.WORKTYPE == 'private') {
 
     }));
 }
+
+
+const wpCraft = "https://images.wallpaperscraft.com/image/" // Wallpaper web
+
 else if (Config.WORKTYPE == 'public') {
 
     Asena.addCommand({pattern: 'wp$', fromMe: false, desc: Lang.WP}, (async (message, match) => {
