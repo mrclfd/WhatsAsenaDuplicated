@@ -115,7 +115,7 @@ Asena.addCommand({pattern: 'off ?(.*)', fromMe: true, deleteCommand: false, desc
 
 // now private command can be run publicly
 
-if (Config.WORKTYPE == 'private') {
+if (Config.WORKTYPE == 'public') {
 
 Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (Config.OFFAFKMSG == 'default') {
