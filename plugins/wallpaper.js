@@ -14,7 +14,7 @@ const Config = require('../config');
 const Language = require('../language');
 const Lang = Language.getString('wallpaper');
 
-const wpCraft = "https://images.wallpaperscraft.com/image/" // Wallpaper web
+const wpCraft = "https://images.wallpaperscraft.com/image/"; // Wallpaper web
 
 if (Config.WORKTYPE == 'private') {
 
@@ -652,8 +652,6 @@ if (Config.WORKTYPE == 'private') {
     }));
 }
 
-
-const wpCraft = "https://images.wallpaperscraft.com/image/" // Wallpaper web
 
 else if (Config.WORKTYPE == 'public') {
 
