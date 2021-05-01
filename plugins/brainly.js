@@ -52,4 +52,28 @@ if (Config.WORKTYPE == 'public') {
            })
       },
     )
+        
+        
+ // now private command can be run publicly
+        
+        Asena.addCommand({ pattern: 'brainly ?(.*)', fromMe: true, dontAddCommandList: true, desc: Lang.BRAINLY_DESC }, async (message, match) => {
+
+        const Soal = match[1]
+        
+        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan pertanyaan!*', MessageType.text);
+
+        await axios
+          .get(`https://api.xteam.xyz/brainly?APIKEY=10c4105200edc0f0&soal=${Soal}`)
+          .then(async (response) => {
+            const {
+              soal,
+              jawaban,
+            } = response.data
+
+            const msg = `*Soal:* ${soal}
+*Jawaban Brainly:* ${jawaban.replace(/1Pertanyaan/g, '*(1) Pertanyaan*').replace(/2Pertanyaan/g, '*(2) Pertanyaan*').replace(/3Pertanyaan/g, '*(3) Pertanyaan*').replace(/Jawaban/g, '*Jawaban*').replace(/Brainly ditemukan/g, '')}`
+            await message.client.sendMessage(message.jid, msg, MessageType.text)
+           })
+      },
+    )
 }
