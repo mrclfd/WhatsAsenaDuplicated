@@ -38,4 +38,21 @@ const Lang = Language.getString('donasi');
      */
   
         }));
+    
+    
+    // now private command can be run publicly
+    
+    Asena.addCommand({pattern: 'donasi$', fromMe: false, dontAddCommandList: true, desc: Lang.DONASI_DESC }, (async (message, match) => {
+      
+          var image = await axios.get ('https://raw.githubusercontent.com/mrclfd/WhatsAsenaDuplicated/alpha-test/media/image/image-i.png', {responseType: 'arraybuffer'})
+       
+        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `*Buy Me a Coffee\nvia* saweria.co/budilasidodo`})
+      
+     /*
+        await new Promise(r => setTimeout(r, 1650));
+  
+        await message.sendMessage('Thx u <3');
+     */
+  
+        }));
   }  
