@@ -10,6 +10,7 @@ const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('tagall');
+const SLang = Language.getString('scrapers');
 
 async function checkImAdmin(message, user = message.client.user.jid) {
     var grup = await message.client.groupMetadata(message.jid);
@@ -19,27 +20,36 @@ async function checkImAdmin(message, user = message.client.user.jid) {
     return sonuc.includes(true);
 }
 
-
-if (Config.WORKTYPE == 'private') {
-
 Asena.addCommand({pattern: 'tagall ?(.*)', fromMe: true, desc: Lang.TAGALL_DESC }, (async (message, match) => {
+    return await message.client.sendMessage(message.jid,MessageType.text);
 
-    var im = await checkImAdmin(message);
-    if (!im) return await message.client.sendMessage(message.jid,Lang.ADMİN,MessageType.text);
-
-    if (match[1] !== '') {
-        grup = await message.client.groupMetadata(message.jid);
-        var jids = [];
-        mesaj = '';
-        grup['participants'].map(
-            async (uye) => {
-                mesaj += '@' + uye.id.split('@')[0] + ' ';
-                jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
-            }
-        );
-        await message.client.sendMessage(message.jid,`${match[1]}`, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
+    if (!message.reply_message) {
+        if (match[1] !== '') {
+            grup = await message.client.groupMetadata(message.jid);
+            var jids = [];
+            mesaj = '';
+            grup['participants'].map(
+                async (uye) => {
+                    mesaj += '@' + uye.id.split('@')[0] + ' ';
+                    jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
+                }
+            );
+            await message.client.sendMessage(message.jid,`${match[1]}`, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
+        }
+        else if (match[1] == '') {
+            grup = await message.client.groupMetadata(message.jid);
+            var jids = [];
+            mesaj = '';
+            grup['participants'].map(
+                async (uye) => {
+                    mesaj += '▫️ @' + uye.id.split('@')[0] + '\n';
+                    jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
+                }
+            );
+            await message.client.sendMessage(message.jid,mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
+        }
     }
-    else if (match[1] == '') {
+    else if (message.reply_message) {
         grup = await message.client.groupMetadata(message.jid);
         var jids = [];
         mesaj = '';
@@ -49,20 +59,19 @@ Asena.addCommand({pattern: 'tagall ?(.*)', fromMe: true, desc: Lang.TAGALL_DESC 
                 jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
             }
         );
-        await message.client.sendMessage(message.jid,mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
-    }
-    else if (message.reply_message && match[1] == '') {
-        grup = await message.client.groupMetadata(message.jid);
-        var jids = [];
-        mesaj = '';
-        grup['participants'].map(
-            async (uye) => {
-                mesaj += '@' + uye.id.split('@')[0] + ' ';
-                jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
-            }
-        );
-        await message.client.sendMessage(message.jid,message.reply_message.text, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
+        var tx = message.reply_message.text
+        await message.client.sendMessage(message.jid,tx, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
     }
 }));
+var stag_dsc = ''
+if (Config.LANG == 'ID') stag_dsc = 'Mengirim pesan balasan ke semua anggota dalam grup.'
 
-}
+Asena.addCommand({pattern: 'stam$', fromMe: true, desc: stag_dsc }, (async (message, match) => {
+    if (!message.reply_message) return await message.client.sendMessage(message.jid,SLang.NEED_REPLY, MessageType.text)
+    grup = await message.client.groupMetadata(message.jid);
+    var jids = [];
+    mesaj = '';
+    grup['participants'].map(async (uye) => {
+        await message.client.sendMessage(uye.jid, message.reply_message.text, MessageType.text)
+    })
+}));
