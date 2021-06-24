@@ -24,21 +24,25 @@ if (Config.WORKTYPE == 'private') {
     Asena.addCommand({pattern: 'alive', fromMe: true, desc: Lang.ALIVE_DESC}, (async (message, match) => {
 
         if (Config.ALIVEMSG == 'default') {
-            
-            
-            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
-       
-        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n'})
-
-     }
+        var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+            await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n'})
+        }
         else {
-            
-            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
-       
-        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG })
-     }
-    }));
+            const pow = '\n'
+            const payload = Config.ALIVEMSG
+            const status = await message.client.getStatus()
+            const ppUrl = await message.client.getProfilePicture() 
+            const resim = await Axios.get(ppUrl, {responseType: 'arraybuffer'})
 
+            if (!payload.includes('{pp}')) {
+                await message.client.sendMessage(message.jid,payload.replace('{version}', Config.VERSION).replace('{info}', `${status.status}`).replace('{plugin}', Config.CHANNEL) + '\n' + pow, MessageType.text);
+            }
+            else if (payload.includes('{pp}')) {
+                await message.sendMessage(Buffer(resim.data), MessageType.image, { caption: payload.replace('{version}', Config.VERSION).replace('{pp}', '').replace('{info}', `${status.status}`).replace('{plugin}', Config.CHANNEL) + '\n' + pow });
+            }
+        }
+    }));
+    
     Asena.addCommand({pattern: 'sysd', fromMe: true, desc: Lang.SYSD_DESC}, (async (message, match) => {
 
         const child = spawnSync('neofetch', ['--stdout']).stdout.toString('utf-8')
@@ -52,18 +56,23 @@ else if (Config.WORKTYPE == 'public') {
      Asena.addCommand({pattern: 'alive', fromMe: false, desc: Lang.ALIVE_DESC}, (async (message, match) => {
 
         if (Config.ALIVEMSG == 'default') {
-            
-            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
-       
-        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n'})
-
-     }
+        var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+            await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n'})
+        }
         else {
-            
-            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
-       
-        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG })
-     }
+            const pow = '\n'
+            const payload = Config.ALIVEMSG
+            const status = await message.client.getStatus()
+            const ppUrl = await message.client.getProfilePicture() 
+            const resim = await Axios.get(ppUrl, {responseType: 'arraybuffer'})
+
+            if (!payload.includes('{pp}')) {
+                await message.client.sendMessage(message.jid,payload.replace('{version}', Config.VERSION).replace('{info}', `${status.status}`).replace('{plugin}', Config.CHANNEL) + '\n' + pow, MessageType.text);
+            }
+            else if (payload.includes('{pp}')) {
+                await message.sendMessage(Buffer(resim.data), MessageType.image, { caption: payload.replace('{version}', Config.VERSION).replace('{pp}', '').replace('{info}', `${status.status}`).replace('{plugin}', Config.CHANNEL) + '\n' + pow });
+            }
+        }
     }));
 
     Asena.addCommand({pattern: 'sysd', fromMe: false, desc: Lang.SYSD_DESC}, (async (message, match) => {
@@ -74,24 +83,29 @@ else if (Config.WORKTYPE == 'public') {
         );
     }));
     
+    
     // now private command can be run publicly
     
-    Asena.addCommand({pattern: 'alive', fromMe: true, dontAddCommandList: true, desc: Lang.ALIVE_DESC}, (async (message, match) => {
+    Asena.addCommand({pattern: 'alive', fromMe: true, desc: Lang.ALIVE_DESC}, (async (message, match) => {
 
         if (Config.ALIVEMSG == 'default') {
-            
-            
-            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
-       
-        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n'})
-
-     }
+        var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+            await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n'})
+        }
         else {
-            
-            var image = await axios.get (Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
-       
-        await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG })
-     }
+            const pow = '\n'
+            const payload = Config.ALIVEMSG
+            const status = await message.client.getStatus()
+            const ppUrl = await message.client.getProfilePicture() 
+            const resim = await Axios.get(ppUrl, {responseType: 'arraybuffer'})
+
+            if (!payload.includes('{pp}')) {
+                await message.client.sendMessage(message.jid,payload.replace('{version}', Config.VERSION).replace('{info}', `${status.status}`).replace('{plugin}', Config.CHANNEL) + '\n' + pow, MessageType.text);
+            }
+            else if (payload.includes('{pp}')) {
+                await message.sendMessage(Buffer(resim.data), MessageType.image, { caption: payload.replace('{version}', Config.VERSION).replace('{pp}', '').replace('{info}', `${status.status}`).replace('{plugin}', Config.CHANNEL) + '\n' + pow });
+            }
+        }
     }));
 
     Asena.addCommand({pattern: 'sysd', fromMe: true, dontAddCommandList: true, desc: Lang.SYSD_DESC}, (async (message, match) => {
