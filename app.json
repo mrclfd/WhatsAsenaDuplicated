@@ -12,6 +12,26 @@
             "description": "Kode sesi yang kamu dapatkan setelah meng-scan QR Whatsapp web.",
             "required": true
         },
+        "FULL_EVA": {
+            "description": "Hesabınızı bir Chatbot'a Çevirin! Turn your account into a chatbot!",
+            "required": false,
+            "value": "false"
+        },
+        "NO_LOG": {
+            "description": "Hata logu görmek istemiyorsanız true yapın. Set true if you don't want to see error log.",
+            "required": true,
+            "value": "false"
+        },
+        "ANTI_LINK": {
+            "description": "Link Engelleme Sistemi. Link Blocking System.",
+            "required": false,
+            "value": "false"
+        },
+        "AUTO_BIO": {
+            "description": "Duruma otomatik tarih ve zaman eklemek için true yapın. Set true for auto date, time in biography.",
+            "required": false,
+            "value": "false"
+        },
         "SUDO": {
             "description": "Membuat orang lain dapat mengakses botmu secara total. Masukkan nomornya, contoh: 62888777666 pisahkan dengan tanda koma(,) untuk menambahkan lebih dari 1 nomor.",
             "required": false
@@ -24,7 +44,7 @@
         "HANDLERS": {
             "description": "Tanda untuk memanggil perintah.",
             "required": true,
-            "value": "^[.]"
+            "value": "^[/.!#$^]"
         },
         "SEND_READ": {
             "description": "Otomatis membaca pesan yang dikirim ke-bot anda.",
