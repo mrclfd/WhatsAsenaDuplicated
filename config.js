@@ -29,8 +29,9 @@ module.exports = {
     KICKMEMSG: process.env.KICKME_MESSAGE === undefined ? 'default' : process.env.KICKME_MESSAGE,
     BLOCKCHAT: process.env.BLOCK_CHAT === undefined ? false : process.env.BLOCK_CHAT,
     
-    ANTİLİNK: process.env.ANTİ_LİNK === undefined ? 'false' : process.env.ANTİ_LİNK,
-    AUTOBİO: process.env.AUTO_BİO === undefined ? 'true' : process.env.AUTO_BİO,
+    ANTİLİNK: process.env.ANTI_LINK === undefined ? 'false' : process.env.ANTI_LINK,
+    AUTOBİO: process.env.AUTO_BIO === undefined ? 'true' : process.env.AUTO_BIO,
+    AUTOBIOMSG: process.env.AUTOBIO_MESSAGE === undefined ? 'Hey there! I am using WhatsApp.' : process.env.AUTOBIO_MESSAGE,
     ADDMSG: process.env.ADD_MESSAGE === undefined ? 'default' : process.env.ADD_MESSAGE,
     NOLOG: process.env.NO_LOG === undefined ? 'false' : process.env.NO_LOG,
     FULLEVA: process.env.FULL_EVA === undefined ? 'false' : process.env.FULL_EVA,
