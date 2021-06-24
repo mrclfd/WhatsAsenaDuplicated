@@ -31,7 +31,7 @@ module.exports = {
     
     ANTİLİNK: process.env.ANTI_LINK === undefined ? 'false' : process.env.ANTI_LINK,
     AUTOBİO: process.env.AUTO_BIO === undefined ? 'true' : process.env.AUTO_BIO,
-    AUTOBIOMSG: process.env.AUTOBIO_MESSAGE === undefined ? 'Hey there! I am using WhatsApp.' : process.env.AUTOBIO_MESSAGE,
+    AUTOBIOMSG: process.env.AUTOBIO_MESSAGE === undefined ? '💬 Hey there! I am using WhatsApp.' : process.env.AUTOBIO_MESSAGE,
     ADDMSG: process.env.ADD_MESSAGE === undefined ? 'default' : process.env.ADD_MESSAGE,
     NOLOG: process.env.NO_LOG === undefined ? 'false' : process.env.NO_LOG,
     FULLEVA: process.env.FULL_EVA === undefined ? 'false' : process.env.FULL_EVA,
