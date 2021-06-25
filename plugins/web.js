@@ -50,7 +50,7 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: true, desc: Lang
   var start = new Date().getTime();
   await message.sendMessage('```Ping!```');
   var end = new Date().getTime();
-  var duration = Math.floor((end - start) / 0)
+  var duration = Math.floor(end - start)
   
   await message.client.sendMessage(
     message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
@@ -63,7 +63,7 @@ else if (Config.WORKTYPE == 'public') {
   var start = new Date().getTime();
   await message.sendMessage('```Ping!```');
   var end = new Date().getTime();
-  var duration = Math.floor((end - start) / 0)
+  var duration = Math.floor(end - start)
   
   await message.client.sendMessage(
     message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
@@ -89,7 +89,7 @@ Asena.addCommand({pattern: 'ping', fromMe: true, dontAddCommandList: true, delet
   var start = new Date().getTime();
   await message.sendMessage('```Ping!```');
   var end = new Date().getTime();
-  var duration = Math.floor((end - start) / 0)
+  var duration = Math.floor(end - start)
   
   await message.client.sendMessage(
     message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
