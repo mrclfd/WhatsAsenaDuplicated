@@ -9,18 +9,17 @@ WhatsAsena - Yusuf Usta
 const Asena = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const FilterDb = require('./sql/filters');
-const SnipDB = require('./sql/usersnip');
-const Config = require('../config');
-
+const Config = require('../config')
 const Language = require('../language');
 const Lang = Language.getString('filters');
 
-if (Config.WORKTYPE == 'private') {
+var f_rep = ''
+if (Config.LANG == 'ID') f_rep = '*Filter berhasil disetel ✅*'
 
 Asena.addCommand({pattern: 'filter ?(.*)', fromMe: true, desc: Lang.FILTER_DESC}, (async (message, match) => {
-    match = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
+    Mat = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
 
-    if (match === null) {
+    if (Mat === null) {
         filtreler = await FilterDb.getFilter(message.jid);
         if (filtreler === false) {
             await message.client.sendMessage(message.jid,Lang.NO_FILTER,MessageType.text)
@@ -29,19 +28,22 @@ Asena.addCommand({pattern: 'filter ?(.*)', fromMe: true, desc: Lang.FILTER_DESC}
             filtreler.map((filter) => mesaj += '```' + filter.dataValues.pattern + '```\n');
             await message.client.sendMessage(message.jid,mesaj,MessageType.text);
         }
+    } else if (message.reply_message && match[1] !== '') {
+        await FilterDb.setFilter(message.jid, match[1].replace(/['"“]+/g, ''), message.reply_message.text);
+        return await message.client.sendMessage(message.jid,f_rep,MessageType.text);
     } else {
-        if (match.length < 2) {
-            return await message.client.sendMessage(message.jid,Lang.NEED_REPLY + ' ```.filter "sa" "as"',MessageType.text);
+        if (Mat.length < 2) {
+            return await message.client.sendMessage(message.jid,Lang.NEED_REPLY + ' ```.filter "p" "pape pape"```',MessageType.text);
         }
-        await FilterDb.setFilter(message.jid, match[0].replace(/['"“]+/g, ''), match[1].replace(/['"“]+/g, '').replace(/[#]+/g, '\n'), match[0][0] === "'" ? true : false);
-        await message.client.sendMessage(message.jid,Lang.FILTERED.format(match[0].replace(/['"]+/g, '')),MessageType.text);
+        await FilterDb.setFilter(message.jid, Mat[0].replace(/['"“]+/g, ''), Mat[1].replace(/['"“]+/g, '').replace(/[#]+/g, '\n'), Mat[0][0] === "'" ? true : false);
+        await message.client.sendMessage(message.jid,Lang.FILTERED.format(Mat[0].replace(/['"]+/g, '')),MessageType.text);
     }
 }));
 
 Asena.addCommand({pattern: 'stop ?(.*)', fromMe: true, desc: Lang.STOP_DESC}, (async (message, match) => {
     match = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
     if (match === null) {
-        return await message.client.sendMessage(message.jid,Lang.NEED_REPLY + '\n*Example:* ```.stop "hello"```',MessageType.text)
+        return await message.client.sendMessage(message.jid,Lang.NEED_REPLY + '\n*Example:* ```.stop "p"```',MessageType.text)
     }
 
     del = await FilterDb.deleteFilter(message.jid, match[0].replace(/['"“]+/g, ''));
@@ -57,157 +59,27 @@ Asena.addCommand({pattern: 'stop ?(.*)', fromMe: true, desc: Lang.STOP_DESC}, (a
 Asena.addCommand({on: 'text', fromMe: false}, (async (message, match) => {
     var filtreler = await FilterDb.getFilter(message.jid);
     if (!filtreler) return; 
-    filtreler.map(
+    return filtreler.map(
         async (filter) => {
-            pattern = new RegExp(filter.dataValues.regex ? filter.dataValues.pattern : ('\\b(' + filter.dataValues.pattern + ')\\b'), 'i');
-            if (pattern.test(message.message)) {
-                await message.client.sendMessage(message.jid,filter.dataValues.text, MessageType.text, {quoted: message.data});
+            pattern = new RegExp(filter.dataValues.regex ? filter.dataValues.pattern : ('\\b(' + filter.dataValues.pattern + ')\\b'), 'gm');
+            if (message.message == filter.dataValues.pattern) {
+                await new Promise(r => setTimeout(r, 900));
+                return await message.client.sendMessage(message.jid,filter.dataValues.text, MessageType.text, {quoted: message.data});
             }
         }
     );
 }));
-
-/*
-const snipds = "Pengaturan snip."
-const dbsl = "Balas pesan! Contoh: ```.snip test```"
-const scc = "Snip berhasil disetel!"
-const xsbl = "Masukkan nama snip! Contoh: ```.snip test```"
-
-Asena.addCommand({pattern: 'snip ?(.*)', fromMe: true, desc: snipds}, (async (message, match) => {
-
-    if (!message.reply_message.text && match[1].length < 2 ) {
-        return await message.client.sendMessage(
-            message.jid,
-            dbsl,
-            MessageType.text
-        )
-    }
-    if (message.reply_message.text && match[1].length < 2) {
-        return await message.client.sendMessage(
-            message.jid,
-            xsbl,
-            MessageType.text
-        )
-    }
-    await SnipDB.saveSnip(message.reply_message.text)
-    return await message.client.sendMessage(
-        message.jid,
-        '```' + mat + '``` ' + scc,
-        MessageType.text
-    )
-}));
-const gtsn = "Menampilkan snip."
-const hatc = "Tidak ada snip yang direkam!"
-
-Asena.addCommand({pattern: 'getsnip', fromMe: true, desc: gtsn}, (async (message, match) => {
-
-    const _snips = await SnipDB.getSnip()
-    const snips = []
-    _snips.map(snip => {
-        snip.push('$' + snip.snip)
-    })
-    if (snips.length < 2) {
-        return await message.client.sendMessage(
-            message.jid,
-            '*' + hatc + '*',
-            MessageType.text
-        )
-    }
-}));
-const flsh = "Menghapus snip."
-const dlsnp = "Snip tidak ditemukan!"
-const shck = "Snip berhasil dihapus!"
-
-Asena.addCommand({ pattern: 'delsnip ?(.*)', fromMe: true, desc: flsh }, (async (message, match) => {
-    
-    const mat = match[1] 
-    delsnp = await SnipDB.deleteSnip(mat);
-    
-    if (!delsnp) {
-        await message.client.sendMessage(
-            message.jid,
-            '```' + dlsnp + '```',
-            MessageType.text
-        )
-    } 
-    else {
-        await message.client.sendMessage(
-            message.jid,
-            '```' + mat + '``` ' + shck, 
-            MessageType.text
-        )
-    }
-}));
-    
-Asena.addCommand({pattern: '- ?(.*)', fromMe: true, dontAddCommandList: true }, (async (message, match) => {
-    const mat = match[1]
-
-    var snip = await SnipDB.getSnip();
-    if (snip !== match[1]) return await message.sendMessage(dlsnp); 
-    snip.map(
-        async (snip) => {
-            pattern = new RegExp(snip.dataValues.regex ? snip.dataValues.pattern : ('\\b(' + snip.dataValues.pattern + ')\\b'), 'i');
-            if (pattern.test(message.message)) {
-                await message.client.sendMessage(message.jid,snip.dataValues.text, MessageType.text, {quoted: message.data});
-            }
-        }
-    );
-}));
-*/
-}
-
-
-// now private command can be run publicly
-
-if (Config.WORKTYPE == 'private') {
-
-Asena.addCommand({pattern: 'filter ?(.*)', fromMe: true, dontAddCommandList: true, desc: Lang.FILTER_DESC}, (async (message, match) => {
-    match = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
-
-    if (match === null) {
-        filtreler = await FilterDb.getFilter(message.jid);
-        if (filtreler === false) {
-            await message.client.sendMessage(message.jid,Lang.NO_FILTER,MessageType.text)
-        } else {
-            var mesaj = Lang.FILTERS + '\n';
-            filtreler.map((filter) => mesaj += '```' + filter.dataValues.pattern + '```\n');
-            await message.client.sendMessage(message.jid,mesaj,MessageType.text);
-        }
-    } else {
-        if (match.length < 2) {
-            return await message.client.sendMessage(message.jid,Lang.NEED_REPLY + ' ```.filter "sa" "as"',MessageType.text);
-        }
-        await FilterDb.setFilter(message.jid, match[0].replace(/['"“]+/g, ''), match[1].replace(/['"“]+/g, '').replace(/[#]+/g, '\n'), match[0][0] === "'" ? true : false);
-        await message.client.sendMessage(message.jid,Lang.FILTERED.format(match[0].replace(/['"]+/g, '')),MessageType.text);
-    }
-}));
-
-Asena.addCommand({pattern: 'stop ?(.*)', fromMe: true, dontAddCommandList: true, desc: Lang.STOP_DESC}, (async (message, match) => {
-    match = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
-    if (match === null) {
-        return await message.client.sendMessage(message.jid,Lang.NEED_REPLY + '\n*Example:* ```.stop "hello"```',MessageType.text)
-    }
-
-    del = await FilterDb.deleteFilter(message.jid, match[0].replace(/['"“]+/g, ''));
-    
-    if (!del) {
-        await message.client.sendMessage(message.jid,Lang.ALREADY_NO_FILTER, MessageType.text)
-    } else {
-        await message.client.sendMessage(message.jid,Lang.DELETED, MessageType.text)
-    }
-}));
-
-
-Asena.addCommand({on: 'text', fromMe: false}, (async (message, match) => {
+Asena.addCommand({on: 'text', fromMe: true, deleteCommand: false, dontAddCommandList: true}, (async (message, match) => {
     var filtreler = await FilterDb.getFilter(message.jid);
     if (!filtreler) return; 
-    filtreler.map(
+    return filtreler.map(
         async (filter) => {
-            pattern = new RegExp(filter.dataValues.regex ? filter.dataValues.pattern : ('\\b(' + filter.dataValues.pattern + ')\\b'), 'i');
-            if (pattern.test(message.message)) {
-                await message.client.sendMessage(message.jid,filter.dataValues.text, MessageType.text, {quoted: message.data});
+            pattern = new RegExp(filter.dataValues.regex ? filter.dataValues.pattern : ('\\b(' + filter.dataValues.pattern + ')\\b'), 'gm');
+            var fo = message.message.replace('$', '')
+            if (fo == filter.dataValues.pattern && message.message.startsWith('$')) {
+                await new Promise(r => setTimeout(r, 100));
+                return await message.client.sendMessage(message.jid,filter.dataValues.text, MessageType.text, {quoted: message.data});
             }
         }
     );
 }));
-}
