@@ -1,4 +1,4 @@
-const Asena = require('../events');
+/* const Asena = require('../events');
 const { MessageType, Mimetype, GroupSettingChange, MessageOptions } = require('@adiwajshing/baileys');
 const dil = require('axios');
 const fs = require('fs');
@@ -143,3 +143,4 @@ Asena.addCommand({ pattern: 'log', fromMe: true, desc: Lang.LOG, warn: Lang.ANIM
         return;
     }
 }));
+*/
