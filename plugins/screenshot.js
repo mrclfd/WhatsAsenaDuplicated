@@ -18,7 +18,7 @@ const Lang = Language.getString('webss');
 
         if (match[1] === '') return await message.sendMessage(Lang.LİNK);
 
-        var webimage = await axios.get(`https://shot.screenshotapi.net/screenshot?&full_page=true&url=${match[1]}&fresh=true&output=image&file_type=png&dark_mode=true&wait_for_event=load&delay=890`, { responseType: 'arraybuffer' })
+        var webimage = await axios.get(`https://shot.screenshotapi.net/screenshot?&full_page=true&url=${match[1]}&fresh=true&output=image&file_type=png&dark_mode=true`, { responseType: 'arraybuffer' })
 
         await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, caption: 'Web screenshot - BOT'})
 
