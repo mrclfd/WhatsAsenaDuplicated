@@ -21,7 +21,8 @@ async function checkImAdmin(message, user = message.client.user.jid) {
 }
 
 Asena.addCommand({pattern: 'tagall ?(.*)', fromMe: true, desc: Lang.TAGALL_DESC }, (async (message, match) => {
-    return await message.client.sendMessage(message.jid,MessageType.text);
+    var im = await checkImAdmin(message);
+    if (!im) return await message.client.sendMessage(message.jid,Lang.ADMİN,MessageType.text);
 
     if (!message.reply_message) {
         if (match[1] !== '') {
