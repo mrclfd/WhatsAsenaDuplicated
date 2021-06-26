@@ -14,40 +14,12 @@ const Config = require('../config');
 const Language = require('../language');
 const Lang = Language.getString('webss');
 
-if (Config.WORKTYPE == 'private') {
-
     Asena.addCommand({pattern: 'ss ?(.*)', fromMe: true, desc: Lang.SS_DESC}, (async (message, match) => {
 
         if (match[1] === '') return await message.sendMessage(Lang.LİNK);
 
-        var webimage = await axios.get(`https://screenshotapi.net/api/v1/screenshot?url=${match[1]}&output=image&full_page=true`, { responseType: 'arraybuffer' })
+        var webimage = await axios.get(`https://shot.screenshotapi.net/api/v1/screenshot?url=${match[1]}&output=image&full_page=true`, { responseType: 'arraybuffer' })
 
         await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, caption: 'Web screenshot - BOT'})
 
     }));
-}
-else if (Config.WORKTYPE == 'public') {
-
-    Asena.addCommand({pattern: 'ss ?(.*)', fromMe: false, desc: Lang.SS_DESC}, (async (message, match) => {
-
-        if (match[1] === '') return await message.sendMessage(Lang.LİNK);
-
-        var webimage = await axios.get(`https://screenshotapi.net/api/v1/screenshot?url=${match[1]}&output=image&full_page=true`, { responseType: 'arraybuffer' })
-
-        await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, caption: 'Web screenshot - BOT'})
-
-    }));
-    
-    
-    // now private command can be run publicly
-    
-    Asena.addCommand({pattern: 'ss ?(.*)', fromMe: true, dontAddCommandList: true, desc: Lang.SS_DESC}, (async (message, match) => {
-
-        if (match[1] === '') return await message.sendMessage(Lang.LİNK);
-
-        var webimage = await axios.get(`https://screenshotapi.net/api/v1/screenshot?url=${match[1]}&output=image&full_page=true`, { responseType: 'arraybuffer' })
-
-        await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, caption: 'Web screenshot - BOT'})
-
-    }));
-}
