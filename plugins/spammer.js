@@ -14,12 +14,9 @@ const heroku = new Heroku({
     token: Config.HEROKU.API_KEY
 });
 
-if (Config.WORKTYPE == 'private') {
-
 let baseURI = '/apps/' + Config.HEROKU.APP_NAME;
 
-
-Asena.addCommand({pattern: 'killspam', fromMe: true, desc: Lang.STOP_SPAMDESC}, (async (message, match) => {
+Asena.addCommand({pattern: 'killspam$', fromMe: true, desc: Lang.STOP_SPAMDESC}, (async (message, match) => {
 
     await message.client.sendMessage(message.jid, Lang.STOP_SPAM, MessageType.text);
 
@@ -2565,4 +2562,3 @@ Asena.addCommand({pattern: 'spam ?(.*)', fromMe: true, desc: Lang.SPAM_DESC}, (a
     
     await message.client.sendMessage(message.jid, fin, MessageType.text);
 }));
-}
