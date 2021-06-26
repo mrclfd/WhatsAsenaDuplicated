@@ -72,7 +72,7 @@ Asena.addCommand({pattern: 'calc ?(.*)', fromMe: true, desc: Lang.CALC }, (async
             catch (err) { return await message.client.sendMessage(message.jid,Lang.UNSUC + err,MessageType.text);
             }
         }
-        else if (match[1].includes(':')) { var split = match[1].split(':'), sonsayibol = split[1], ilksayibol = split[0] 
+        else if (match[1].includes('/')) { var split = match[1].split('/'), sonsayibol = split[1], ilksayibol = split[0] 
             var result = ilksayibol / sonsayibol
             try { await message.client.sendMessage(message.jid,Lang.SUC + result, MessageType.text) }
             catch (err) { return await message.client.sendMessage(message.jid,Lang.UNSUC + err,MessageType.text)
