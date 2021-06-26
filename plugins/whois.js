@@ -6,10 +6,16 @@ const ffmpeg = require('fluent-ffmpeg');
 const {execFile} = require('child_process');
 const CON = require('../config');
 
-const Language = require('../language'); 
-const Lang = Language.getString('whois'); // Language Support
+// STRING
+const WHOIS = "Displays metadata data of group or person."
+const SUB = "*Group Name:* "
+const DES = "*Group Description:* "
+const OWN = "*Founder:* "
+const COD = "*Unique Group Code:* "
+const JİD = "*Person JID:* "
+const ST = "*Person Status:* "
 
-    Asena.addCommand({ pattern: 'whois', fromMe: true, desc: Lang.PL_DESC }, async (message, match) => { 
+    Asena.addCommand({ pattern: 'whois', fromMe: true, desc: WHOIS }, async (message, match) => { 
 
         if (message.jid.includes('-')) {
             var json = await message.client.groupMetadataMinimal(message.jid) 
@@ -18,7 +24,7 @@ const Lang = Language.getString('whois'); // Language Support
 
             var nwjson = await message.client.groupMetadata(message.jid) 
 
-            const msg = `*Grup ID:* ${json.id} \n` + Lang.SUB + `${nwjson.subject} \n` + Lang.OWN + `${json.owner} \n` + Lang.COD + `${code} \n` + Lang.DES + `\n\n${nwjson.desc}`
+            const msg = `*Grup ID:* ${json.id} \n` + SUB + `${nwjson.subject} \n` + OWN + `${json.owner} \n` + COD + `${code} \n` + DES + `\n\n${nwjson.desc}`
 
             var ppUrl = await message.client.getProfilePicture(message.jid) 
 
@@ -34,7 +40,7 @@ const Lang = Language.getString('whois'); // Language Support
             var status = await message.client.getStatus(message.jid) 
             var usppUrl = await message.client.getProfilePicture(message.jid) 
             var usexists = await message.client.isOnWhatsApp(message.jid)
-            const nwmsg = Lang.JİD + `${usexists.jid} \n` + Lang.ST + `${status.status}`
+            const nwmsg = JİD + `${usexists.jid} \n` + ST + `${status.status}`
             const resimnw = await Axios.get(usppUrl, {responseType: 'arraybuffer'})
             await message.sendMessage(
                 Buffer(resimnw.data), 
