@@ -36,8 +36,6 @@ function secondsToHms(seconds) {
     return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 
-if (Config.WORKTYPE == 'private') {
-
 Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (Config.OFFAFKMSG == 'default') {
 
@@ -109,84 +107,3 @@ Asena.addCommand({pattern: 'off ?(.*)', fromMe: true, deleteCommand: false, desc
         await message.client.sendMessage(message.jid,Lang.OFF_IM_AFK + (AFK.reason !== false ? ('\n' + Lang.OFF_REASON +': ```' + AFK.reason + '```') : ''),MessageType.text);
     }
 }));
-    
-}
-
-
-// now private command can be run publicly
-
-if (Config.WORKTYPE == 'public') {
-
-Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
-    if (Config.OFFAFKMSG == 'default') {
-
-        if (AFK.isAfk && ((!message.jid.includes('-')) || (message.jid.includes('-') && 
-            (( message.mention !== false && message.mention.length !== 0 ) || message.reply_message !== false)))) {
-            if (message.jid.includes('-') && (message.mention !== false && message.mention.length !== 0)) {
-                message.mention.map(async (jid) => {
-                    if (message.client.user.jid.split('@')[0] === jid.split('@')[0]) {
-                        await message.client.sendMessage(message.jid,Lang.OFF_TEXT + '\n' + 
-                        (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
-                    }
-                })
-            } else if (message.jid.includes('-') && message.reply_message !== false) {
-                if (message.reply_message.jid.split('@')[0] === message.client.user.jid.split('@')[0]) {
-                        await message.client.sendMessage(message.jid,Lang.OFF_TEXT + '\n' + 
-                        (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
-                    }
-            } else {
-                        await message.client.sendMessage(message.jid,Lang.OFF_TEXT + '\n' + 
-                        (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
-                    }
-        }
-    }
-    else {
-        if (AFK.isAfk && ((!message.jid.includes('-')) || (message.jid.includes('-') && 
-            (( message.mention !== false && message.mention.length !== 0 ) || message.reply_message !== false)))) {
-            if (message.jid.includes('-') && (message.mention !== false && message.mention.length !== 0)) {
-                message.mention.map(async (jid) => {
-                    if (message.client.user.jid.split('@')[0] === jid.split('@')[0]) {
-                        await message.client.sendMessage(message.jid,Config.OFFAFKMSG + '\n' + 
-                        (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
-                    }
-                })
-            } else if (message.jid.includes('-') && message.reply_message !== false) {
-                if (message.reply_message.jid.split('@')[0] === message.client.user.jid.split('@')[0]) {
-                        await message.client.sendMessage(message.jid,Config.OFFAFKMSG + '\n' + 
-                        (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
-                    }
-            } else {
-                        await message.client.sendMessage(message.jid,Config.OFFAFKMSG + '\n' + 
-                        (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
-                    }
-        }
-    }
-}));
-
-Asena.addCommand({pattern: 'unoff ?(.*)', fromMe: true, dontAddCommandList: true, deleteCommand: false}, (async (message, match) => {
-    if (AFK.isAfk && !message.id.startsWith('3EB0')) {
-        AFK.lastseen = 0;
-        AFK.reason = false;
-        AFK.isAfk = false;
-
-        await message.client.sendMessage(message.jid,Lang.OFF_IM_NOT_AFK,MessageType.text);
-    }
-}));
-
-Asena.addCommand({pattern: 'off ?(.*)', fromMe: true, deleteCommand: false, dontAddCommandList: true, desc: Lang.OFF_DESC}, (async (message, match) => {     
-    if (!AFK.isAfk) {
-        AFK.lastseen = Math.round((new Date()).getTime() / 1000);
-        if (match[1] !== '') { AFK.reason = match[1]; }
-        AFK.isAfk = true;
-
-        await message.client.sendMessage(message.jid,Lang.OFF_IM_AFK + (AFK.reason !== false ? ('\n' + Lang.OFF_REASON +': ```' + AFK.reason + '```') : ''),MessageType.text);
-    }
-}));
-
-}
