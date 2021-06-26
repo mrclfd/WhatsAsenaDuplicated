@@ -6,7 +6,7 @@ const ffmpeg = require('fluent-ffmpeg');
 const {execFile} = require('child_process');
 
 const Language = require('../language'); 
-const Lang = Language.getString('log'); 
+// const Lang = Language.getString('log'); 
 
 Asena.addCommand({ pattern: 'log', fromMe: true, desc: Lang.LOG, warn: Lang.ANIM, onlyGroup: true}, (async (message, match) => { 
 
