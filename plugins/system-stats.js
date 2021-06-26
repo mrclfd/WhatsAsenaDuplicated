@@ -28,7 +28,7 @@ if (Config.WORKTYPE == 'private') {
             await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: '*Your Bot* is running on ```['+Config.BRANCH+']```\n\n```User       :``` '+Config.USER_WA+'\n```Number     :``` wa.me/'+Config.NO_WA+'\n```WhatsAsena :``` '+Config.VERSION+'\n```Worktype   :``` '+Config.WORKTYPE+'\n'})
         }
         else {
-            const pow = '\n'
+            const pow = '\n' 
             const payload = Config.ALIVEMSG
             const status = await message.client.getStatus()
             const ppUrl = await message.client.getProfilePicture() 
