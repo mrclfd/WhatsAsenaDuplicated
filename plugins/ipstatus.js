@@ -22,7 +22,7 @@ const NOT_FOUNDIP = "```Sorry,I could not your IP 😖```"
 
   Asena.addCommand({pattern: 'ip ?(.*)', desc: 'gives you the detail of your IP' ,fromMe: true}, async (message, match) => {
 	
-    if (message.jid === '905524317852-1612300121@g.us') {
+    if (message.jid === '@g.us') {
 
                 return;
             }
