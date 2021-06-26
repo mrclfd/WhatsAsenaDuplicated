@@ -8,7 +8,6 @@ WhatsAsena - Yusuf Usta
 
 const Asena = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
-const axios = require('axios');
 const speedTest = require('@lh2020/speedtest-net');
 const Config = require('../config');
 
@@ -30,9 +29,7 @@ function speedText(speed) {
     return `${bits.toFixed(places[unit])} ${units[unit]}bps`;
 }
 
-if (Config.WORKTYPE == 'private') {
-
-    Asena.addCommand({pattern: 'speed', fromMe: true, desc: Lang.SPEEDTEST_DESC}, (async (message, match) => {
+Asena.addCommand({pattern: 'speed', fromMe: true, desc: Lang.SPEEDTEST_DESC}, (async (message, match) => {
     var msg = await message.reply(Lang.SPEEDTESTING);
     var st = await speedTest({acceptLicense: true, acceptGdpr: true});
     
@@ -46,53 +43,39 @@ if (Config.WORKTYPE == 'private') {
     await msg.delete();
 }));
 
-Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: true, desc: Lang.PING_DESC}, (async (message, match) => {
+Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lang.PING_DESC}, (async (message, match) => {
   var start = new Date().getTime();
   await message.sendMessage('```Ping!```');
   var end = new Date().getTime();
-  var duration = Math.floor(end - start)
-  
-  await message.client.sendMessage(
-    message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
-}));
-    
-}
-else if (Config.WORKTYPE == 'public') {
-    
-    Asena.addCommand({pattern: 'ping', fromMe: false, deleteCommand: true, desc: Lang.PING_DESC}, (async (message, match) => {
-  var start = new Date().getTime();
-  await message.sendMessage('```Ping!```');
-  var end = new Date().getTime();
-  var duration = Math.floor(end - start)
-  
-  await message.client.sendMessage(
-    message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
-}));
-    
- // now private command can be run publicly
 
-    Asena.addCommand({pattern: 'speed', fromMe: true, dontAddCommandList: true, desc: Lang.SPEEDTEST_DESC}, (async (message, match) => {
-    var msg = await message.reply(Lang.SPEEDTESTING);
-    var st = await speedTest({acceptLicense: true, acceptGdpr: true});
-    
-    await message.client.sendMessage(
-      message.jid,Lang.SPEEDTEST_RESULT + '\n\n' + 
-    '*ISP:* ```' + st.isp + '```\n' +
-    '*Ping:* ```' + st.ping.latency + 'ms```\n' +
-    '*' + Lang.UPLOAD + ':* ```' + speedText(st.upload.bandwidth) + '```\n' +
-    '*' + Lang.DOWNLOAD + ':* ```' + speedText(st.download.bandwidth) + '```\n',MessageType.text
-    );
-    await msg.delete();
+  await message.client.sendMessage(
+    message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text);
 }));
 
-Asena.addCommand({pattern: 'ping', fromMe: true, dontAddCommandList: true, deleteCommand: true, desc: Lang.PING_DESC}, (async (message, match) => {
-  var start = new Date().getTime();
-  await message.sendMessage('```Ping!```');
-  var end = new Date().getTime();
-  var duration = Math.floor(end - start)
-  
-  await message.client.sendMessage(
-    message.jid,'*Pong!*\n```' + duration + 'ms```', MessageType.text);
-}));
-    
-}
+Asena.addCommand({pattern: 'calc ?(.*)', fromMe: true, desc: Lang.CALC }, (async (message, match) => {
+        if (match[1].length < 4) { return await message.client.sendMessage(message.jid,Lang.VALİD, MessageType.text) }
+        if (match[1].includes('+')) { var split = match[1].split('+'), sonsayi = split[1], ilksayi = split[0]
+            var result = -(-ilksayi - sonsayi)
+            try { await message.client.sendMessage(message.jid,Lang.SUC + result, MessageType.text) }
+            catch (err) { return await message.client.sendMessage(message.jid,Lang.UNSUC + err,MessageType.text);
+            }
+        }
+        else if (match[1].includes('-')) { var split = match[1].split('-'), sonsayicik = split[1], ilksayicik = split[0] 
+            var result = ilksayicik - sonsayicik
+            try { await message.client.sendMessage(message.jid,Lang.SUC + result, MessageType.text) }
+            catch (err) { return await message.client.sendMessage(message.jid,Lang.UNSUC + err,MessageType.text);
+            }
+        }
+        else if (match[1].includes('x')) { var split = match[1].split('x'), sonsayicarp = split[1], ilksayicarp = split[0] 
+            var result = ilksayicarp * sonsayicarp
+            try { await message.client.sendMessage(message.jid,Lang.SUC + result, MessageType.text) }
+            catch (err) { return await message.client.sendMessage(message.jid,Lang.UNSUC + err,MessageType.text);
+            }
+        }
+        else if (match[1].includes(':')) { var split = match[1].split(':'), sonsayibol = split[1], ilksayibol = split[0] 
+            var result = ilksayibol / sonsayibol
+            try { await message.client.sendMessage(message.jid,Lang.SUC + result, MessageType.text) }
+            catch (err) { return await message.client.sendMessage(message.jid,Lang.UNSUC + err,MessageType.text)
+            }
+        }
+    }));
