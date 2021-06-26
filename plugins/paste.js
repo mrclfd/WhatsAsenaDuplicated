@@ -16,8 +16,6 @@ const Config = require('../config');
 const Language = require('../language');
 const Lang = Language.getString('paste');
 
-if (Config.WORKTYPE == 'private') {
-
     Asena.addCommand({pattern: 'paste$', fromMe: true, desc: Lang.NEKOBIN_DESC}, (async (message, match) => {
 
         if (!message.reply_message) return await message.sendMessage(Lang.NEED_REPLY);
@@ -51,77 +49,3 @@ if (Config.WORKTYPE == 'private') {
         }
        
     }));
-}
-else if (Config.WORKTYPE == 'public') {
-
-    Asena.addCommand({pattern: 'paste$', fromMe: false, desc: Lang.NEKOBIN_DESC}, (async (message, match) => {
-
-        if (!message.reply_message) return await message.sendMessage(Lang.NEED_REPLY);
-        if (!message.reply_message.text) return await message.sendMessage(Lang.MUST_TEXT);
-        let base_URI = "https://nekobin.com/api/documents";
-        try {
-            const response = await got.post(base_URI, {json : {content : message.reply_message.text}}); 
-            json = JSON.parse(response.body);
-            neko_url = 'https://nekobin.com/' + json.result.key;
-            await message.reply('*Berhasil ditempel!*\n\n```Nekobin URL:```'+neko_url+'\n```Lihat RAW:```https://nekobin.com/raw/'+json.result.key+'');        
-        } catch (err) {
-            await message.reply(err.message, MessageType.text);
-            console.log(err.message);
-        }
-       
-    }));
-    
-    Asena.addCommand({pattern: 'paste d$', fromMe: false, desc: Lang.DOGBIN_DESC}, (async (message, match) => {
-
-        if (!message.reply_message) return await message.sendMessage(Lang.NEED_REPLY);
-        if (!message.reply_message.text) return await message.sendMessage(Lang.MUST_TEXT);
-        let base_URI = "https://del.dog/documents";
-        try {
-            const response = await got.post(base_URI, {json : {content : message.reply_message.text}}); 
-            json = JSON.parse(response.body);
-            dogbin_url = 'https://del.dog/' + json.key;
-            await message.reply('*Berhasil ditempel!*\n\n```Dogbin URL:```'+dogbin_url+'\n```Lihat RAW:```https://del.dog/raw/'+json.key+'');        
-        } catch (err) {
-            await message.reply(err.message, MessageType.text);
-            console.log(err.message);
-        }
-       
-    }));
-    
-    
-    // now private command can be run publicly
-    
-    Asena.addCommand({pattern: 'paste$', fromMe: true, dontAddCommandList: true, desc: Lang.NEKOBIN_DESC}, (async (message, match) => {
-
-        if (!message.reply_message) return await message.sendMessage(Lang.NEED_REPLY);
-        if (!message.reply_message.text) return await message.sendMessage(Lang.MUST_TEXT);
-        let base_URI = "https://nekobin.com/api/documents";
-        try {
-            const response = await got.post(base_URI, {json : {content : message.reply_message.text}}); 
-            json = JSON.parse(response.body);
-            neko_url = 'https://nekobin.com/' + json.result.key;
-            await message.reply('*Berhasil ditempel!*\n\n```Nekobin URL:```'+neko_url+'\n```Lihat RAW:```https://nekobin.com/raw/'+json.result.key+'');        
-        } catch (err) {
-            await message.reply(err.message, MessageType.text);
-            console.log(err.message);
-        }
-       
-    }));
-    
-    Asena.addCommand({pattern: 'paste d$', fromMe: true, dontAddCommandList: true, desc: Lang.DOGBIN_DESC}, (async (message, match) => {
-
-        if (!message.reply_message) return await message.sendMessage(Lang.NEED_REPLY);
-        if (!message.reply_message.text) return await message.sendMessage(Lang.MUST_TEXT);
-        let base_URI = "https://del.dog/documents";
-        try {
-            const response = await got.post(base_URI, {json : {content : message.reply_message.text}}); 
-            json = JSON.parse(response.body);
-            dogbin_url = 'https://del.dog/' + json.key;
-            await message.reply('*Berhasil ditempel!*\n\n```Dogbin URL:```'+dogbin_url+'\n```Lihat RAW:```https://del.dog/raw/'+json.key+'');        
-        } catch (err) {
-            await message.reply(err.message, MessageType.text);
-            console.log(err.message);
-        }
-       
-    }));
-}
