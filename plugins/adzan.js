@@ -9,12 +9,10 @@ const {MessageType} = require('@adiwajshing/baileys');
 const got = require('got');
 const Config = require('../config');
 
-const Language = require('../language');
-const Lang = Language.getString('adzan');
 
-        Asena.addCommand({pattern: 'adzan ?(.*)', desc: Lang.ADZAN_DESC, fromMe: true}, async (message, match) => {
+        Asena.addCommand({pattern: 'adzan ?(.*)', desc: adzan, usage: usage, fromMe: true}, async (message, match) => {
 
-	    if (match[1] === '') return await message.reply('*Masukkan kota!*');
+	    if (match[1] === '') return await message.reply(butuh);
 	    const url = `https://api.pray.zone/v2/times/today.json?city=${match[1]}`;
 	    try {
 		    const response = await got(url);
@@ -29,6 +27,14 @@ const Lang = Language.getString('adzan');
 		    '```Maghrib :``` *' + json.results.datetime[0].times.Maghrib + '*\n' +
                     '```Isya    :``` *' + json.results.datetime[0].times.Isha + '*\n', MessageType.text);
 	    } catch {
-		    return await message.client.sendMessage(message.jid, Lang.NOT_FOUND, MessageType.text);
+		    return await message.client.sendMessage(message.jid, renek, MessageType.text);
 	    }
     });
+
+
+// CMD_HELP
+const adzan = "Jadwal waktu adzan shalat."
+const usage = ".adzan <kota>"
+
+const butuh = "```Masukkan nama kota!```"
+const renek = "```Kota tidak ditemukan!```"
