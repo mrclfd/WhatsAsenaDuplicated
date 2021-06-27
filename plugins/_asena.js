@@ -94,8 +94,8 @@ Asena.addCommand({pattern: 'help ?(.*)', fromMe: true, dontAddCommandList: true}
                         var match = [command.pattern];
                     }
    
-                    CMD_HELP += '' + (match.length >= 3 ? (match[2]) : command.pattern) + (command.desc === '' ? ' | ');
-                 
+                    CMD_HELP += '' + (match.length >= 3 ? (match[2]) : command.pattern) + (command.desc === '' ? ' | ' : ' | ');
+                                 
                 }
             );
 
