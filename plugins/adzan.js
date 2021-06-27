@@ -9,6 +9,13 @@ const {MessageType} = require('@adiwajshing/baileys');
 const got = require('got');
 const Config = require('../config');
 
+// CMD_HELP
+const adzan = "Jadwal waktu adzan shalat."
+const usage = ".adzan <kota>"
+
+const butuh = "```Masukkan nama kota!```"
+const renek = "```Kota tidak ditemukan!```"
+
 
         Asena.addCommand({pattern: 'adzan ?(.*)', desc: adzan, usage: usage, fromMe: true}, async (message, match) => {
 
@@ -30,11 +37,3 @@ const Config = require('../config');
 		    return await message.client.sendMessage(message.jid, renek, MessageType.text);
 	    }
     });
-
-
-// CMD_HELP
-const adzan = "Jadwal waktu adzan shalat."
-const usage = ".adzan <kota>"
-
-const butuh = "```Masukkan nama kota!```"
-const renek = "```Kota tidak ditemukan!```"
