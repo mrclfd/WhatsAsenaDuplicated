@@ -94,12 +94,12 @@ Asena.addCommand({pattern: 'help ?(.*)', fromMe: true, dontAddCommandList: true}
                         var match = [command.pattern];
                     }
    
-                    CMD_HELP += '```' + (match.length >= 3 ? (match[2]) : command.pattern) + (command.desc === '' ? '```\n\n' : '```\n');
+                    CMD_HELP += '' + (match.length >= 3 ? (match[2]) : command.pattern) + ' | ');
                 }
             );
 
             await message.client.sendMessage(
-                message.jid,'*Please specify which command do you want help for !!*\n*Usage:* ```.help <command name>```\n*List for all available command below:* \n\n' + CMD_HELP, MessageType.text
+                message.jid,'*Please specify which command do you want help for !!*\n*Usage:* ```.help <command name>```\n*List for all available command below:* \n\n```' + CMD_HELP + '```', MessageType.text
             );    
         } else {
 
