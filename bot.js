@@ -132,7 +132,7 @@ async function whatsAsena () {
                 }
             }
         })
-    }, 50000);
+    }, 0);
     var biography_var = ''
     await heroku.get(baseURI + '/config-vars').then(async (vars) => {
         biography_var = vars.AUTO_BIO
