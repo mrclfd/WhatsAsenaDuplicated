@@ -3,14 +3,17 @@ const {MessageType} = require('@adiwajshing/baileys');
 const axios = require('axios');
 const Config = require('../config');
 
-const Language = require('../language');
-const Lang = Language.getString('brainly');
+// CMD_HELP
+const brainly = "Mencari jawaban dibrainly."
+const usage = ".brainly <pertanyaan>"
 
-Asena.addCommand({ pattern: 'brainly ?(.*)', fromMe: true, desc: Lang.BRAINLY_DESC }, async (message, match) => {
+const butuh = "```Masukkan pertanyaan!```"
+
+Asena.addCommand({ pattern: 'brainly ?(.*)', fromMe: true, desc: brainly, usage: usage }, async (message, match) => {
 
         const Soal = match[1]
         
-        if (match[1] === '') return await message.client.sendMessage(message.jid,'*Masukkan pertanyaan!*', MessageType.text);
+        if (match[1] === '') return await message.client.sendMessage(message.jid, butuh, MessageType.text);
 
         await axios
           .get(`https://api.xteam.xyz/brainly?APIKEY=10c4105200edc0f0&soal=${Soal}`)
