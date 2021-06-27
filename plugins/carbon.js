@@ -10,7 +10,7 @@ const Config = require('../config');
 
 // CMD_HELP
 const carbon = "Membuat teks menjadi foto dengan carbon.sh."
-const butuh = "Balas pesan lalu ketik .carbon"
+const usage = "Balas pesan lalu ketik .carbon"
 
 const butuh = "```Balas pesan apapun!```"
 
