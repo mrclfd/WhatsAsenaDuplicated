@@ -13,7 +13,7 @@ const Config = require('../config');
 
 // CMD_HELP
 const ffmpeg_desc = "Menerapkan efek ffmpeg yang diinginkan ke video."
-const usage = "*Balas media dan ketik perintah!*\n\nCth: ```.ffmpeg fade=in:0:30```\nCth: ```.ffmpeg curves=vintage```\nCth: ```.ffmpeg fps=25```"
+const usage = "Balas media dan ketik perintah!```\n\nCth: ```.ffmpeg fade=in:0:30```\nCth: ```.ffmpeg curves=vintage```\nCth: ```.ffmpeg fps=25"
 
 const butuh = ".help ffmpeg"
 const proses = "```Menerapkan Efek..```"
