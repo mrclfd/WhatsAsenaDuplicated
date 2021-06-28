@@ -14,13 +14,11 @@ const Lang = Language.getString('donasi');
        
         await message.client.sendMessage (message.jid, Buffer.from (image.data), MessageType.image, {mimetype: Mimetype.png, caption: `*Buy Me a Coffee\nvia* saweria.co/budilasidodo`})
       
-/*
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      
-     /*  
+    
         await new Promise(r => setTimeout(r, 1650));
   
         await message.sendMessage('Thx u <3');
-     */
-  
+     
         }));
+*/
