@@ -41,14 +41,14 @@ var need_way = ''
 if (Config.LANG == 'ID') bdesc = 'Ini mengirimkan audio, video dan foto di dalam server.', berr = '*File yang Anda cari tidak tersedia di server!*', need_way = '*Jalur File Diperlukan!*'
 
 let wk_q = Config.WORKTYPE == 'public' ? false : true
-Asena.addCommand({pattern: 'bashmedia ?(.*)', fromMe: wk_q, desc: bdesc, usage: 'video.mp4 && media/gif/pic.mp4'}, (async (message, match) => {    
+Asena.addCommand({pattern: 'dl ?(.*)', fromMe: wk_q, desc: bdesc, usage: 'video.mp4 && media/gif/pic.mp4'}, (async (message, match) => {    
     var id = message.jid
     try {
         if (match[1].includes('jpg') || match[1].includes('tiff') || match[1].includes('raw') || match[1].includes('dng') || match[1].includes('png') || match[1].includes('jpeg')) {
-            await message.client.sendMessage(id,fs.readFileSync(`/root/WhatsAsenaDuplicated/${match[1]}`), MessageType.image, {caption: 'Made by WhatsAsena' })
+            await message.client.sendMessage(id,fs.readFileSync(`/root/WhatsAsenaDuplicated/${match[1]}`), MessageType.image, {caption: 'Made with *TARGN-Userbot*' })
         }
         else if (match[1].includes('mp4') || match[1].includes('avi') || match[1].includes('webm') || match[1].includes('mkv') || match[1].includes('mpeg')) {
-            await message.client.sendMessage(id,fs.readFileSync(`/root/WhatsAsenaDuplicated/${match[1]}`), MessageType.video, {caption: 'Made by WhatsAsena' });
+            await message.client.sendMessage(id,fs.readFileSync(`/root/WhatsAsenaDuplicated/${match[1]}`), MessageType.video, {caption: 'Made with *TARGN-Userbot*' });
         }
         else if (match[1].includes('mp3') || match[1].includes('waw') || match[1].includes('flac') || match[1].includes('weba') || match[1].includes('ogg') || match[1].includes('m4a')) {
             await message.client.sendMessage(id,fs.readFileSync(`/root/WhatsAsenaDuplicated/${match[1]}`), MessageType.audio);
@@ -66,7 +66,7 @@ var rep_add = ''
 var suc_add = ''
 if (Config.LANG == 'ID') addsdesc = 'Upload gambar, audio atau video ke server.', rep_add = '*Balas Pesan Media Apa Pun!*', suc_add = '*Media Ditambahkan ke Server! ✅*'
 
-Asena.addCommand({pattern: 'addserver$', fromMe: wk_ad, desc: addsdesc}, (async (message, match) => {    
+Asena.addCommand({pattern: 'upl$', fromMe: wk_ad, desc: addsdesc}, (async (message, match) => {    
     if (message.reply_message.image) {
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
@@ -130,10 +130,10 @@ async function antlch() {
 }
 antlch()
 var ldc = ''
-if (Config.LANG == 'EN') ldc = '*Link Detected!*'
+if (Config.LANG == 'ID') ldc = '*Link Detected!*'
 
 Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
-    if (antilink_var == 'true' && message.jid !== '905511384572-1616356915@g.us') {
+    if (antilink_var == 'true' && message.jid !== '79853423484-1624846319@g.us') {
         let regex1 = new RegExp('http://')
         let regex2 = new RegExp('https://')
         if (regex1.test(message.message)) {
