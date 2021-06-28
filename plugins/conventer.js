@@ -14,9 +14,22 @@ const cheerio = require('cheerio')
 const FormData = require('form-data')
 const Axios = require('axios');
 
-const Language = require('../language');
-const Lang = Language.getString('conventer');
+// CMD_HELP
+const mp4audio = "Mengubah video menjadi audio."
+const mp4audio_usage = "Balas video dan ketik .mp4audio"
+const toimage = "Mengubah stiker menjadi foto."
+const toimage_usage = "Balas stiker dan ketik .toimage"
+const tovideo = "Mengubah stiker animasi menjadi video."
+const tovideo_usage = "Balas stiker dan ketik .tovideo"
 
+const mp4audio_butuh = "```Balas video!```"
+const mp4audio_proses = "```Mengubah video menjadi audio..```"
+const toimage_butuh = "```Balas stiker!```"
+const toimage_proses = "```Mengubah stiker menjadi foto..```"
+const tovideo_butuh = "```Balas stiker!```"
+const tovideo_proses = "```Mengubah stiker menjadi video..```"
+
+    
 function webp2mp4File(path) {
     return new Promise(async (resolve, reject) => {
         const bodyForm = new FormData()
@@ -55,7 +68,7 @@ function webp2mp4File(path) {
                 const result = 'https:' + $('div#output > p.outfile > video > source').attr('src')
                 resolve({
                     status: true,
-                    message: "Made by WhatsAsena",
+                    message: "Made with *TARGN-Userbot*",
                     result: result
                 })
             }).catch(reject)
@@ -63,10 +76,11 @@ function webp2mp4File(path) {
     })
 }
 
-    Asena.addCommand({pattern: 'mp4audio$', fromMe: true, desc: Lang.MP4TOAUDİO_DESC}, (async (message, match) => {    
+    
+    Asena.addCommand({pattern: 'mp4audio$', fromMe: true, desc: mp4audio, usage: mp4audio_usage}, (async (message, match) => {    
         const mid = message.jid
-        if (message.reply_message === false) return await message.client.sendMessage(mid, Lang.MP4TOAUDİO_NEEDREPLY, MessageType.text);
-        var downloading = await message.client.sendMessage(mid,Lang.MP4TOAUDİO,MessageType.text);
+        if (message.reply_message === false) return await message.client.sendMessage(mid, mp4audio_butuh, MessageType.text);
+        var downloading = await message.client.sendMessage(mid, mp4audio_proses,MessageType.text);
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -83,10 +97,10 @@ function webp2mp4File(path) {
         return await message.client.deleteMessage(mid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
 
-    Asena.addCommand({pattern: 'toimage', fromMe: true, desc: Lang.STİCKER_DESC}, (async (message, match) => {   
+    Asena.addCommand({pattern: 'toimage$', fromMe: true, desc: toimage, usage: toimage_usage}, (async (message, match) => {   
         const mid = message.jid
-        if (message.reply_message === false) return await message.client.sendMessage(mid, Lang.STİCKER_NEEDREPLY, MessageType.text);
-        var downloading = await message.client.sendMessage(mid,Lang.STİCKER,MessageType.text);
+        if (message.reply_message === false) return await message.client.sendMessage(mid, toimage_butuh, MessageType.text);
+        var downloading = await message.client.sendMessage(mid, toimage_proses,MessageType.text);
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -99,14 +113,15 @@ function webp2mp4File(path) {
             .fromFormat('webp_pipe')
             .save('output.jpg')
             .on('end', async () => {
-                await message.client.sendMessage(mid, fs.readFileSync('output.jpg'), MessageType.image, {mimetype: Mimetype.jpg});
+                await message.client.sendMessage(mid, fs.readFileSync('output.jpg'), MessageType.image, {mimetype: Mimetype.jpg, caption: 'Made with *TARGN-Userbot*'});
             });
         return await message.client.deleteMessage(mid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
-    Asena.addCommand({pattern: 'tovideo', desc: Lang.ANİM_STİCK, fromMe: true}, (async (message, match) => {
+
+    Asena.addCommand({pattern: 'tovideo$', fromMe: true, desc: tovideo, usage: tovideo_usage}, (async (message, match) => {
         const mid = message.jid
-        if (message.reply_message === false) return await message.sendMessage(Lang.STİCKER_NEEDREPLY);
-        await message.client.sendMessage(mid, Lang.ANİMATE, MessageType.text)
+        if (message.reply_message === false) return await message.sendMessage( tovideo_butuh);
+        await message.client.sendMessage(mid, tovideo_proses, MessageType.text)
         const savedFilename = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -118,7 +133,7 @@ function webp2mp4File(path) {
             await Axios({ method: "GET", url: rest.result, responseType: "stream"}).then(({ data }) => {
                 const saving = data.pipe(fs.createWriteStream('/root/WhatsAsenaDuplicated/stweb.mp4'))
                 saving.on("finish", async () => {
-                    await message.client.sendMessage(mid, fs.readFileSync('/root/WhatsAsenaDuplicated/stweb.mp4'), MessageType.video, { mimetype: Mimetype.mp4, quoted: message.data })
+                    await message.client.sendMessage(mid, fs.readFileSync('/root/WhatsAsenaDuplicated/stweb.mp4'), MessageType.video, { mimetype: Mimetype.mp4, caption: 'Made with *TARGN-Userbot*', quoted: message.data })
                     if (fs.existsSync(savedFilename)) fs.unlinkSync(savedFilename)
                     if (fs.existsSync('/root/WhatsAsenaDuplicated/stweb.mp4')) fs.unlinkSync('/root/WhatsAsenaDuplicated/stweb.mp4')
                 })
