@@ -129,11 +129,11 @@ Asena.addCommand({pattern: 'textmaker$', fromMe: true, desc: desc_msg}, (async (
         command_cmd + '```.textharry``` \n' + desc_cmd + t26 + '_\n' + usage_cmd + '.textharry TARGN_\n\n' +
         command_cmd + '```.textcup``` \n' + desc_cmd + t29 + '_\n' + usage_cmd + '.textcup TARGN_\n\n' +
         command_cmd + '```.textcemetery``` \n' + desc_cmd + t28 + '_\n' + usage_cmd + '.textcemetery TARGN_\n\n' +
-        command_cmd + '```.textglitch``` \n' + desc_cmd + t14 + '_\n' + usage_cmd + '.textglitch TARGN;Userbot_' +
+        command_cmd + '```.textglitch``` \n' + desc_cmd + t14 + '_\n' + usage_cmd + '.textglitch TARGN;Userbot_\n\n' +
         command_cmd + '```.textph``` \n' + desc_cmd + t30 + '_\n' + usage_cmd + '.textph TARGN;Userbot_\n\n' +
         command_cmd + '```.textthunder``` \n' + desc_cmd + t31 + '_\n' + usage_cmd + '.textthunder TARGN_\n\n' +
         command_cmd + '```.textmatrix``` \n' + desc_cmd + t32 + '_\n' + usage_cmd + '.textmatrix TARGN_\n\n' +
-        command_cmd + '```.textwater``` \n' + desc_cmd + t33 + '_\n' + usage_cmd + '.textwater TARGN_'
+        command_cmd + '```.textwater``` \n' + desc_cmd + t33 + '_\n' + usage_cmd + '.textwater TARGN_\n'
     await message.client.sendMessage(message.jid,msg, MessageType.text, { quoted: message.data })
 }));
 
