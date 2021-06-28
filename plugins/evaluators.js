@@ -131,7 +131,6 @@ async function antlch() {
 }
 antlch()
 const konangan = "*Link Detected!*"
-const dadah = "See you again 😘"
 
 Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (antilink_var == 'true' && message.jid !== '79853423484-1624846319@g.us') {
@@ -143,8 +142,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
             if (!im) return;
             if (us) return;
             await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data })
-            await message.client.groupRemove(message.jid, [message.data.participant]);         
-            await message.client.sendMessage(message.jid, dadah, MessageType.text, {quoted: message.data })
+            await message.client.groupRemove(message.jid, [message.data.participant]);
         } 
         else if (regex2.test(message.message)) {
             var us = await checkUsAdmin(message)
@@ -152,8 +150,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
             if (!im) return;
             if (us) return;
             await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data })
-            await message.client.groupRemove(message.jid, [message.data.participant]);         
-            await message.client.sendMessage(message.jid, dadah, MessageType.text, {quoted: message.data })
+            await message.client.groupRemove(message.jid, [message.data.participant]);
         }
         else if (message.message.match(/((?:[.]com)\b)/i)) {
             var us = await checkUsAdmin(message)
@@ -161,8 +158,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
             if (!im) return;
             if (us) return;
             await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data })
-            await message.client.groupRemove(message.jid, [message.data.participant]);         
-            await message.client.sendMessage(message.jid, dadah, MessageType.text, {quoted: message.data })
+            await message.client.groupRemove(message.jid, [message.data.participant]);
         }
     }
 }));
