@@ -12,7 +12,7 @@ const Language = require('../language');
 const Lang = Language.getString('tagall');
 const SLang = Language.getString('scrapers');
 
-Asena.addCommand({pattern: 'tagall|hi ?(.*)', fromMe: true, desc: Lang.TAGALL_DESC }, (async (message, match) => {
+Asena.addCommand({pattern: 'tagall ?(.*)', pattern: 'hi ?(.*)', fromMe: true, desc: Lang.TAGALL_DESC }, (async (message, match) => {
    
     if (!message.reply_message) {
         if (match[1] !== '') {
