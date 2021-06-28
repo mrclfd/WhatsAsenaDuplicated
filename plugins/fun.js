@@ -2,6 +2,7 @@
 Telegram: t.me/mrclfd
 */
 
+/*
 const Asena = require('../events');
 const { MessageType, MessageOptions, Mimetype } = require('@adiwajshing/baileys');
 const fs = require('fs');
@@ -284,7 +285,8 @@ Husbu acak - BOT`
           })
        },
     )
-	    /*
+    
+    /*
     Asena.addCommand({ pattern: 'wattpad ?(.*)', fromMe: true, desc: Lang.WATTPAD_DESC }, async (message, match) => {
       const userName = match[1]
 	    
@@ -317,9 +319,8 @@ Husbu acak - BOT`
           })
       },
     )
-    */
-	
-	// Empty text
+     // * /
+     
 	Asena.addCommand({pattern: 'b$', fromMe: true, desc: Lang.EMPTY_DESC}, (async (message, match) => {
             
             await message.client.sendMessage(message.jid, '                                          \n                                          ', MessageType.text);
@@ -491,3 +492,4 @@ var i = Math.floor(17*Math.random())
 await message.client.sendMessage(message.jid, `${r_text[i]}` + '\n\n-- Bot', MessageType.text);
 
 }));
+*/
