@@ -12,18 +12,8 @@ const Language = require('../language');
 const Lang = Language.getString('tagall');
 const SLang = Language.getString('scrapers');
 
-async function checkImAdmin(message, user = message.client.user.jid) {
-    var grup = await message.client.groupMetadata(message.jid);
-    var sonuc = grup['participants'].map((member) => {
-        if (member.jid.split('@')[0] === user.split('@')[0] && member.isAdmin) return true; else; return false;
-    });
-    return sonuc.includes(true && false);
-}
-
 Asena.addCommand({pattern: 'tagall ?(.*)', fromMe: true, desc: Lang.TAGALL_DESC }, (async (message, match) => {
-    var im = await checkImAdmin(message);
-    if (!im) return await message.client.sendMessage(message.jid,Lang.ADMİN,MessageType.text);
-
+   
     if (!message.reply_message) {
         if (match[1] !== '') {
             grup = await message.client.groupMetadata(message.jid);
