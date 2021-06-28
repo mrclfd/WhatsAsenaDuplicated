@@ -85,50 +85,10 @@ async function whatsAsena () {
         var getGMTh = new Date().getHours()
         var getGMTm = new Date().getMinutes()
         await axios.get('https://gist.githubusercontent.com/phaticusthiccy/d0d1855bd0098d773759b4f3345bd292/raw/').then(async (ann) => {
-            const { infotr, infoen, infoes, infopt, infoid, infoaz, infohi, infoml, inforu} = ann.data.announcements          
-            if (infotr !== '' && config.LANG == 'TR') {
-                while (getGMTh == 19 && getGMTm == 1) { 
-                    return conn.sendMessage(conn.user.jid, '[ ```Günlük Duyurular``` ]\n\n' + infotr.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
-                }
-            }
-            else if (infoaz !== '' && config.LANG == 'AZ') {
-                while (getGMTh == 19 && getGMTm == 1) { 
-                    return conn.sendMessage(conn.user.jid, '[ ```Gündəlik Elanlar``` ]\n\n' + infoaz.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
-                }
-            }
-            else if (infoes !== '' && config.LANG == 'ES') {
-                while (getGMTh == 18 && getGMTm == 1) { 
-                    return conn.sendMessage(conn.user.jid, '[ ```Anuncios Diarios``` ]\n\n' + infoes.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
-                }
-            }
-            else if (infoen !== '' && config.LANG == 'EN') {
-                while (getGMTh == 19 && getGMTm == 1) { 
-                    return conn.sendMessage(conn.user.jid, '[ ```Daily Announcements``` ]\n\n' + infoen.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
-                }
-            }
-            else if (infohi !== '' && config.LANG == 'HI') {
-                while (getGMTh == 21 && getGMTm == 31) { 
-                    return conn.sendMessage(conn.user.jid, '[ ```दैनिक घोषणाएं``` ]\n\n' + infohi.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
-                }
-            }
-            else if (infoml !== '' && config.LANG == 'ML') {
-                while (getGMTh == 19 && getGMTm == 1) { 
-                    return conn.sendMessage(conn.user.jid, '[ ```പ്രതിദിന പ്രഖ്യാപനങ്ങൾ``` ]\n\n' + infoml.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
-                }
-            }
-            else if (infoid !== '' && config.LANG == 'ID') {
+            const { infoid } = ann.data.announcements          
+            if (infoid !== '' && config.LANG == 'ID') {
                 while (getGMTh == 23 && getGMTm == 1) { 
                     return conn.sendMessage(conn.user.jid, '[ ```Pengumuman Harian``` ]\n\n' + infoid.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
-                }
-            }
-            else if (inforu !== '' && config.LANG == 'RU') {
-                while (getGMTh == 19 && getGMTm == 1) { 
-                    return conn.sendMessage(conn.user.jid, '[ ```Ежедневные объявления``` ]\n\n' + inforu.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
-                }
-            }
-            else if (infopt !== '' && config.LANG == 'PT') {
-                while (getGMTh == 17 && getGMTm == 1) { 
-                    return conn.sendMessage(conn.user.jid, '[ ```Anúncios Diários``` ]\n\n' + infopt.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
                 }
             }
         })
@@ -234,7 +194,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
         let typenecok = config.WORKTYPE == 'public' ? ' Public' : ' Private'
         console.log(chalk.bgGreen('🤖 TARGN-Userbot' + typenecok));
         await new Promise(r => setTimeout(r, 500));
-        let EVA_ACTİON = config.LANG == 'TR' || config.LANG == 'AZ' ? '*WhatsAsena Chatbot Olarak Çalışıyor!* 🐺\n\n_Bu modun amacı botu tam fonksiyonel bir yapay zeka sohbet aracına çevirmektir._\n_Normal moda dönmek için_ *.fulleva off* _komutunu kullanabilirsiniz._\n\n*WhatsAsena Kullandığın İçin Teşekkürler 💌*\n    *- Eva*' : '*WhatsAsena Working as a Chatbot! 🐺*\n\n_The purpose of this mod is to turn the bot into a fully functional AI chatbot._\n_You can use the_ *.fulleva off* _command to return to normal mode._\n\n*Thanks For Using WhatsAsena 💌*\n    *- Eva*'
+        let EVA_ACTİON = config.LANG == 'TR' || config.LANG == 'AZ' ? '*WhatsAsena Chatbot Olarak Çalışıyor!* 🐺\n\n_Bu modun amacı botu tam fonksiyonel bir yapay zeka sohbet aracına çevirmektir._\n_Normal moda dönmek için_ *.fulleva off* _komutunu kullanabilirsiniz._\n\n*WhatsAsena Kullandığın İçin Teşekkürler 💌*\n    *- Eva*' : '*🤖 TARGN-Userbot Working as a Chatbot!*\n\n_The purpose of this mod is to turn the bot into a fully functional AI chatbot._\n_You can use the_ *.fulleva off* _command to return to normal mode._\n\n*Thanks For Using TARGN-Userbot 💌*'
         if (conn.user.jid == one || conn.user.jid == two || conn.user.jid == three || conn.user.jid == four) {
             await conn.sendMessage(conn.user.jid,nw, MessageType.text), console.log(nw), await new Promise(r => setTimeout(r, 1000))
             await heroku.get(baseURI + '/formation').then(async (formation) => { 
@@ -278,7 +238,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                 if (config.FULLEVA == 'true') {
                     await conn.sendMessage(conn.user.jid, EVA_ACTİON, MessageType.text)
                 } else {
-                    await conn.sendMessage(conn.user.jid, '*WhatsAsena Working as Public! 🐺*\n\n_Please do not try plugins here. This is your LOG number._\n_You can try commands to any chat :)_\n\n*Your bot working as public. To change it, use* _.setvar WORK_TYPE:private_\n\n*Thanks for using WhatsAsena 💌*', MessageType.text);
+                    await conn.sendMessage(conn.user.jid, '*🤖 TARGN-Userbot Working as Public!*\n\n_Please do not try plugins here. This is your LOG number._\n_You can try commands to any chat :)_\n\n*Your bot working as public. To change it, use* _.setvar WORK_TYPE:private_\n\n*Thanks for using TARGN-Userbot 💌*', MessageType.text);
                 }               
                 await git.fetch();
                 var commits = await git.log([config.BRANCH + '..origin/' + config.BRANCH]);
@@ -333,7 +293,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                 if (config.FULLEVA == 'true') {
                     await conn.sendMessage(conn.user.jid, EVA_ACTİON, MessageType.text)
                 } else {
-                    await conn.sendMessage(conn.user.jid, '*WhatsAsena Working as Private! 🐺*\n\n_Please do not try plugins here. This is your LOG number._\n_You can try commands to any chat :)_\n\n*Your bot working as private. To change it, use* _.setvar WORK_TYPE:public_\n\n*Thanks for using WhatsAsena 💌*', MessageType.text);
+                    await conn.sendMessage(conn.user.jid, '*🤖 TARGN-Userbot Working as Private!*\n\n_Please do not try plugins here. This is your LOG number._\n_You can try commands to any chat :)_\n\n*Your bot working as private. To change it, use* _.setvar WORK_TYPE:public_\n\n*Thanks for using TARGN-Userbot 💌*', MessageType.text);
                 }
                 await git.fetch();
                 var commits = await git.log([config.BRANCH + '..origin/' + config.BRANCH]);
@@ -672,17 +632,15 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                 }
                             }
                             else {
-                                await conn.sendMessage(conn.user.jid, '*-- ERROR REPORT [BOT] --*' + 
-                                    '\n*WhatsAsena an error has occurred!*'+
+                                await conn.sendMessage(conn.user.jid, '*-- ERROR REPORT [TARGN] --*' + 
+                                    '\n*🤖 TARGN-Userbot an error has occurred!*'+
                                     '\n_This error log may include your number or the number of an opponent. Please be careful with it!_' +
-                                    '\n_You can write to our Telegram group for help._' +
-                                    '\n_Aslo you can join our support group:_ https://chat.whatsapp.com/BPNzFEBUVbT1MnfNv3uTvL' +
                                     '\n_This message should have gone to your number (saved messages)._\n\n' +
                                     '*Error:* ```' + error + '```\n\n'
                                     , MessageType.text, {detectLinks: false}
                                 );
                                 if (error.message.includes('URL')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Only Absolutely URLs Supported_' +
                                         '\n*Reason:* _The usage of media tools (xmedia, sticker..) in the LOG number._' +
@@ -691,7 +649,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('conversation')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Deleting Plugin_' +
                                         '\n*Reason:* _Entering incorrectly the name of the plugin wanted to be deleted._' +
@@ -700,7 +658,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('split')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Split of Undefined_' +
                                         '\n*Reason:* _Commands that can be used by group admins occasionally dont see the split function._ ' +
@@ -709,7 +667,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('SSL')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _SQL Database Error_' +
                                         '\n*Reason:* _Database corruption._ ' +
@@ -718,7 +676,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('Ookla')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Ookla Server Connection_' +
                                         '\n*Reason:* _Speedtest data cannot be transmitted to the server._' +
@@ -727,7 +685,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('params')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Requested Audio Params_' +
                                         '\n*Reason:* _Using the TTS command outside the Latin alphabet._' +
@@ -736,7 +694,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('unlink')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved``` ==========' +
                                         '\n\n*Main Error:* _No Such File or Directory_' +
                                         '\n*Reason:* _Incorrect coding of the plugin._' +
@@ -745,7 +703,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('404')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Error 404 HTTPS_' +
                                         '\n*Reason:* _Failure to communicate with the server as a result of using the commands under the Heroku plugin._' +
@@ -754,7 +712,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('reply.delete')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Reply Delete Function_' +
                                         '\n*Reason:* _Using IMG or Wiki commands._' +
@@ -763,7 +721,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('load.delete')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Reply Delete Function_' +
                                         '\n*Reason:* _Using IMG or Wiki commands._' +
@@ -772,7 +730,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('400')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Bailyes Action Error_ ' +
                                         '\n*Reason:* _The exact reason is unknown. More than one option may have triggered this error._' +
@@ -781,7 +739,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('decode')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Cannot Decode Text or Media_' +
                                         '\n*Reason:* _Incorrect use of the plug._' +
@@ -790,7 +748,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please Wait.')}`);
                                     );
                                 }
                                 else if (error.message.includes('unescaped')) {
-                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [BOT] ⚕️*' + 
+                                    return await conn.sendMessage(conn.user.jid, '*⚕️ ERROR ANALYSIS [TARGN] ⚕️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Word Character Usage_' +
                                         '\n*Reason:* _Using commands such as TTP, ATTP outside the Latin alphabet._' +
