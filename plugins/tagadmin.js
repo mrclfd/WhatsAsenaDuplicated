@@ -10,7 +10,7 @@ const Config = require('../config');
 const Language = require('../language');
 const Lang = Language.getString('tagall');
 
-    Asena.addCommand({pattern: 'tagadmin$', fromMe: true, desc: Lang.TAGADMİN}, (async (message, match) => {
+    Asena.addCommand({pattern: 'tagadmin|min$', fromMe: true, desc: Lang.TAGADMİN}, (async (message, match) => {
         let grup = await message.client.groupMetadata(message.jid);
         var jids = [];
         mesaj = '';
@@ -20,5 +20,5 @@ const Lang = Language.getString('tagall');
                 jids.push(uye.id.replace('c.us', 's.whatsapp.net'));
             }
         });
-        await message.client.sendMessage(message.jid,mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
+        await message.client.sendMessage(message.jid, 'Admin dalam grup ini:\n'+ mesaj, MessageType.extendedText, {contextInfo: {mentionedJid: jids}, previewType: 0})
     }));
