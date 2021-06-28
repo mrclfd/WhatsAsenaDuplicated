@@ -133,7 +133,7 @@ var ldc = ''
 if (Config.LANG == 'ID') ldc = '*Link Detected!*'
 
 Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
-    if (antilink_var == 'true' && message.jid !== '79853423484-1624846319@g.us') {
+    if (antilink_var == 'true' && message.jid !== '905511384572-1616356915@g.us') {
         let regex1 = new RegExp('http://')
         let regex2 = new RegExp('https://')
         if (regex1.test(message.message)) {
