@@ -67,8 +67,7 @@ if (config.LANG == 'ID') {
     dlang_input = 'Teks yang Diproses:'
 }
 
-if (config.WORKTYPE == 'private') {
-    
+//    
     var l_dsc = ''
     var alr_on = ''
     var alr_off = ''
@@ -1592,4 +1591,3 @@ else if (config.WORKTYPE == 'public') {
             );
         }
     }));
-}
