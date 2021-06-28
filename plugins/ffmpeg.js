@@ -12,14 +12,14 @@ const cwebp = require('cwebp-bin');
 const Config = require('../config');
 
 // CMD_HELP
-const ffmpeg = "Menerapkan efek ffmpeg yang diinginkan ke video."
+const ffmpeg_desc = "Menerapkan efek ffmpeg yang diinginkan ke video."
 const usage = "*Balas media dan ketik perintah!*\n\nCth: ```.ffmpeg fade=in:0:30```\nCth: ```.ffmpeg curves=vintage```\nCth: ```.ffmpeg fps=25```"
 
 const butuh = ".help ffmpeg"
 const proses = "```Menerapkan Efek..```"
 
 
-    Asena.addCommand({pattern: 'ffmpeg ?(.*)', fromMe: true, desc: ffmpeg, usage: usage}, (async (message, match) => {
+    Asena.addCommand({pattern: 'ffmpeg ?(.*)', fromMe: true, desc: ffmpeg_desc, usage: usage}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid, butuh, MessageType.text);
         if (message.reply_message.video) {
