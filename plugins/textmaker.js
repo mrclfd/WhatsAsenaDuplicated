@@ -98,7 +98,7 @@ Asena.addCommand({pattern: 'textmaker$', fromMe: true, desc: desc_msg}, (async (
     var command_cmd = ''
     var desc_cmd = ''
     if (Config.LANG == 'ID') {
-        usage_cmd = '*⌨️ Cth:* _'
+        usage_cmd = '*⌨️ Contoh:* _'
         command_cmd = '♠️ *Perintah:* '
         desc_cmd = 'ℹ️ *Deskripsi:* _'
     }
