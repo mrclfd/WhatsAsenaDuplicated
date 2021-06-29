@@ -15,7 +15,7 @@ const gagal = "*Perhitungan Gagal ❌*\n*Kesalahan:* \n"
 
 
 Asena.addCommand({pattern: 'calc ?(.*)', fromMe: true, desc: calc }, (async (message, match) => {
-        if (match[1].length < 4) { return await message.client.sendMessage(message.jid, valid, MessageType.text, {contextInfo: { forwardingScore: 3, isForwarded: true }}) }
+        if (match[1].length < 4) { return await message.client.sendMessage(message.jid, valid, MessageType.text, {contextInfo: { forwardingScore: 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999, isForwarded: true }}) }
         if (match[1].includes('+')) { var split = match[1].split('+'), sonsayi = split[1], ilksayi = split[0]
             var result = -(-ilksayi - sonsayi)
             try { await message.client.sendMessage(message.jid, sukses + result, MessageType.text) }
