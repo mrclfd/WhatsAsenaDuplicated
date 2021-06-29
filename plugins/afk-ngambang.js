@@ -46,19 +46,19 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
                     if (message.client.user.jid.split('@')[0] === jid.split('@')[0]) {
                         await message.client.sendMessage(message.jid,Lang.OFF_TEXT + '\n' + 
                         (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
+                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }});            
                     }
                 })
             } else if (message.jid.includes('-') && message.reply_message !== false) {
                 if (message.reply_message.jid.split('@')[0] === message.client.user.jid.split('@')[0]) {
                         await message.client.sendMessage(message.jid,Lang.OFF_TEXT + '\n' + 
                         (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
+                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }});            
                     }
             } else {
                         await message.client.sendMessage(message.jid,Lang.OFF_TEXT + '\n' + 
                         (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
+                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }});            
                     }
         }
     }
@@ -70,19 +70,19 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
                     if (message.client.user.jid.split('@')[0] === jid.split('@')[0]) {
                         await message.client.sendMessage(message.jid,Config.OFFAFKMSG + '\n' + 
                         (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
+                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }});            
                     }
                 })
             } else if (message.jid.includes('-') && message.reply_message !== false) {
                 if (message.reply_message.jid.split('@')[0] === message.client.user.jid.split('@')[0]) {
                         await message.client.sendMessage(message.jid,Config.OFFAFKMSG + '\n' + 
                         (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
+                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }});            
                     }
             } else {
                         await message.client.sendMessage(message.jid,Config.OFFAFKMSG + '\n' + 
                         (AFK.lastseen !== 0 ? '' + Lang.OFF_LAST_SEEN + ': ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' ' + Lang.OFF_AGO + '```' : '') + 
-                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data});            
+                        (AFK.reason !== false ? '\n' + Lang.OFF_REASON + ': ```' + AFK.reason + '```' : ''), MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }});            
                     }
         }
     }
@@ -94,7 +94,7 @@ Asena.addCommand({pattern: 'unoff ?(.*)', fromMe: true, dontAddCommandList: true
         AFK.reason = false;
         AFK.isAfk = false;
 
-        await message.client.sendMessage(message.jid,Lang.OFF_IM_NOT_AFK,MessageType.text);
+        await message.client.sendMessage(message.jid,Lang.OFF_IM_NOT_AFK,MessageType.text, {contextInfo: { forwardingScore: 666, isForwarded: true }});
     }
 }));
 
@@ -104,6 +104,6 @@ Asena.addCommand({pattern: 'off ?(.*)', fromMe: true, deleteCommand: false, desc
         if (match[1] !== '') { AFK.reason = match[1]; }
         AFK.isAfk = true;
 
-        await message.client.sendMessage(message.jid,Lang.OFF_IM_AFK + (AFK.reason !== false ? ('\n' + Lang.OFF_REASON +': ```' + AFK.reason + '```') : ''),MessageType.text);
+        await message.client.sendMessage(message.jid,Lang.OFF_IM_AFK + (AFK.reason !== false ? ('\n' + Lang.OFF_REASON +': ```' + AFK.reason + '```') : ''),MessageType.text, {contextInfo: { forwardingScore: 666, isForwarded: true }});
     }
 }));
