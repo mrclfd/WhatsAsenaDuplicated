@@ -49,5 +49,5 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lan
   var end = new Date().getTime();
 
   await message.client.sendMessage(
-    message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text, {sendEphemeral: 'chat', contextInfo: { forwardingScore: 3, isForwarded: true }});
+    message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text, {sendEphemeral: 'y', contextInfo: { forwardingScore: 10, isForwarded: true }});
 }));
