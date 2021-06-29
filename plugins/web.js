@@ -49,5 +49,5 @@ Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: true, desc: Lang
   var end = new Date().getTime();
 
   await message.client.sendMessage(
-    message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text, {quoted: "```Ping!```" });
+    message.jid,'*Pong!*\n```' + (end - start) + 'ms```', MessageType.text, {quoted: quotedMessage });
 }));
