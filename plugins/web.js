@@ -38,14 +38,13 @@ Asena.addCommand({pattern: 'speed', fromMe: true, desc: Lang.SPEEDTEST_DESC}, (a
     '*ISP:* ```' + st.isp + '```\n' +
     '*Ping:* ```' + st.ping.latency + 'ms```\n' +
     '*' + Lang.UPLOAD + ':* ```' + speedText(st.upload.bandwidth) + '```\n' +
-    '*' + Lang.DOWNLOAD + ':* ```' + speedText(st.download.bandwidth) + '```\n',MessageType.text
-    );
+    '*' + Lang.DOWNLOAD + ':* ```' + speedText(st.download.bandwidth) + '```\n',MessageType.text, {contextInfo: { forwardingScore: 666, isForwarded: true }});
     await msg.delete();
 }));
 
 Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lang.PING_DESC}, (async (message, match) => {
   var start = new Date().getTime();
-  // await message.sendMessage('```Ping!```');
+  await message.client.sendMessage( message.jid, '```Ping!```', MessageType.text, {contextInfo: { forwardingScore: 666, isForwarded: true }});
   var end = new Date().getTime();
 
   await message.client.sendMessage(
