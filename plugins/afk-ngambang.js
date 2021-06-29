@@ -36,7 +36,7 @@ function secondsToHms(seconds) {
     return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 
-Asena.addCommand({on: 'text && audio && contact && document && image && sticker && video', fromMe: false, deleteCommand: false}, (async (message, match) => {
+Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (Config.OFFAFKMSG == 'default') {
 
         if (AFK.isAfk && ((!message.jid.includes('-')) || (message.jid.includes('-') && 
