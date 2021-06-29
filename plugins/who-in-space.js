@@ -12,7 +12,7 @@ const Language = require('../language');
 const Lang = Language.getString('weather');
 
 
-Asena.addCommand({pattern: 'whoinspace ?(.*)', fromMe: false, desc: "Provides the name and crafts of people in space currently." }, async (message, match) => {
+Asena.addCommand({pattern: 'whoinspace ?(.*)', fromMe: true, desc: "Provides the name and crafts of people in space currently." }, async (message, match) => {
 	if (match[1] === 'xx') return await message.reply(Lang.NEED_LOCATIONA);
 	const url = `http://api.open-notify.org/astros.json`;
 	try {
