@@ -12,7 +12,7 @@ const Lang = Language.getString('sticker');
     Asena.addCommand({pattern: 'sticker$', fromMe: true, desc: Lang.STICKER_DESC}, (async (message, match) => {    
 
         if (message.reply_message === false) return await message.client.sendMessage(message.jid,Lang.NEED_REPLY, MessageType.text);
-        var downloading = await message.client.sendMessage(message.jid,Lang.DOWNLOADING,MessageType.text);
+       // var downloading = await message.client.sendMessage(message.jid,Lang.DOWNLOADING,MessageType.text);
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -27,9 +27,9 @@ const Lang = Language.getString('sticker');
                 .videoFilters('scale=2000:2000:flags=lanczos:force_original_aspect_ratio=decrease,format=rgba,pad=2000:2000:(ow-iw)/2:(oh-ih)/2:color=#00000000,setsar=1')
                 .save('st.webp')
                 .on('end', async () => {
-                    await message.sendMessage(fs.readFileSync('st.webp'), MessageType.sticker);
+                    await message.sendMessage(fs.readFileSync('st.webp'), MessageType.sticker, {contextInfo: { forwardingScore: 666, isForwarded: true }});
             });
-        return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
+       // return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
 
         }
 
@@ -38,7 +38,7 @@ const Lang = Language.getString('sticker');
             .videoFilters('scale=600:600:flags=lanczos:force_original_aspect_ratio=decrease,format=rgba,pad=600:600:(ow-iw)/2:(oh-ih)/2:color=#00000000,setsar=1')
             .save('sticker.webp')
             .on('end', async () => {
-                await message.sendMessage(fs.readFileSync('sticker.webp'), MessageType.sticker);
+                await message.sendMessage(fs.readFileSync('sticker.webp'), MessageType.sticker, {contextInfo: { forwardingScore: 666, isForwarded: true }});
             });
-        return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
+       // return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
