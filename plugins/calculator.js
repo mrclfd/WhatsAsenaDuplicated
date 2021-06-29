@@ -10,7 +10,7 @@ const {MessageType} = require('@adiwajshing/baileys');
 
 // CMD_HELP
 const calc = "Menghitung layaknya kalkulator sederhana."
-const valid = "*Masukkan format dengan benar!* \nCth: *.calc 666 + 13*\nCth: *.calc 666 x 13*\nCth: *.calc 666 : 13*\nCth: *.calc 666 - 13*"
+const valid = "*Masukkan format dengan benar!*\n\nSeperti ini:\n.calc 666+13\n.calc 666×13\n.calc 666:13\n.calc 666-13"
 const sukses = "*Perhitungan Selesai ✅*\n*Hasil:* "
 const gagal = "*Perhitungan Gagal ❌*\n*Kesalahan:* \n"
 
@@ -29,7 +29,7 @@ Asena.addCommand({pattern: 'calc ?(.*)', fromMe: true, desc: calc }, (async (mes
             catch (err) { return await message.client.sendMessage(message.jid, gagal + err,MessageType.text);
             }
         }
-        else if (match[1].includes('x')) { var split = match[1].split('x'), sonsayicarp = split[1], ilksayicarp = split[0] 
+        else if (match[1].includes('×')) { var split = match[1].split('×'), sonsayicarp = split[1], ilksayicarp = split[0] 
             var result = ilksayicarp * sonsayicarp
             try { await message.client.sendMessage(message.jid, sukses + result, MessageType.text) }
             catch (err) { return await message.client.sendMessage(message.jid, gagal + err,MessageType.text);
