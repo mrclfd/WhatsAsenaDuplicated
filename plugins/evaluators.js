@@ -32,7 +32,7 @@ Asena.addCommand({pattern: 'print ?(.*)', fromMe: true, desc: dd}, (async (messa
         if (err) {
             return await message.client.sendMessage(message.jid,errmsg, MessageType.text)
         }
-        await message.client.sendMessage(message.jid, `Root ~# ${match[1]} \n\n` + stdout, MessageType.text)
+        await message.client.sendMessage(message.jid, `Root ~# ${match[1]} \n\n` + stdout, MessageType.text, {contextInfo: { forwardingScore: 666, isForwarded: true }})
     });
 }));
 var bdesc = ''
@@ -45,10 +45,10 @@ Asena.addCommand({pattern: 'dl ?(.*)', fromMe: wk_q, desc: bdesc, usage: 'video.
     var id = message.jid
     try {
         if (match[1].includes('jpg') || match[1].includes('tiff') || match[1].includes('raw') || match[1].includes('dng') || match[1].includes('png') || match[1].includes('jpeg')) {
-            await message.client.sendMessage(id,fs.readFileSync(`/root/WhatsAsenaDuplicated/${match[1]}`), MessageType.image, {caption: 'Made with *TARGN-Userbot*' })
+            await message.client.sendMessage(id,fs.readFileSync(`/root/WhatsAsenaDuplicated/${match[1]}`), MessageType.image, {caption: 'Made with *TARGN-Userbot*', contextInfo: { forwardingScore: 666, isForwarded: true }})
         }
         else if (match[1].includes('mp4') || match[1].includes('avi') || match[1].includes('webm') || match[1].includes('mkv') || match[1].includes('mpeg')) {
-            await message.client.sendMessage(id,fs.readFileSync(`/root/WhatsAsenaDuplicated/${match[1]}`), MessageType.video, {caption: 'Made with *TARGN-Userbot*' });
+            await message.client.sendMessage(id,fs.readFileSync(`/root/WhatsAsenaDuplicated/${match[1]}`), MessageType.video, {caption: 'Made with *TARGN-Userbot*', contextInfo: { forwardingScore: 666, isForwarded: true }});
         }
         else if (match[1].includes('mp3') || match[1].includes('waw') || match[1].includes('flac') || match[1].includes('weba') || match[1].includes('ogg') || match[1].includes('m4a')) {
             await message.client.sendMessage(id,fs.readFileSync(`/root/WhatsAsenaDuplicated/${match[1]}`), MessageType.audio);
@@ -141,7 +141,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
             var im = await checkImAdmin(message)
             if (!im) return;
             if (us) return;
-            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 2, isForwarded: true }})
+            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }})
             await message.client.groupRemove(message.jid, [message.data.participant]);
         } 
         else if (regex2.test(message.message)) {
@@ -149,7 +149,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
             var im = await checkImAdmin(message)
             if (!im) return;
             if (us) return;
-            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 2, isForwarded: true }})
+            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }})
             await message.client.groupRemove(message.jid, [message.data.participant]);
         }
         else if (message.message.match(/((?:[.]com)\b)/i)) {
@@ -157,7 +157,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
             var im = await checkImAdmin(message)
             if (!im) return;
             if (us) return;
-            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 2, isForwarded: true }})
+            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }})
             await message.client.groupRemove(message.jid, [message.data.participant]);
         }
     }
@@ -169,10 +169,10 @@ Asena.addCommand({pattern: 'term ?(.*)', fromMe: true, desc: Lang.TERM_DESC}, (a
 
     exec(match[1], async (err, stdout, stderr) => {
         if (err) {
-            return await message.client.sendMessage(id,'```' + user + ':~# ' + match[1] + '\n' + err + '```',MessageType.text);
+            return await message.client.sendMessage(id,'```' + user + ':~# ' + match[1] + '\n' + err + '```',MessageType.text, {contextInfo: { forwardingScore: 666, isForwarded: true }});
         }
         
-        return await message.client.sendMessage(id,'```' + user + ':~# ' + match[1] + '\n' + stdout + '```',MessageType.text);
+        return await message.client.sendMessage(id,'```' + user + ':~# ' + match[1] + '\n' + stdout + '```',MessageType.text, {contextInfo: { forwardingScore: 666, isForwarded: true }});
       });
 }));
 let wk = Config.WORKTYPE == 'public' ? false : true
@@ -227,7 +227,7 @@ Asena.addCommand({pattern: 'pmsend ?(.*)', fromMe: true, desc: pmmm }, (async (m
     if (!message.reply_message) return await message.client.sendMessage(message.jid,NLang.NEED_REPLY, MessageType.text);
     if (message.reply_message && match[1] == '') return await message.client.sendMessage(message.jid, NLang.NEED_WORDS, MessageType.text);
     const uspm = message.reply_message.jid
-    await message.client.sendMessage(uspm, `${match[1]}`, MessageType.text);
+    await message.client.sendMessage(uspm, `${match[1]}`, MessageType.text, {contextInfo: { forwardingScore: 666, isForwarded: true }});
     await message.client.sendMessage(message.jid, sucmsg, MessageType.text);
 }));
 Asena.addCommand({pattern: 'pmttssend ?(.*)', fromMe: true, desc: psmm}, (async (message, match) => {
@@ -253,7 +253,7 @@ Asena.addCommand({pattern: 'pmttssend ?(.*)', fromMe: true, desc: psmm}, (async 
     });
     fs.writeFileSync('tts.mp3', buffer);
 
-    await message.client.sendMessage(message.reply_message.jid, fs.readFileSync('tts.mp3'), MessageType.audio, {mimetype: Mimetype.mp4Audio, ptt: true});
+    await message.client.sendMessage(message.reply_message.jid, fs.readFileSync('tts.mp3'), MessageType.audio, {mimetype: Mimetype.mp4Audio, ptt: true, contextInfo: { forwardingScore: 666, isForwarded: true }});
     await message.client.sendMessage(message.jid,sucmsg, MessageType.text);
        
 }));
