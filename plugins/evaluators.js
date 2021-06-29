@@ -141,7 +141,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
             var im = await checkImAdmin(message)
             if (!im) return;
             if (us) return;
-            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }})
+            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 100, isForwarded: true }})
             await message.client.groupRemove(message.jid, [message.data.participant]);
         } 
         else if (regex2.test(message.message)) {
@@ -149,7 +149,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
             var im = await checkImAdmin(message)
             if (!im) return;
             if (us) return;
-            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }})
+            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 100, isForwarded: true }})
             await message.client.groupRemove(message.jid, [message.data.participant]);
         }
         else if (message.message.match(/((?:[.]com)\b)/i)) {
@@ -157,7 +157,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
             var im = await checkImAdmin(message)
             if (!im) return;
             if (us) return;
-            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 666, isForwarded: true }})
+            await message.client.sendMessage(message.jid, konangan, MessageType.text, {quoted: message.data, contextInfo: { forwardingScore: 100, isForwarded: true }})
             await message.client.groupRemove(message.jid, [message.data.participant]);
         }
     }
