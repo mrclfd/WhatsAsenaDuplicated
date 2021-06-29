@@ -45,7 +45,7 @@ Asena.addCommand({pattern: 'speed', fromMe: true, desc: Lang.SPEEDTEST_DESC}, (a
 
 Asena.addCommand({pattern: 'ping', fromMe: true, deleteCommand: false, desc: Lang.PING_DESC}, (async (message, match) => {
   var start = new Date().getTime();
-  await message.sendMessage('```Ping!```');
+  // await message.sendMessage('```Ping!```');
   var end = new Date().getTime();
 
   await message.client.sendMessage(
